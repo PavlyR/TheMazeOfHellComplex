@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{86EC05D4-9A73-F443-6196-4631D9A6D690}</ProjectGuid>
+    <ProjectGuid>{1BAE4278-0557-3679-3EFF-77CFFBB6BFC7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -58,7 +58,14 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.6f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\RigidbodyMovement.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Interactable.cs" />
+    <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Interactor.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Audio\Audio Sources.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
