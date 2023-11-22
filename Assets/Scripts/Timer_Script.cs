@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class Timer_Script : MonoBehaviour
 {
+    float currentTime = 0f;
+    public float timeLimit;
     // Start is called before the first frame update
     void Start()
     {
-        
+        currentTime = timeLimit;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        currentTime -= 1 * Time.deltaTime;
+        print(currentTime.ToString("0"));
     }
 }
