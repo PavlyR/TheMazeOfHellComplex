@@ -11,16 +11,32 @@ public class Timer_Script : MonoBehaviour
 {
     float currentTime = 0f;
     public float timeLimit;
-    // Start is called before the first frame update
+    bool counting;
+
+
+
+
     void Start()
     {
         currentTime = timeLimit;
+        counting = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        currentTime -= 1 * Time.deltaTime;
-        print(currentTime.ToString("0"));
+        if (counting == true && timeLimit >= 0) 
+        {
+            currentTime -= 1 * Time.deltaTime;
+            print(currentTime.ToString("0"));
+        }
+        if (counting == true && timeLimit <= 0) { //This area allows for a check trigger to stop counting
+            print("Times Up");
+            counting = false;
+        }
+        if(counting == false)
+        {
+            //This is a place holder used for when we reset the player and change menus. Right now we are figuring that process out 
+        }
     }
 }
