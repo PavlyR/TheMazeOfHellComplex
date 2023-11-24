@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Timer_Script : MonoBehaviour
+
+
+    /*
+     * This script has some clear issues 
+     */
 {
     float currentTime = 0f;
     public float timeLimit;
