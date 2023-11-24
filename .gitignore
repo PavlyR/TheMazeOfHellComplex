@@ -78,3 +78,14 @@ Assets/TextMesh Pro.meta
 Assets/TextMesh Pro
 Assets/UnityDefaultRuntimeTheme.tss
 Assets/UnityDefaultRuntimeTheme.tss.meta
+UIElementsSchema/UIElements.xsd
+UIElementsSchema/Unity.Profiling.Editor.xsd
+UIElementsSchema/Unity.UI.Builder.xsd
+UIElementsSchema/UnityEditor.Experimental.GraphView.xsd
+UIElementsSchema/UnityEditor.Overlays.xsd
+UIElementsSchema/UnityEditor.PackageManager.UI.Internal.xsd
+UIElementsSchema/UnityEditor.Search.xsd
+UIElementsSchema/UnityEditor.ShortcutManagement.xsd
+UIElementsSchema/UnityEditor.UIElements.Debugger.xsd
+UIElementsSchema/UnityEditor.UIElements.xsd
+UIElementsSchema/UnityEngine.UIElements.xsd
