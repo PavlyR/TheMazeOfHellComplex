@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System; //Using system allows us to use "event Action"
 
 public class GameManager : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        UpdateGameState(GameState.StartMenu)
+        UpdateGameState(GameState.StartMenu);
     }
 
  
@@ -39,9 +40,10 @@ public class GameManager : MonoBehaviour
             case GameState.VictoryMenu:
                 break;
             default:
+                break;
 
         }
-        OnGameStateChanged?.(newState);//This checks to see if any scripts care about the event then will send them the info if they do
+        OnGameStateChanged?.Invoke(newState);//This checks to see if any scripts care about the event then will send them the info if they do
     }
 }
 
