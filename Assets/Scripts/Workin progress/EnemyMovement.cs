@@ -25,10 +25,8 @@ public class EnemyMovement : MonoBehaviour
             Movement();
         }
     }
-
     void Movement()
     {
         transform.Translate(Vector3.forward *  EnemySpeed * Time.deltaTime);
-
     }
 }
