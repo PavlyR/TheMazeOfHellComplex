@@ -21,7 +21,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if (Player != null)
         {
-            transform.position = Player.transform.position + transform.forward;
+            //transform.position = Player.transform.position + transform.forward;
             Movement();
         }
     }
