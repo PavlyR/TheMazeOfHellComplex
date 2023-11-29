@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro; //Allows you to use the textmesh timer
 
 public class Timer_Script : MonoBehaviour
 
@@ -15,7 +16,7 @@ public class Timer_Script : MonoBehaviour
     float currentTime = 0f;
     public float timeLimit;
     bool counting;
-    public Text timerText;
+    [SerializeField] private TextMeshProUGUI uiTimer;
 
 
 
@@ -49,7 +50,8 @@ public class Timer_Script : MonoBehaviour
         {
             currentTime -= 1 * Time.deltaTime;
             print(currentTime.ToString("0"));
-            timerText.text = currentTime.ToString("0");
+            //timerText.text = currentTime.ToString("0");
+            uiTimer.text = currentTime.ToString("0");
         }
         if (counting == true && currentTime <= 0) { //This area allows for a check trigger to stop counting
             print("Times Up");
