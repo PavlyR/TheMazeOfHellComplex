@@ -23,7 +23,23 @@ public class Timer_Script : MonoBehaviour
     void Start()
     {
         currentTime = timeLimit; //These two lines could be placed within a bigger function for reseting the level possibly since respawning would do the same thing
-        counting = true;
+        counting = false;
+    }
+
+
+    void Awake()
+    {
+        GameManager.OnGameStateChanged += GameManagerOnOnGameStateChanged;
+
+    }
+
+    private void GameManagerOnOnGameStateChanged(GameState state) //Whenever the player "spawns" in
+    {
+        if (state == GameState.GameStart)
+        {
+            counting = true;
+            currentTime = timeLimit; //resets timer to default when this isn't the first run
+        }
     }
 
     // Update is called once per frame
@@ -38,10 +54,7 @@ public class Timer_Script : MonoBehaviour
         if (counting == true && currentTime <= 0) { //This area allows for a check trigger to stop counting
             print("Times Up");
             counting = false;
-        }
-        if(counting == false)
-        {
-            //This is a place holder used for when we reset the player and change menus. Right now we are figuring that process out 
+            GameManager.Instance.UpdateGameState(GameState.LoseMenu);
         }
     }
 }

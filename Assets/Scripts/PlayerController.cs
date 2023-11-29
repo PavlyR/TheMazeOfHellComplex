@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     public float sensitivity = 5.0f;
     public float lookXLimit = 90.0f;
 
+    [SerializeField] Transform spawnPoint;
     CharacterController characterController;
     Vector3 moveDirection = Vector3.zero;
     float rotationX = 0;
@@ -35,6 +36,10 @@ public class PlayerController : MonoBehaviour
         {
             EnableMovement(true); //Will need to add a way to check if the player has had this happen before to best use this
         }
+        else
+        {
+            EnableMovement(false); //Whenever a state change happen it check to see if the player is in the "game" and then if not enables menu controls
+        }
     }
     private void EnableMovement(bool enable) //This void will turn on and off the player controls
     {
@@ -43,6 +48,13 @@ public class PlayerController : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked; //To undo do   Cursor.lockState = CursorLockMode.None;
             Cursor.visible = false;
             canMove = true;
+
+            /*
+             * The following code is to reset the player to the same spot every time. It is clunky but I have no clue how else to do it
+             */
+            this.transform.position = spawnPoint.position;
+            this.transform.rotation = spawnPoint.rotation;
+            
 
         }
         if(enable == false) //This has to be done to enable the player to move the mouse over menus without this the player wouldn't be able to click the exit or restart buttons on the lose screen
