@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MenuManager : MonoBehaviour
 {
-    [SerializeField] private GameObject startMenu, loseMenu;
+    [SerializeField] private GameObject startMenu, loseMenu, playerUI;
     // Start is called before the first frame update
      void Awake()
     {
@@ -20,6 +20,7 @@ public class MenuManager : MonoBehaviour
     {
         startMenu.SetActive(state == GameState.StartMenu); //By default the menu is set to intactive. Once gamemanager tells it that the Start menu is active it is visible to the player
         loseMenu.SetActive(state == GameState.LoseMenu);
+        playerUI.SetActive(state == GameState.GameStart);
         /*
         if (state != GameState.StartMenu || state != GameState.LoseMenu)//When the game state changes if the state isn't the start state it will make sure to turn off that menu.
         {
