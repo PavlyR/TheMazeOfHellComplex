@@ -45,6 +45,8 @@ public class PlayerController : MonoBehaviour
     {
         if(enable == true)
         {
+            this.transform.position = spawnPoint.position;
+            this.transform.rotation = spawnPoint.rotation;
             Cursor.lockState = CursorLockMode.Locked; //To undo do   Cursor.lockState = CursorLockMode.None;
             Cursor.visible = false;
             canMove = true;
@@ -52,8 +54,8 @@ public class PlayerController : MonoBehaviour
             /*
              * The following code is to reset the player to the same spot every time. It is clunky but I have no clue how else to do it
              */
-            this.transform.position = spawnPoint.position;
-            this.transform.rotation = spawnPoint.rotation;
+           
+            Debug.Log(this.transform.position);
             
 
         }
@@ -80,6 +82,7 @@ public class PlayerController : MonoBehaviour
     {
         if (canMove == true) //This has been put in to stop the player from moving when navigating the menus 
         {
+           
             Vector3 forward = transform.TransformDirection(Vector3.forward);
             Vector3 right = transform.TransformDirection(Vector3.right);
 
@@ -112,6 +115,11 @@ public class PlayerController : MonoBehaviour
                 playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
                 transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * sensitivity, 0);
             }
+        }
+        else
+        { //For some reason this statement is required to reset the spawn point. If done during the enable movement function the player will move to 0,0,0 then suddenly pop back to where they were moving.
+            this.transform.position = spawnPoint.position;
+            this.transform.rotation = spawnPoint.rotation;
         }
     }
 }

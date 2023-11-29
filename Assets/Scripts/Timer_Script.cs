@@ -49,7 +49,6 @@ public class Timer_Script : MonoBehaviour
         if (counting == true && currentTime > 0) //A method of displaying this is required since print won't work for the demo 
         {
             currentTime -= 1 * Time.deltaTime;
-            print(currentTime.ToString("0"));
             //timerText.text = currentTime.ToString("0");
             uiTimer.text = currentTime.ToString("0");
         }
