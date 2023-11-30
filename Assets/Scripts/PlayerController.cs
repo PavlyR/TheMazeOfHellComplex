@@ -121,6 +121,7 @@ public class PlayerController : MonoBehaviour
         { //For some reason this statement is required to reset the spawn point. If done during the enable movement function the player will move to 0,0,0 then suddenly pop back to where they were moving.
             this.transform.position = spawnPoint.position;
             this.transform.rotation = spawnPoint.rotation;
+          
         }
     }
 }

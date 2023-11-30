@@ -2052,15 +2052,43 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 220469757055535183, guid: b2f2a1ea7cecf7b448e30a2bbaaa49de, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 220469757055535183, guid: b2f2a1ea7cecf7b448e30a2bbaaa49de, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 220469757055535183, guid: b2f2a1ea7cecf7b448e30a2bbaaa49de, type: 3}
+      propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 220469757055535183, guid: b2f2a1ea7cecf7b448e30a2bbaaa49de, type: 3}
       propertyPath: m_SizeDelta.y
+      value: -57.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 220469757055535183, guid: b2f2a1ea7cecf7b448e30a2bbaaa49de, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.1156249
+      objectReference: {fileID: 0}
+    - target: {fileID: 220469757055535183, guid: b2f2a1ea7cecf7b448e30a2bbaaa49de, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.1156249
+      objectReference: {fileID: 0}
+    - target: {fileID: 220469757055535183, guid: b2f2a1ea7cecf7b448e30a2bbaaa49de, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.1156249
+      objectReference: {fileID: 0}
+    - target: {fileID: 220469757055535183, guid: b2f2a1ea7cecf7b448e30a2bbaaa49de, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2317590473769144358, guid: b2f2a1ea7cecf7b448e30a2bbaaa49de, type: 3}
+      propertyPath: m_AspectMode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2317590473769144358, guid: b2f2a1ea7cecf7b448e30a2bbaaa49de, type: 3}
+      propertyPath: m_AspectRatio
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2388643649017265215, guid: b2f2a1ea7cecf7b448e30a2bbaaa49de, type: 3}
       propertyPath: m_Pivot.x
@@ -2150,6 +2178,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerUI
       objectReference: {fileID: 0}
+    - target: {fileID: 9047330652393090468, guid: b2f2a1ea7cecf7b448e30a2bbaaa49de, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9088489516426749197, guid: b2f2a1ea7cecf7b448e30a2bbaaa49de, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 185
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2163,6 +2199,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1447125205853418092, guid: 96a2fcfecf3c7494093586c96928cd04, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3175322779348222325, guid: 96a2fcfecf3c7494093586c96928cd04, type: 3}
       propertyPath: m_Colors.m_PressedColor.b
       value: 0.019607844
@@ -2201,6 +2241,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4375195873102578827, guid: 96a2fcfecf3c7494093586c96928cd04, type: 3}
       propertyPath: m_SizeDelta.x
+      value: -176.25067
+      objectReference: {fileID: 0}
+    - target: {fileID: 4375195873102578827, guid: 96a2fcfecf3c7494093586c96928cd04, type: 3}
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4609647401511247647, guid: 96a2fcfecf3c7494093586c96928cd04, type: 3}
@@ -2214,6 +2258,10 @@ PrefabInstance:
     - target: {fileID: 4609647401511247647, guid: 96a2fcfecf3c7494093586c96928cd04, type: 3}
       propertyPath: m_Colors.m_PressedColor.r
       value: 0.02745098
+      objectReference: {fileID: 0}
+    - target: {fileID: 4909610096618487434, guid: 96a2fcfecf3c7494093586c96928cd04, type: 3}
+      propertyPath: m_AspectMode
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6702150518873813514, guid: 96a2fcfecf3c7494093586c96928cd04, type: 3}
       propertyPath: m_Name
