@@ -3,26 +3,27 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-[RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(CharacterController))]         // The movement code relies on the CharacterController library that is built into Unity
 
 public class PlayerController : MonoBehaviour
 {
-    public float walking = 5.0f;
-    public float running = 10.0f;
-    public float jump = 10.0f;
-    public float gravity = 20.0f;
+    public float walking = 5.0f;                    // This variable represents the walking speed of the player
+    public float running = 10.0f;                   // This variable represents the running speed of the player
+    public float jump = 10.0f;                      // This variable represents the jumping speed of the player
+    public float gravity = 20.0f;                   // This vraiblel represents the gravity speed when the player jumps down
 
-    public Camera playerCamera;
-    public float sensitivity = 5.0f;
-    public float lookXLimit = 90.0f;
+    public Camera playerCamera;                     // This is the variable that stores the camera
+    public float sensitivity = 5.0f;                // This variable represents the sensitivity of the camera movement
+    public float lookXLimit = 90.0f;                // This is the variable that represents the angle for which the player can move camera within
 
     [SerializeField] Transform spawnPoint;
-    CharacterController characterController;
-    Vector3 moveDirection = Vector3.zero;
+    CharacterController characterController;        // This is the variable that stores the data from the CharacterController library
+    Vector3 moveDirection = Vector3.zero;           // This variable is incharge of moving the position of the player when pressing a button to move
     float rotationX = 0;
 
      bool canMove = false; //I have changed this to make it so that if the player hasn't gone into the GameStart state the mouse is still visble and the player object won't move
     /*Why was canMove public before? -Tam
+     * I made it public before because I thought I would make other classes that the player can inherit from, and i made canMove public so I can use it in other classes.
      */
 
     private void Awake()
@@ -83,14 +84,14 @@ public class PlayerController : MonoBehaviour
         if (canMove == true) //This has been put in to stop the player from moving when navigating the menus 
         {
            
-            Vector3 forward = transform.TransformDirection(Vector3.forward);
-            Vector3 right = transform.TransformDirection(Vector3.right);
+            Vector3 forward = transform.TransformDirection(Vector3.forward);        // This variable is incharge of moving the player forward (for instance when pressing W)
+            Vector3 right = transform.TransformDirection(Vector3.right);            // This variable is incharge of moving the player sideways (for instance when pressing A and D)
 
-            bool isRunning = Input.GetKey(KeyCode.LeftShift);
-            float curSpeedX = canMove ? (isRunning ? running : walking) * Input.GetAxis("Vertical") : 0;
-            float curSpeedY = canMove ? (isRunning ? running : walking) * Input.GetAxis("Horizontal") : 0;
-            float movementDirectionY = moveDirection.y;
-            moveDirection = (forward * curSpeedX) + (right * curSpeedY);
+            bool isRunning = Input.GetKey(KeyCode.LeftShift);                                                   // isRunning is the variable that checks when the player press and hold the left shift key to run
+            float curSpeedX = canMove ? (isRunning ? running : walking) * Input.GetAxis("Vertical") : 0;        // This line of code is a cleaner version of an if statement because it checks if the player canMove, then it checks if the player is pressing and holding the left shift key, and it changes the state of the player from walking to running. It also includes the direction the player is going in the X-Axis.
+            float curSpeedY = canMove ? (isRunning ? running : walking) * Input.GetAxis("Horizontal") : 0;      // This line of code is a cleaner version of an if statement because it checks if the player canMove, then it checks if the player is pressing and holding the left shift key, and it changes the state of the player from walking to running. It also includes the direction the player is going in the Y-Axis.
+            float movementDirectionY = moveDirection.y;                                                         
+            moveDirection = (forward * curSpeedX) + (right * curSpeedY);                                        //
 
             if (Input.GetButton("Jump") && canMove && characterController.isGrounded)
             {
