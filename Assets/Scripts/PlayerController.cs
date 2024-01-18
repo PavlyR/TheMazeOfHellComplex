@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
 {
     public float walking = 5.0f;                    // This variable represents the walking speed of the player
     public float running = 10.0f;                   // This variable represents the running speed of the player
-    public float jump = 10.0f;                      // This variable represents the jumping speed of the player
+    public float jump = 10.0f;                      // This variable represents the jumping height of the player
     public float gravity = 20.0f;                   // This vraiblel represents the gravity speed when the player jumps down
 
     public Camera playerCamera;                     // This is the variable that stores the camera
@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform spawnPoint;
     CharacterController characterController;        // This is the variable that stores the data from the CharacterController library
     Vector3 moveDirection = Vector3.zero;           // This variable is incharge of moving the position of the player when pressing a button to move
-    float rotationX = 0;
+    float rotation = 0;                             // This variable represents the rotation of the camera
 
      bool canMove = false; //I have changed this to make it so that if the player hasn't gone into the GameStart state the mouse is still visble and the player object won't move
     /*Why was canMove public before? -Tam
@@ -88,33 +88,33 @@ public class PlayerController : MonoBehaviour
             Vector3 right = transform.TransformDirection(Vector3.right);            // This variable is incharge of moving the player sideways (for instance when pressing A and D)
 
             bool isRunning = Input.GetKey(KeyCode.LeftShift);                                                   // isRunning is the variable that checks when the player press and hold the left shift key to run
-            float curSpeedX = canMove ? (isRunning ? running : walking) * Input.GetAxis("Vertical") : 0;        // This line of code is a cleaner version of an if statement because it checks if the player canMove, then it checks if the player is pressing and holding the left shift key, and it changes the state of the player from walking to running. It also includes the direction the player is going in the X-Axis.
-            float curSpeedY = canMove ? (isRunning ? running : walking) * Input.GetAxis("Horizontal") : 0;      // This line of code is a cleaner version of an if statement because it checks if the player canMove, then it checks if the player is pressing and holding the left shift key, and it changes the state of the player from walking to running. It also includes the direction the player is going in the Y-Axis.
-            float movementDirectionY = moveDirection.y;                                                         
-            moveDirection = (forward * curSpeedX) + (right * curSpeedY);                                        //
+            float curSpeedX = canMove ? (isRunning ? running : walking) * Input.GetAxis("Vertical") : 0;        // curSpeedX, This line of code is a cleaner version of an if statement because it checks if the player canMove, then it checks if the player is pressing and holding the left shift key, and it changes the state of the player from walking to running. It also includes the direction the player is going in the X-Axis.
+            float curSpeedY = canMove ? (isRunning ? running : walking) * Input.GetAxis("Horizontal") : 0;      // curSpeedY, This line of code is a cleaner version of an if statement because it checks if the player canMove, then it checks if the player is pressing and holding the left shift key, and it changes the state of the player from walking to running. It also includes the direction the player is going in the Y-Axis.
+            float movementDirectionY = moveDirection.y;                                                         // This variable stores the Y-axis position to movementDirectionY
+            moveDirection = (forward * curSpeedX) + (right * curSpeedY);                                        // moveDirection is incharge of multiplying the speed to the movement of the player
 
-            if (Input.GetButton("Jump") && canMove && characterController.isGrounded)
+            if (Input.GetButton("Jump") && canMove && characterController.isGrounded)                           // This if statment checks if the player pressed the jump button (Space), checks if the player can move, and checks if the player is on the ground. if the statement is true, the player jumps
             {
-                moveDirection.y = jump;
+                moveDirection.y = jump;                                                                         // Y-axis position of the player will update to the jump height
             }
             else
             {
-                moveDirection.y = movementDirectionY;
+                moveDirection.y = movementDirectionY;                                                           // This checks if the player is already in the air, in case the player presses space while in the air.
             }
 
-            if (!characterController.isGrounded)
+            if (!characterController.isGrounded)                                                                // This if statement checks if the player is in the air and it applies the gravity on the jump
             {
                 moveDirection.y -= gravity * Time.deltaTime;
             }
 
-            characterController.Move(moveDirection * Time.deltaTime);
+            characterController.Move(moveDirection * Time.deltaTime);                                           // This line is what makes the player move
 
-            if (canMove) //Note to self ask about this if statement -Tam
+            if (canMove)                                                                                        // This if statement checks if the player can move so the player can move the camera
             {
-                rotationX += -Input.GetAxis("Mouse Y") * sensitivity;
-                rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
-                playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
-                transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * sensitivity, 0);
+                rotation += -Input.GetAxis("Mouse Y") * sensitivity;                                           // rotation is incharge of the rotation of the camera and takes the mouse as an input 
+                rotation = Mathf.Clamp(rotation, -lookXLimit, lookXLimit);                                     // the rotation of the camera is limited within the angle initialized which is 90 degrees
+                playerCamera.transform.localRotation = Quaternion.Euler(rotation, 0, 0);                       // this is incharge of rotating the camera on the X-axis
+                transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * sensitivity, 0);          // this is incharge of rotating the camera on the Y-axis
             }
         }
         else
