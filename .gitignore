@@ -74,8 +74,6 @@ Logs/shadercompiler-UnityShaderCompiler.exe0.log
 *.log
 *.log
 ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json
-Assets/TextMesh Pro.meta
-Assets/TextMesh Pro
 Assets/UnityDefaultRuntimeTheme.tss
 Assets/UnityDefaultRuntimeTheme.tss.meta
 UIElementsSchema/UIElements.xsd
