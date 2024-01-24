@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1271487439495023461}
   - component: {fileID: 3461185632238823753}
   - component: {fileID: 3999775070431529034}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hinge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 585072644209816467}
   - component: {fileID: 5944289295510091651}
   - component: {fileID: 4695184041444963999}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Door_Ex
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,7 +189,7 @@ GameObject:
   - component: {fileID: 1504780517595013259}
   - component: {fileID: 1370754986067007899}
   - component: {fileID: 3897671334786353308}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
