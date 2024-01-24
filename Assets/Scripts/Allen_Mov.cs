@@ -78,7 +78,8 @@ public class Allen_Mov : MonoBehaviour
             activeTarget = spawnPoints[tempPoint + 1];
         }
         aiActive = true;
-       
+        transform.LookAt(activeTarget); //This rotates the model to look where they are walking
+
     }
 
     private void Arrived(){ //Called when Allen reachs their target
@@ -100,6 +101,7 @@ public class Allen_Mov : MonoBehaviour
         {
             activeTarget = spawnPoints[lastPoint + 1];
         }
-     
+        transform.LookAt(activeTarget); //This rotates the model to look where they are walking
+
     }
 }
