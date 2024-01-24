@@ -500,7 +500,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 401ac100a4526614490908591f528daf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.836643
+      value: 0.07
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 401ac100a4526614490908591f528daf, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1289,7 +1289,7 @@ MonoBehaviour:
   - {fileID: 2006562906}
   moveTime: 5
   radius: 10
-  angle: 20
+  angle: 60
   playerOb: {fileID: 1250492649}
   playerMask:
     serializedVersion: 2
@@ -1297,7 +1297,7 @@ MonoBehaviour:
   obstacleMask:
     serializedVersion: 2
     m_Bits: 64
-  spotted: 1
+  spotted: 0
 --- !u!1 &1314015954
 GameObject:
   m_ObjectHideFlags: 0
@@ -2312,7 +2312,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6883448762971171425, guid: d786fe88567bce94e8b8253b4c2b4c4b, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6883448762971171425, guid: d786fe88567bce94e8b8253b4c2b4c4b, type: 3}
       propertyPath: m_IsActive

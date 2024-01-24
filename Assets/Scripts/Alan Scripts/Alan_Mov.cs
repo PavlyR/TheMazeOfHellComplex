@@ -30,7 +30,7 @@ public class Alan_Mov : MonoBehaviour
     public LayerMask playerMask;
     public LayerMask obstacleMask;
 
-    private bool spotted = false;
+    public bool spotted;
 
 
     void Awake()
@@ -143,7 +143,7 @@ public class Alan_Mov : MonoBehaviour
     private void PlayerCheck()
     {
         Collider[] rangeCheck = Physics.OverlapSphere(transform.position, radius, playerMask);
-
+      
         if (rangeCheck.Length != 0)
         { //This is to make sure that if the player is within the radius it does further checks
             Transform target = rangeCheck[0].transform;
