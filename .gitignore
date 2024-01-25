@@ -87,3 +87,4 @@ UIElementsSchema/UnityEditor.ShortcutManagement.xsd
 UIElementsSchema/UnityEditor.UIElements.Debugger.xsd
 UIElementsSchema/UnityEditor.UIElements.xsd
 UIElementsSchema/UnityEngine.UIElements.xsd
+ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json
