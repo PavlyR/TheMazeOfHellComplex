@@ -5,27 +5,27 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] public float walkingSpeed;
-    [SerializeField] public float runningSpeed;
-    [SerializeField] public float GroundDrag;
-    [SerializeField] public float jumpSpeed;
-    [SerializeField] public float DontJump;
-    [SerializeField] public float airTime;
-    [SerializeField] public float playerHeight;
+    [SerializeField] public float walkingSpeed;             // This variable is for the player walking speed
+    [SerializeField] public float runningSpeed;             // This variable is for the player running speed
+    [SerializeField] public float GroundDrag;               // This variable to create drag for the player movement because the physics engine in Unity makes the player movement floaty, this variable helps with that
+    [SerializeField] public float jumpSpeed;                // This variable is for the player jumping speed
+    [SerializeField] public float DontJump;                 // This variable is to stop the player from jumping while in mid-air
+    [SerializeField] public float airTime;                  // This variable is to time the player while in the air after a jump
+    [SerializeField] public float playerHeight;             // This variable is for the player height
 
-    bool jumpCheck = true;
-    bool grounded;
+    bool jumpCheck = true;                                  // This is a boolean variable to check if the player can jump
+    bool grounded;                                          // This is a boolean variable to check if the player is on the ground
 
-    public Transform direction;
-    public LayerMask Ground;
+    public Transform direction;                             // This is a variable stores the direction that the player is facing
+    public LayerMask Ground;                                // This is a LayerMask variable for the ground that helps the player detect the ground
 
-    float horizontal;
-    float vertical;
+    float horizontal;                                       // Variable for the horizontal movement of the player
+    float vertical;                                         // Variable for the vertical movement of the player
 
-    private KeyCode jumpKey = KeyCode.Space;
-    private Rigidbody rb;
+    private KeyCode jumpKey = KeyCode.Space;                // Variable for the space button which will be used to jump
+    private Rigidbody rb;                                   // Variable to store the rigidbody component of the player
 
-    Vector3 moveDirection;
+    Vector3 moveDirection;                                  // Vector3 moveDirection is incharge of storing values of the direction that player is moving towards
     
     [SerializeField] Transform spawnPoint;
 
@@ -76,21 +76,26 @@ public class PlayerController : MonoBehaviour
     
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();                         // Initializing the rigidbody component
     }
 
     // Update is called once per frame
     void Update()
     {
+        // Grounded makes sure that the player is on the ground
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, Ground);
 
+        // Method that is responsible for the player input
         PlayerInput();
+        // There's an issue with rigidbody movement where when you press and hold down the button to move, the speed keeps going up becauase that's how physics work in unity, so the speed control ensures that the player speed stays fixed
         SpeedControl();
 
+        // if the player is grounded, then the drag will be set to groundDrag to prevent the player movement from being "floaty"
         if (grounded)  
         {
             rb.drag = GroundDrag;                                     
         }
+        // else if the player is not grounded, then the drag will 0 for a much refined jump
         else if (!grounded)
         {
             rb.drag = 0;
@@ -103,46 +108,62 @@ public class PlayerController : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        // For some reason, Unity does not like the player movement method to be in the update method, so I placed in the FixedUpdate, but this method is incharge of the player movement
         PlayerMovement();
     }
 
     private void PlayerInput()
     {
+        // The horizontal variable stores the values within the x-axis movement, when going left and right
         horizontal = Input.GetAxisRaw("Horizontal");
+        // The vertical vairable stores the values within the y-axis moment, when going forward and backward
         vertical = Input.GetAxisRaw("Vertical");
 
+        // Checks if the player is holding down the left shift button so the player runs
         if (Input.GetKey(KeyCode.LeftShift) && grounded)
         {
-            PlayerDash();
+            // Method for the player run, I know I could have made the run code within this input method, thought it would be cleaner to do it as its own method
+            PlayerRun();
         }
+        // Checks if the player is pressing space so the player jumps, grounded, and jumpCheck is true
         if (Input.GetKey(jumpKey) && jumpCheck && grounded)
         {
+            // jumpCheck bool variable goes to false so the player can't jump in mid-air
             jumpCheck = false;
+            // Jump method
             Jump();
+            // resets the DontJump variable so the player can jump once the player lands on the ground
             Invoke(nameof(ResetJump), DontJump);
         }
     }
 
     private void PlayerMovement()
     {
+        // moveDirection variable stores the values from the horizontal value and vertical value
         moveDirection = direction.forward * vertical + direction.right * horizontal;
-
+        
+        // Checks if the player is grounded, then it sets the walking speed to walkingSpeed and because its using rigidbody, it uses forces to move the player
         if (grounded)
         {
             rb.AddForce(moveDirection.normalized * walkingSpeed * 10f);
         }
+        // Checks if the player is not grounded, which when the player jumps, it uses the jumping speed to jumpSpeed and multiplies it by airTime to determine the time the player is in the air
         else if (!grounded)
         {
-            rb.AddForce(moveDirection.normalized * walkingSpeed * 10f * airTime);
+            rb.AddForce(moveDirection.normalized * jumpSpeed * 10f * airTime);
         }
     }
 
-    private void PlayerDash()
+    // This method is for when the player runs, same logic as the walking.
+    private void PlayerRun()
     {
+        // moveDirection variable stores the values from the horizontal value and vertical value
         moveDirection = direction.forward * vertical + direction.right * horizontal;
+        // sets teh running speed to runningSpeed
         rb.AddForce(moveDirection.normalized * runningSpeed * 10f);
     }
 
+    // This method makes sure that the player speed doesn't go faster as the player holds down the button. Once the player reaches its assigned velocity, the assigned speed, instead of the physics engine takes over the speed which will make the player go very fast, this method just stops the player from going faster when walking and running
     private void SpeedControl()
     {
         Vector3 flatSpeed = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
@@ -159,12 +180,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // This method is responsible over the jumping which makes the player go up the y-axis
     private void Jump()
     {
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
         rb.AddForce(transform.up * jumpSpeed, ForceMode.Impulse);
     }
 
+    // Resets when the player jumps and gives the player the ability to jump again when lands on the ground
     private void ResetJump()
     {
         jumpCheck = true;
