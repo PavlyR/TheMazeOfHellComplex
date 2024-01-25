@@ -3,25 +3,33 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-[RequireComponent(typeof(CharacterController))]         // The movement code relies on the CharacterController library that is built into Unity
-
 public class PlayerController : MonoBehaviour
 {
-    public float walking = 5.0f;                    // This variable represents the walking speed of the player
-    public float running = 10.0f;                   // This variable represents the running speed of the player
-    public float jump = 10.0f;                      // This variable represents the jumping height of the player
-    public float gravity = 20.0f;                   // This vraiblel represents the gravity speed when the player jumps down
+    [SerializeField] public float walkingSpeed;
+    [SerializeField] public float runningSpeed;
+    [SerializeField] public float GroundDrag;
+    [SerializeField] public float jumpSpeed;
+    [SerializeField] public float DontJump;
+    [SerializeField] public float airTime;
+    [SerializeField] public float playerHeight;
 
-    public Camera playerCamera;                     // This is the variable that stores the camera
-    public float sensitivity = 5.0f;                // This variable represents the sensitivity of the camera movement
-    public float lookXLimit = 90.0f;                // This is the variable that represents the angle for which the player can move camera within
+    bool jumpCheck = true;
+    bool grounded;
 
+    public Transform direction;
+    public LayerMask Ground;
+
+    float horizontal;
+    float vertical;
+
+    private KeyCode jumpKey = KeyCode.Space;
+    private Rigidbody rb;
+
+    Vector3 moveDirection;
+    
     [SerializeField] Transform spawnPoint;
-    CharacterController characterController;        // This is the variable that stores the data from the CharacterController library
-    Vector3 moveDirection = Vector3.zero;           // This variable is incharge of moving the position of the player when pressing a button to move
-    float rotation = 0;                             // This variable represents the rotation of the camera
 
-     bool canMove = false; //I have changed this to make it so that if the player hasn't gone into the GameStart state the mouse is still visble and the player object won't move
+     public bool canMove = false; //I have changed this to make it so that if the player hasn't gone into the GameStart state the mouse is still visble and the player object won't move
     /*Why was canMove public before? -Tam
      * I made it public before because I thought I would make other classes that the player can inherit from, and i made canMove public so I can use it in other classes.
      */
@@ -57,8 +65,6 @@ public class PlayerController : MonoBehaviour
              */
            
             Debug.Log(this.transform.position);
-            
-
         }
         if(enable == false) //This has to be done to enable the player to move the mouse over menus without this the player wouldn't be able to click the exit or restart buttons on the lose screen
         {
@@ -67,61 +73,100 @@ public class PlayerController : MonoBehaviour
             canMove = false;
         }
     }
-
     
     void Start()
     {
-        characterController = GetComponent<CharacterController>();
-
-
+        rb = GetComponent<Rigidbody>();
     }
-
-    
 
     // Update is called once per frame
     void Update()
     {
-        if (canMove == true) //This has been put in to stop the player from moving when navigating the menus 
+        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, Ground);
+
+        PlayerInput();
+        SpeedControl();
+
+        if (grounded)  
         {
-           
-            Vector3 forward = transform.TransformDirection(Vector3.forward);        // This variable is incharge of moving the player forward (for instance when pressing W)
-            Vector3 right = transform.TransformDirection(Vector3.right);            // This variable is incharge of moving the player sideways (for instance when pressing A and D)
-
-            bool isRunning = Input.GetKey(KeyCode.LeftShift);                                                   // isRunning is the variable that checks when the player press and hold the left shift key to run
-            float curSpeedX = canMove ? (isRunning ? running : walking) * Input.GetAxis("Vertical") : 0;        // curSpeedX, This line of code is a cleaner version of an if statement because it checks if the player canMove, then it checks if the player is pressing and holding the left shift key, and it changes the state of the player from walking to running. It also includes the direction the player is going in the X-Axis.
-            float curSpeedY = canMove ? (isRunning ? running : walking) * Input.GetAxis("Horizontal") : 0;      // curSpeedY, This line of code is a cleaner version of an if statement because it checks if the player canMove, then it checks if the player is pressing and holding the left shift key, and it changes the state of the player from walking to running. It also includes the direction the player is going in the Y-Axis.
-            float movementDirectionY = moveDirection.y;                                                         // This variable stores the Y-axis position to movementDirectionY
-            moveDirection = (forward * curSpeedX) + (right * curSpeedY);                                        // moveDirection is incharge of multiplying the speed to the movement of the player
-
-            if (Input.GetButton("Jump") && canMove && characterController.isGrounded)                           // This if statment checks if the player pressed the jump button (Space), checks if the player can move, and checks if the player is on the ground. if the statement is true, the player jumps
-            {
-                moveDirection.y = jump;                                                                         // Y-axis position of the player will update to the jump height
-            }
-            else
-            {
-                moveDirection.y = movementDirectionY;                                                           // This checks if the player is already in the air, in case the player presses space while in the air.
-            }
-
-            if (!characterController.isGrounded)                                                                // This if statement checks if the player is in the air and it applies the gravity on the jump
-            {
-                moveDirection.y -= gravity * Time.deltaTime;
-            }
-
-            characterController.Move(moveDirection * Time.deltaTime);                                           // This line is what makes the player move
-
-            if (canMove)                                                                                        // This if statement checks if the player can move so the player can move the camera
-            {
-                rotation += -Input.GetAxis("Mouse Y") * sensitivity;                                           // rotation is incharge of the rotation of the camera and takes the mouse as an input 
-                rotation = Mathf.Clamp(rotation, -lookXLimit, lookXLimit);                                     // the rotation of the camera is limited within the angle initialized which is 90 degrees
-                playerCamera.transform.localRotation = Quaternion.Euler(rotation, 0, 0);                       // this is incharge of rotating the camera on the X-axis
-                transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * sensitivity, 0);          // this is incharge of rotating the camera on the Y-axis
-            }
+            rb.drag = GroundDrag;                                     
+        }
+        else if (!grounded)
+        {
+            rb.drag = 0;
         }
         else
         { //For some reason this statement is required to reset the spawn point. If done during the enable movement function the player will move to 0,0,0 then suddenly pop back to where they were moving.
             this.transform.position = spawnPoint.position;
-            this.transform.rotation = spawnPoint.rotation;
-          
+            this.transform.rotation = spawnPoint.rotation; 
         }
+    }
+    private void FixedUpdate()
+    {
+        PlayerMovement();
+    }
+
+    private void PlayerInput()
+    {
+        horizontal = Input.GetAxisRaw("Horizontal");
+        vertical = Input.GetAxisRaw("Vertical");
+
+        if (Input.GetKey(KeyCode.LeftShift) && grounded)
+        {
+            PlayerDash();
+        }
+        if (Input.GetKey(jumpKey) && jumpCheck && grounded)
+        {
+            jumpCheck = false;
+            Jump();
+            Invoke(nameof(ResetJump), DontJump);
+        }
+    }
+
+    private void PlayerMovement()
+    {
+        moveDirection = direction.forward * vertical + direction.right * horizontal;
+
+        if (grounded)
+        {
+            rb.AddForce(moveDirection.normalized * walkingSpeed * 10f);
+        }
+        else if (!grounded)
+        {
+            rb.AddForce(moveDirection.normalized * walkingSpeed * 10f * airTime);
+        }
+    }
+
+    private void PlayerDash()
+    {
+        moveDirection = direction.forward * vertical + direction.right * horizontal;
+        rb.AddForce(moveDirection.normalized * runningSpeed * 10f);
+    }
+
+    private void SpeedControl()
+    {
+        Vector3 flatSpeed = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+
+        if (flatSpeed.magnitude > walkingSpeed)
+        {
+            Vector3 SpeedLimit = flatSpeed.normalized * walkingSpeed;
+            rb.velocity = new Vector3(SpeedLimit.x, rb.velocity.y, SpeedLimit.z);
+        }
+        else if (flatSpeed.magnitude > runningSpeed)
+        {
+            Vector3 SpeedLimit = flatSpeed.normalized * runningSpeed;
+            rb.velocity = new Vector3(SpeedLimit.x, rb.velocity.y, SpeedLimit.z);
+        }
+    }
+
+    private void Jump()
+    {
+        rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+        rb.AddForce(transform.up * jumpSpeed, ForceMode.Impulse);
+    }
+
+    private void ResetJump()
+    {
+        jumpCheck = true;
     }
 }
