@@ -24,7 +24,7 @@ public class Alan_Mov : MonoBehaviour
     [Range(0,360)]
     public float angle;
 
-    [SerializeField]
+    
     public GameObject playerOb;
 
     public LayerMask playerMask;
@@ -36,7 +36,8 @@ public class Alan_Mov : MonoBehaviour
     void Awake()
     {
         GameManager.OnGameStateChanged += GameManagerOnOnGameStateChanged;
-        
+        playerOb = GameObject.FindGameObjectWithTag("Player");
+
     }
     private void OnDestroy()
     {
@@ -143,7 +144,7 @@ public class Alan_Mov : MonoBehaviour
     private void PlayerCheck()
     {
         Collider[] rangeCheck = Physics.OverlapSphere(transform.position, radius, playerMask);
-      
+        print("I am checking");
         if (rangeCheck.Length != 0)
         { //This is to make sure that if the player is within the radius it does further checks
             Transform target = rangeCheck[0].transform;
@@ -154,7 +155,10 @@ public class Alan_Mov : MonoBehaviour
                 float distanceToTarget = Vector3.Distance(transform.position, target.position);
 
                 if (!Physics.Raycast(transform.position, directionToPlayer, distanceToTarget, playerMask))
+                {
                     spotted = true;
+                    print("You are spotted");
+                }
                 else
                     spotted = false;
 
