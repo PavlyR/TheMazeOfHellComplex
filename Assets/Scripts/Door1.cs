@@ -4,36 +4,49 @@ using UnityEngine;
 
 public class Door1 : MonoBehaviour
 {
+    // This AnimationCurve variable is responsible for the opening and closing animation of the door
     public AnimationCurve openDoor = new AnimationCurve(new Keyframe[] { new Keyframe(0, 1, 0, 0), new Keyframe(0.8f, 1, 0, 0), new Keyframe(1, 0, 0, 0) });
+    // This float variable is responsible for the speed of the door while opening and closing
     public float openDoorSpeed = 2.0f;
+    // This float variable is responsible for the angle of the door opening
     public float openDoorAngle = 90.0f;
 
+    // this bool variable determines if the door is open or closed
     bool open = false;
+    // this bool variable determines if the player is close to the door 
     bool enter = false;
 
+    // This float variable stores the original angle of the door
     float defaultRotationAngle;
+    // This float varibale stores the current angle of the door
     float currentRotationAngle;
+    // This float variable stores the time that it takes for the door to open
     float openTime = 0;
 
     // Start is called before the first frame update
     void Start()
     {
+        // initializing the default and current angle of the door
         defaultRotationAngle = transform.localEulerAngles.y;
         currentRotationAngle = transform.localEulerAngles.y;
 
+        // initializing the collider which is a sphere collider that will detect the player when close to the door to interact with the door
         GetComponent<Collider>().isTrigger = true;
     }
 
     // Update is called once per frame
     void Update()
     {
+        // This if statement is responsible for determining the amount of time it takes for the door open and the speed of the door to open
         if (openTime < 1)
         {
             openTime += Time.deltaTime * openDoorSpeed * openDoor.Evaluate(openTime);
         }
-
+        
+        // This code is responsible for the continuous angle changes of the door opening
         transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, Mathf.LerpAngle(currentRotationAngle, defaultRotationAngle + (open ? openDoorAngle : 0), openTime), transform.localEulerAngles.z);
-
+        
+        // This if statement checks if the player is close to the door and if the player pressed the E button then it opens the door
         if (Input.GetKeyDown(KeyCode.E) && enter)
         {
             open = !open;
@@ -42,6 +55,7 @@ public class Door1 : MonoBehaviour
         }
     }
 
+    // This method checks if the player has entered the collider and checks if the player prefab has the player tag
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -50,6 +64,7 @@ public class Door1 : MonoBehaviour
         }
     }
 
+    // This method checks if the player has exited the collider
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
