@@ -6,10 +6,11 @@ using UnityEngine;
 public class FieldOfView : MonoBehaviour
 {
     public float radius;
-    [Range(0,360)]
+    [Range(0, 360)]
     public float angle;
 
     public GameObject playerRef;
+    public GameObject alanRef;
 
     public LayerMask targetMask;
     public LayerMask obstructionMask;
@@ -20,6 +21,8 @@ public class FieldOfView : MonoBehaviour
     {
         playerRef = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(FOVRoutine());
+        alanRef = GameObject.FindGameObjectWithTag("Alan");
+
     }
 
     private IEnumerator FOVRoutine()
@@ -47,7 +50,10 @@ public class FieldOfView : MonoBehaviour
                 float distanceToTarget = Vector3.Distance(transform.position, target.position);
 
                 if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionMask))
+                {
                     canSeePlayer = true;
+                    alanRef.GetComponent<Alan_Mov>().Spotted(canSeePlayer, target);
+                }
                 else
                     canSeePlayer = false;
             }

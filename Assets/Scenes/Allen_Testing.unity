@@ -1284,6 +1284,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InteractorSource: {fileID: 1250492652}
   InteractRange: 30
+--- !u!1 &1366188719 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3827398695128545868, guid: 2965f6fbbf312aa4c9a6cbcde908a8d8, type: 3}
+  m_PrefabInstance: {fileID: 682364322214091767}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1366188723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1366188719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3831b5c45f6905418a202b6b36fb9c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 10
+  angle: 20
+  playerRef: {fileID: 1250492649}
+  alanRef: {fileID: 1366188719}
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 8
+  obstructionMask:
+    serializedVersion: 2
+    m_Bits: 64
+  canSeePlayer: 0
 --- !u!1 &1379321011
 GameObject:
   m_ObjectHideFlags: 0
@@ -2212,6 +2240,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Filler_Model
       objectReference: {fileID: 0}
+    - target: {fileID: 3827398695128545868, guid: 2965f6fbbf312aa4c9a6cbcde908a8d8, type: 3}
+      propertyPath: m_TagString
+      value: Alan
+      objectReference: {fileID: 0}
     - target: {fileID: 4491907941189705974, guid: 2965f6fbbf312aa4c9a6cbcde908a8d8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2255,7 +2287,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3827398695128545868, guid: 2965f6fbbf312aa4c9a6cbcde908a8d8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1366188723}
   m_SourcePrefab: {fileID: 100100000, guid: 2965f6fbbf312aa4c9a6cbcde908a8d8, type: 3}
 --- !u!1001 &1740142967954137899
 PrefabInstance:

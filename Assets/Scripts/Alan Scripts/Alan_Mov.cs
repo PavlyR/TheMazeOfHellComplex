@@ -25,10 +25,6 @@ public class Alan_Mov : MonoBehaviour
     public float angle;
 
     
-    public GameObject playerOb;
-
-    public LayerMask playerMask;
-    public LayerMask obstacleMask;
 
     public bool spotted;
 
@@ -36,7 +32,7 @@ public class Alan_Mov : MonoBehaviour
     void Awake()
     {
         GameManager.OnGameStateChanged += GameManagerOnOnGameStateChanged;
-        playerOb = GameObject.FindGameObjectWithTag("Player");
+      
 
     }
     private void OnDestroy()
@@ -55,7 +51,7 @@ public class Alan_Mov : MonoBehaviour
         }
         else{
             aiActive = false;
-            StopCoroutine(PlayerDetection());
+            
         }
     }
 
@@ -103,7 +99,6 @@ public class Alan_Mov : MonoBehaviour
         }
         aiActive = true;
         transform.LookAt(activeTarget); //This rotates the model to look where they are walking
-        StartCoroutine(PlayerDetection());
 
     }
 
@@ -130,45 +125,9 @@ public class Alan_Mov : MonoBehaviour
 
     }
 
-    private IEnumerator PlayerDetection()
+    public void Spotted(bool x, Transform location)
     {
-        WaitForSeconds wait = new WaitForSeconds(1f);
-
-        while (true)
-        {
-            yield return wait;
-            PlayerCheck();
-        }
+        spotted = x;
+        print(spotted);
     }
-
-    private void PlayerCheck()
-    {
-        Collider[] rangeCheck = Physics.OverlapSphere(transform.position, radius, playerMask);
-        print("I am checking");
-        if (rangeCheck.Length != 0)
-        { //This is to make sure that if the player is within the radius it does further checks
-            Transform target = rangeCheck[0].transform;
-            Vector3 directionToPlayer = (target.position - transform.position).normalized;
-
-            if (Vector3.Angle(transform.forward, directionToPlayer) < angle / 2)
-            {
-                float distanceToTarget = Vector3.Distance(transform.position, target.position);
-
-                if (!Physics.Raycast(transform.position, directionToPlayer, distanceToTarget, playerMask))
-                {
-                    spotted = true;
-                    print("You are spotted");
-                }
-                else
-                    spotted = false;
-
-            }
-            else
-                spotted = false;
-        }
-        else if (spotted) 
-            spotted = false;
-    }
-
-
 }
