@@ -126,7 +126,7 @@ public class PlayerController : MonoBehaviour
             PlayerRun();
         }
         // Checks if the player is pressing space so the player jumps, grounded, and jumpCheck is true
-        if (Input.GetKey(jumpKey) && jumpCheck && grounded)
+        if (Input.GetKeyDown(jumpKey) && jumpCheck && grounded)
         {
             // jumpCheck bool variable goes to false so the player can't jump in mid-air
             jumpCheck = false;
