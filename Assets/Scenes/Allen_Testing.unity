@@ -1030,7 +1030,7 @@ GameObject:
   - component: {fileID: 1206151495}
   - component: {fileID: 1206151494}
   - component: {fileID: 1206151493}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2388,7 +2388,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -2188299439669935115, guid: d786fe88567bce94e8b8253b4c2b4c4b, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2547049767891350457, guid: d786fe88567bce94e8b8253b4c2b4c4b, type: 3}
       propertyPath: m_Layer
@@ -2409,6 +2409,10 @@ PrefabInstance:
     - target: {fileID: 6883448762971171425, guid: d786fe88567bce94e8b8253b4c2b4c4b, type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6941851331196742600, guid: d786fe88567bce94e8b8253b4c2b4c4b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7314122365594824897, guid: d786fe88567bce94e8b8253b4c2b4c4b, type: 3}
       propertyPath: spawnPoint
