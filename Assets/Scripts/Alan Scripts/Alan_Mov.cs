@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Alan_Mov : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class Alan_Mov : MonoBehaviour
     private int lastPoint; //Tracks that last point in the array Alan visited. This section can cause problems later when player tracking is added so be careful. 
     private bool aiActive = false;
     private Transform activeTarget; //Where Alan is going
+    
+
+
 
     private float currentMoveTime;
     [SerializeField]
@@ -26,7 +30,7 @@ public class Alan_Mov : MonoBehaviour
 
     
 
-    public bool spotted;
+    public bool agro;
 
 
     void Awake()
@@ -65,7 +69,7 @@ public class Alan_Mov : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(aiActive == true) //(Works sort of)
+        if (aiActive == true && agro == false) //(Works sort of)
         {
             currentMoveTime += Time.deltaTime;
             transform.position = Vector3.Lerp(trackingPoints[lastPoint].position,
@@ -78,8 +82,12 @@ public class Alan_Mov : MonoBehaviour
                
             }
         }
-        if(spotted == true) {
+        if(agro == true && aiActive == true) {
             print("I can see you");
+            currentMoveTime += Time.deltaTime;
+            transform.position = Vector3.Lerp(trackingPoints[lastPoint].position,
+             activeTarget.position,
+             currentMoveTime / moveTime);
         }
     }
 
@@ -127,7 +135,8 @@ public class Alan_Mov : MonoBehaviour
 
     public void Spotted(bool x, Transform location)
     {
-        spotted = x;
-        print(spotted);
+        agro = x;
+        print(agro);
+        activeTarget = location;
     }
 }

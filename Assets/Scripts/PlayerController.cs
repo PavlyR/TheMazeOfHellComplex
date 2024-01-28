@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         GameManager.OnGameStateChanged += GameManagerOnOnGameStateChanged;
+        EnableMovement(true);
     }
 
     private void GameManagerOnOnGameStateChanged(GameState state)
