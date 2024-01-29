@@ -195,7 +195,7 @@ MonoBehaviour:
   direction: {fileID: 8839994659008919986}
   Ground:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 0
   spawnPoint: {fileID: 0}
   canMove: 0
 --- !u!136 &-2188299439669935115
