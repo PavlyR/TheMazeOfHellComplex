@@ -135,6 +135,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CameraHolder
       objectReference: {fileID: 0}
+    - target: {fileID: 4957316709170946592, guid: f80fcb7f35f9f534cbb06bd42e47820a, type: 3}
+      propertyPath: cameraPosition
+      value: 
+      objectReference: {fileID: 613554826}
     - target: {fileID: 7914274068909074986, guid: f80fcb7f35f9f534cbb06bd42e47820a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -175,6 +179,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9175947006072322196, guid: f80fcb7f35f9f534cbb06bd42e47820a, type: 3}
+      propertyPath: direction
+      value: 
+      objectReference: {fileID: 265923028}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -387,6 +395,11 @@ Transform:
   - {fileID: 1171286057}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &265923028 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3244926237278540685, guid: d786fe88567bce94e8b8253b4c2b4c4b, type: 3}
+  m_PrefabInstance: {fileID: 3988211080460682015}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &273203774
 GameObject:
   m_ObjectHideFlags: 0
@@ -712,6 +725,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!4 &613554826 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 663502400564298614, guid: d786fe88567bce94e8b8253b4c2b4c4b, type: 3}
+  m_PrefabInstance: {fileID: 3988211080460682015}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &622262577 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6702150518873813514, guid: 96a2fcfecf3c7494093586c96928cd04, type: 3}
@@ -2374,10 +2392,6 @@ PrefabInstance:
     - target: {fileID: 6883448762971171425, guid: d786fe88567bce94e8b8253b4c2b4c4b, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7314122365594824897, guid: d786fe88567bce94e8b8253b4c2b4c4b, type: 3}
-      propertyPath: jumpSpeed
-      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7314122365594824897, guid: d786fe88567bce94e8b8253b4c2b4c4b, type: 3}
       propertyPath: spawnPoint
