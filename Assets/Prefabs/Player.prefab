@@ -61,7 +61,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.65, z: 0}
-  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7808145845422685428}
@@ -84,10 +84,10 @@ MonoBehaviour:
   walkingSpeed: 10
   runningSpeed: 15
   GroundDrag: 5
-  jumpSpeed: 7
-  DontJump: 0.25
-  airTime: 0.4
-  playerHeight: 2
+  jumpSpeed: 25
+  DontJump: 0.5
+  airTime: 0.1
+  playerHeight: 20
   direction: {fileID: 3244926237278540685}
   Ground:
     serializedVersion: 2
@@ -113,8 +113,8 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.1302261
-  m_Height: 4.0448327
+  m_Radius: 1
+  m_Height: 4
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &8790935142755157927
