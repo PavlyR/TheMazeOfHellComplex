@@ -17291,11 +17291,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7314122365594824897, guid: d786fe88567bce94e8b8253b4c2b4c4b, type: 3}
       propertyPath: airTime
-      value: 0.2
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7314122365594824897, guid: d786fe88567bce94e8b8253b4c2b4c4b, type: 3}
+      propertyPath: DontJump
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7314122365594824897, guid: d786fe88567bce94e8b8253b4c2b4c4b, type: 3}
       propertyPath: jumpSpeed
-      value: 15
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 7314122365594824897, guid: d786fe88567bce94e8b8253b4c2b4c4b, type: 3}
       propertyPath: spawnPoint
@@ -17303,11 +17307,15 @@ PrefabInstance:
       objectReference: {fileID: 1531028593}
     - target: {fileID: 7314122365594824897, guid: d786fe88567bce94e8b8253b4c2b4c4b, type: 3}
       propertyPath: playerHeight
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8790935142755157927, guid: d786fe88567bce94e8b8253b4c2b4c4b, type: 3}
       propertyPath: m_Interpolate
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8795826725794157480, guid: d786fe88567bce94e8b8253b4c2b4c4b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8795826725794157480, guid: d786fe88567bce94e8b8253b4c2b4c4b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17315,7 +17323,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8795826725794157480, guid: d786fe88567bce94e8b8253b4c2b4c4b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6
+      value: 7.28
       objectReference: {fileID: 0}
     - target: {fileID: 8795826725794157480, guid: d786fe88567bce94e8b8253b4c2b4c4b, type: 3}
       propertyPath: m_LocalPosition.z

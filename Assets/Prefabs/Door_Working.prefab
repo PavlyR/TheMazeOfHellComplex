@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4743114108102758044}
   - component: {fileID: 1264735828402005696}
   - component: {fileID: 3238404139741797188}
+  - component: {fileID: 6882783743453483254}
   m_Layer: 0
   m_Name: Door_Working
   m_TagString: Untagged
@@ -102,6 +103,27 @@ MonoBehaviour:
     m_RotationOrder: 4
   openDoorSpeed: 2
   openDoorAngle: 90
+--- !u!65 &6882783743453483254
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5264100553087805657}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.42743373, y: 9.775554, z: 0.5}
+  m_Center: {x: 0.2029034, y: 0, z: 0}
 --- !u!1001 &3147397478888045717
 PrefabInstance:
   m_ObjectHideFlags: 0
