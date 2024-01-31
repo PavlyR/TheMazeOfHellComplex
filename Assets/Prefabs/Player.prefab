@@ -84,7 +84,7 @@ MonoBehaviour:
   walkingSpeed: 10
   runningSpeed: 15
   GroundDrag: 5
-  jumpSpeed: 10
+  jumpSpeed: 7
   DontJump: 0.25
   airTime: 0.4
   playerHeight: 4
