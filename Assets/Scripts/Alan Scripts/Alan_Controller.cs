@@ -8,7 +8,12 @@ public class Alan_Controller : MonoBehaviour
     public GameObject playerRef;
     public bool agro;
     public float agroTimer;
-    private float timeSinceSpotted;
+    private float timeSinceSpotted = 0f;
+
+    [SerializeField]
+    private Transform patrol;
+
+  
 
     /// <summary>
     /// This script is to test the navmesh, it will be incoperated into the Alan mov once the floor is completed.
@@ -25,27 +30,27 @@ public class Alan_Controller : MonoBehaviour
         if (agro == true)
         {
             agent.SetDestination(playerRef.transform.position);
+            timeSinceSpotted -= Time.deltaTime;
+
+            if (timeSinceSpotted <= 0)
+            {
+                agro = false;
+                timeSinceSpotted = agroTimer;
+
+            }
         }
+        else agent.SetDestination(patrol.position);
     }
 
     public void Spotted(bool x)
     {
         agro = x;
-        timeSinceSpotted = 0;
-        Search();
+        timeSinceSpotted = agroTimer;
+       
+      
     }
 
-    private void Search() //When this is called
-    {
-        if(agro == true)
-        {
-            timeSinceSpotted += Time.deltaTime;
+ 
 
-            if(timeSinceSpotted >= agroTimer)
-            {
-                agro = false;
-                timeSinceSpotted = 0;
-            }
-        }
-    }
+
 }

@@ -55,12 +55,20 @@ public class FieldOfView : MonoBehaviour
                     alanRef.GetComponent<Alan_Controller>().Spotted(canSeePlayer);
                 }
                 else
+                {
                     canSeePlayer = false;
+                }
             }
             else
+            {
+                
                 canSeePlayer = false;
+            }
         }
         else if (canSeePlayer)
+        {
+            
             canSeePlayer = false;
+        }
     }
 }
