@@ -24,8 +24,9 @@ public class CameraController : MonoBehaviour
 
         rotationY += mouseX;                                                                    
         rotationX -= mouseY;
-
         rotationX = Mathf.Clamp(rotationX, -90f, 90f);                                          // Makes sure that the camera can move within the x-asix in all angles
-        transform.rotation = Quaternion.Euler(rotationX, rotationY, 0);                         
+
+        transform.rotation = Quaternion.Euler(rotationX, rotationY, 0);
+        direction.rotation = Quaternion.Euler(0, rotationY, 0);
     }
 }

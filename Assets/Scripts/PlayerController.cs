@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     float vertical;                                         // Variable for the vertical movement of the player
 
     private KeyCode jumpKey = KeyCode.Space;                // Variable for the space button which will be used to jump
-    private Rigidbody rb;                                   // Variable to store the rigidbody component of the player
+    Rigidbody rb;                                   // Variable to store the rigidbody component of the player
 
     Vector3 moveDirection;                                  // Vector3 moveDirection is incharge of storing values of the direction that player is moving towards
     
@@ -78,6 +78,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();                         // Initializing the rigidbody component
+        rb.freezeRotation = true;
     }
 
     // Update is called once per frame
@@ -140,18 +141,18 @@ public class PlayerController : MonoBehaviour
 
     private void PlayerMovement()
     {
-        // moveDirection variable stores the values from the horizontal value and vertical value
+        // moveDirection variable stores the values from the horizontal value and vertical value. This should let the player move to the direction their looking at
         moveDirection = direction.forward * vertical + direction.right * horizontal;
         
         // Checks if the player is grounded, then it sets the walking speed to walkingSpeed and because its using rigidbody, it uses forces to move the player
         if (grounded)
         {
-            rb.AddForce(moveDirection.normalized * walkingSpeed * 10f);
+            rb.AddForce(moveDirection.normalized * walkingSpeed * 10f, ForceMode.Force);
         }
         // Checks if the player is not grounded, which when the player jumps, it uses the jumping speed to jumpSpeed and multiplies it by airTime to determine the time the player is in the air
         else if (!grounded)
         {
-            rb.AddForce(moveDirection.normalized * jumpSpeed * 10f * airTime);
+            rb.AddForce(moveDirection.normalized * jumpSpeed * 10f * airTime, ForceMode.Force);
         }
     }
 
