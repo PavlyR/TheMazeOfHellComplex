@@ -52,7 +52,7 @@ public class FieldOfView : MonoBehaviour
                 if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionMask))
                 {
                     canSeePlayer = true;
-                    alanRef.GetComponent<Alan_Mov>().Spotted(canSeePlayer, target);
+                    alanRef.GetComponent<Alan_Controller>().Spotted(canSeePlayer);
                 }
                 else
                     canSeePlayer = false;
