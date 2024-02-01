@@ -9,19 +9,19 @@ public class Door1 : MonoBehaviour
     // This float variable is responsible for the speed of the door while opening and closing
     public float openDoorSpeed = 2.0f;
     // This float variable is responsible for the angle of the door opening
-    public float openDoorAngle = 90.0f;
+    public float openDoorAngle = 180.0f;
 
     // this bool variable determines if the door is open or closed
-    bool open = false;
+    protected bool open = false;
     // this bool variable determines if the player is close to the door 
     bool enter = false;
 
     // This float variable stores the original angle of the door
     float defaultRotationAngle;
     // This float varibale stores the current angle of the door
-    float currentRotationAngle;
+   protected float currentRotationAngle;
     // This float variable stores the time that it takes for the door to open
-    float openTime = 0;
+    protected float openTime = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -49,10 +49,15 @@ public class Door1 : MonoBehaviour
         // This if statement checks if the player is close to the door and if the player pressed the E button then it opens the door
         if (Input.GetKeyDown(KeyCode.E) && enter)
         {
-            open = !open;
-            currentRotationAngle = transform.localEulerAngles.y;
-            openTime = 0;
+            OnOpen();
         }
+    }
+
+    protected virtual void OnOpen() //This void was made to allow for the win door to work with the classical door code.
+    {
+        open = !open;
+        currentRotationAngle = transform.localEulerAngles.y;
+        openTime = 0;
     }
 
     // This method checks if the player has entered the collider and checks if the player prefab has the player tag
