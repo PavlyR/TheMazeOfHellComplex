@@ -14,7 +14,7 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0.084905684, g: 0.005206483, b: 0.005206483, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.02
@@ -8873,7 +8873,6 @@ Transform:
   - {fileID: 949089706}
   - {fileID: 378147986}
   - {fileID: 931609767}
-  - {fileID: 1041301817}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &860083922
@@ -10026,7 +10025,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5718981ec44612043bcf37c231ba1ba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeLimit: 60
+  timeLimit: 190
   uiTimer: {fileID: 1239252729}
 --- !u!1001 &939736225
 PrefabInstance:
@@ -10815,11 +10814,11 @@ Transform:
   m_GameObject: {fileID: 1041301815}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 33, y: 0, z: 193}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 859798442}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1043682468
 GameObject:
@@ -18284,6 +18283,18 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7314122365594824897, guid: d786fe88567bce94e8b8253b4c2b4c4b, type: 3}
+      propertyPath: airTime
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7314122365594824897, guid: d786fe88567bce94e8b8253b4c2b4c4b, type: 3}
+      propertyPath: DontJump
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7314122365594824897, guid: d786fe88567bce94e8b8253b4c2b4c4b, type: 3}
+      propertyPath: jumpSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7314122365594824897, guid: d786fe88567bce94e8b8253b4c2b4c4b, type: 3}
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 1531028593}
@@ -22092,3 +22103,4 @@ SceneRoots:
   - {fileID: 709900925}
   - {fileID: 1446221385}
   - {fileID: 1999634034}
+  - {fileID: 1041301817}
