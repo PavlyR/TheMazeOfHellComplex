@@ -902,7 +902,7 @@ Transform:
   m_GameObject: {fileID: 752203804}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.7047195, y: 1.9566436, z: 5.130352}
+  m_LocalPosition: {x: -6.7047195, y: 1.9566436, z: -19.64}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1060,6 +1060,7 @@ MonoBehaviour:
   startMenu: {fileID: 622262577}
   loseMenu: {fileID: 1137493320}
   playerUI: {fileID: 1772880287}
+  winMenu: {fileID: 0}
 --- !u!1 &1206151492
 GameObject:
   m_ObjectHideFlags: 0
@@ -2506,6 +2507,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Alan
       objectReference: {fileID: 0}
+    - target: {fileID: 6983767624770712209, guid: 041648d0b32836d43b34be7d9446e640, type: 3}
+      propertyPath: patrol
+      value: 
+      objectReference: {fileID: 752203805}
     - target: {fileID: 6983767624770712209, guid: 041648d0b32836d43b34be7d9446e640, type: 3}
       propertyPath: agroTimer
       value: 10
