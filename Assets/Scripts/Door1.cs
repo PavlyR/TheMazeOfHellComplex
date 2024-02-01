@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Door1 : MonoBehaviour
+public class Door1 : MonoBehaviour, IInteractable //Sorry had to add the interactable tag to allow Alan to open and close the door.
 {
     // This AnimationCurve variable is responsible for the opening and closing animation of the door
     public AnimationCurve openDoor = new AnimationCurve(new Keyframe[] { new Keyframe(0, 1, 0, 0), new Keyframe(0.8f, 1, 0, 0), new Keyframe(1, 0, 0, 0) });
@@ -89,5 +89,11 @@ public class Door1 : MonoBehaviour
         {
             enter = false;
         }
+    }
+    public void Interact()
+    {
+        if (open == false) {
+            OnOpen();
+                }
     }
 }
