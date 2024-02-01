@@ -41,6 +41,11 @@ public class Timer_Script : MonoBehaviour
             counting = true;
             currentTime = timeLimit; //resets timer to default when this isn't the first run
         }
+        else if (state == GameState.WinMenu)
+        {
+            counting = false;
+            currentTime = timeLimit;
+        }
     }
 
     // Update is called once per frame
