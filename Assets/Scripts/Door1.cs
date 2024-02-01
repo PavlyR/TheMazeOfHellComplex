@@ -9,7 +9,7 @@ public class Door1 : MonoBehaviour
     // This float variable is responsible for the speed of the door while opening and closing
     public float openDoorSpeed = 2.0f;
     // This float variable is responsible for the angle of the door opening
-    public float openDoorAngle = 180.0f;
+    public float openDoorAngle = 90.0f;
 
     // this bool variable determines if the door is open or closed
     protected bool open = false;
@@ -34,6 +34,19 @@ public class Door1 : MonoBehaviour
         GetComponent<Collider>().isTrigger = true;
     }
 
+    void Awake()
+    {
+        GameManager.OnGameStateChanged += GameManagerOnOnGameStateChanged;
+
+    }
+
+    private void GameManagerOnOnGameStateChanged(GameState state)
+    {
+        if (state == GameState.GameStart)
+        {
+            open = false;
+        }
+    }
     // Update is called once per frame
     void Update()
     {
