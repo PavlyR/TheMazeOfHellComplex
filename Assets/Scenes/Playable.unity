@@ -21332,6 +21332,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1280168145225152278, guid: 2d7f72d4bb9220e419f11d3be95d0527, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1fc12e5b00a1b4a44b052b48e547200a, type: 3}
     - target: {fileID: 3541376182548254751, guid: 2d7f72d4bb9220e419f11d3be95d0527, type: 3}
       propertyPath: m_Name
       value: WinMenu
