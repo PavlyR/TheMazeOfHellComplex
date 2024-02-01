@@ -37,6 +37,8 @@ public class Alan_Controller : MonoBehaviour
     {
         playerRef = GameObject.FindGameObjectWithTag("Player");
         GameManager.OnGameStateChanged += GameManagerOnOnGameStateChanged;
+
+        GetComponent<Collider>().isTrigger = true;
     }
     private void GameManagerOnOnGameStateChanged(GameState state)
     {
@@ -103,10 +105,7 @@ public class Alan_Controller : MonoBehaviour
 
             }
             
-            if(transform.position.x == playerRef.transform.position.x && transform.position.z == playerRef.transform.position.z)
-            {
-                GameManager.Instance.UpdateGameState(GameState.LoseMenu);
-            }
+           
         }
 
     
@@ -114,6 +113,14 @@ public class Alan_Controller : MonoBehaviour
  
 
 
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            GameManager.Instance.UpdateGameState(GameState.LoseMenu);
+        }
     }
 
     public void Spotted(bool x)
