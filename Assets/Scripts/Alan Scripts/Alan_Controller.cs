@@ -16,6 +16,7 @@ public class Alan_Controller : MonoBehaviour
     
     private Transform patrolTarget;
 
+    
     [SerializeField]
     private LineRenderer line;
     private bool aiActive = false;
@@ -77,7 +78,7 @@ public class Alan_Controller : MonoBehaviour
         if (aiActive == true && agro == false) //(Works sort of)
         {
             agent.SetDestination(patrolTarget.position);
-            line.SetPosition(0, transform.position); //set the line's origin
+           // line.SetPosition(0, transform.position); //set the line's origin
             DrawPath(agent.path);
             if (agent)
             {
@@ -92,7 +93,7 @@ public class Alan_Controller : MonoBehaviour
         {
             agent.SetDestination(playerRef.transform.position);
             timeSinceSpotted -= Time.deltaTime;
-            line.SetPosition(0, transform.position);
+            // line.SetPosition(0, transform.position);
             DrawPath(agent.path);
 
             if (timeSinceSpotted <= 0)

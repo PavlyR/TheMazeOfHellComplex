@@ -2808,6 +2808,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Alan
       objectReference: {fileID: 0}
+    - target: {fileID: 5015722352079553063, guid: 041648d0b32836d43b34be7d9446e640, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6983767624770712209, guid: 041648d0b32836d43b34be7d9446e640, type: 3}
       propertyPath: line
       value: 
@@ -2848,6 +2852,10 @@ PrefabInstance:
       propertyPath: spawnPoints.Array.data[1]
       value: 
       objectReference: {fileID: 1673070380}
+    - target: {fileID: 9117727539995506966, guid: 041648d0b32836d43b34be7d9446e640, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9117727539995506966, guid: 041648d0b32836d43b34be7d9446e640, type: 3}
       propertyPath: m_CastShadows
       value: 0
