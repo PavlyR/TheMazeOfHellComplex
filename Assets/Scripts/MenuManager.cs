@@ -44,7 +44,7 @@ public class MenuManager : MonoBehaviour
     {
         Debug.Log("The Game is over");
 
-        UnityEditor.EditorApplication.isPlaying = false; //This version works while in editor
+      ///  UnityEditor.EditorApplication.isPlaying = false; //This version works while in editor
 
         Application.Quit(); //This only works when it is exported into an application
     }
