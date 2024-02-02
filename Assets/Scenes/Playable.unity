@@ -20751,6 +20751,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Alan
       objectReference: {fileID: 0}
+    - target: {fileID: 2869906419129457630, guid: 041648d0b32836d43b34be7d9446e640, type: 3}
+      propertyPath: alanRef
+      value: 
+      objectReference: {fileID: 1999634035}
+    - target: {fileID: 2869906419129457630, guid: 041648d0b32836d43b34be7d9446e640, type: 3}
+      propertyPath: playerRef
+      value: 
+      objectReference: {fileID: 2141661135}
+    - target: {fileID: 6983767624770712209, guid: 041648d0b32836d43b34be7d9446e640, type: 3}
+      propertyPath: agroTimer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6983767624770712209, guid: 041648d0b32836d43b34be7d9446e640, type: 3}
+      propertyPath: playerRef
+      value: 
+      objectReference: {fileID: 2141661135}
+    - target: {fileID: 6983767624770712209, guid: 041648d0b32836d43b34be7d9446e640, type: 3}
+      propertyPath: spawnPoints.Array.size
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6983767624770712209, guid: 041648d0b32836d43b34be7d9446e640, type: 3}
       propertyPath: spawnPoints.Array.data[0]
       value: 
@@ -20780,6 +20800,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 041648d0b32836d43b34be7d9446e640, type: 3}
+--- !u!1 &1999634035 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2020204969831148043, guid: 041648d0b32836d43b34be7d9446e640, type: 3}
+  m_PrefabInstance: {fileID: 1999634034}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2000016534
 GameObject:
   m_ObjectHideFlags: 0
