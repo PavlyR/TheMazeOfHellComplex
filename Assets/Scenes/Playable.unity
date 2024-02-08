@@ -20759,6 +20759,10 @@ PrefabInstance:
       propertyPath: playerRef
       value: 
       objectReference: {fileID: 2141661135}
+    - target: {fileID: 4254061807750105044, guid: 041648d0b32836d43b34be7d9446e640, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5178f2ab6236de744a858a36e35ab4b1, type: 2}
     - target: {fileID: 6983767624770712209, guid: 041648d0b32836d43b34be7d9446e640, type: 3}
       propertyPath: agroTimer
       value: 10
