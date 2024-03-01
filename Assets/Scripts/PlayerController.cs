@@ -1,38 +1,56 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    private float moveSpeed;
+    
     [SerializeField] public float walkingSpeed;             // This variable is for the player walking speed
     [SerializeField] public float runningSpeed;             // This variable is for the player running speed
+
     [SerializeField] public float GroundDrag;               // This variable to create drag for the player movement because the physics engine in Unity makes the player movement floaty, this variable helps with that
-    [SerializeField] public float jumpSpeed;                // This variable is for the player jumping speed
-    [SerializeField] public float DontJump;                 // This variable is to stop the player from jumping while in mid-air
-    [SerializeField] public float airTime;                  // This variable is to time the player while in the air after a jump
     [SerializeField] public float playerHeight;             // This variable is for the player height
-
-    bool jumpCheck = true;                                  // This is a boolean variable to check if the player can jump
-    bool grounded;                                          // This is a boolean variable to check if the player is on the ground
-
-    public Transform direction;                             // This is a variable stores the direction that the player is facing
+    [SerializeField] public float gravity;
+    [SerializeField] public float jumpForce;                // This variable is for the player jumping speed
+    [SerializeField] public float jumpCoolDown;             // This variable is to stop the player from jumping while in mid-air
+    [SerializeField] public float airMultiplier;            // This variable is to time the player while in the air after a jump
+    
     public LayerMask Ground;                                // This is a LayerMask variable for the ground that helps the player detect the ground
 
-    float horizontal;                                       // Variable for the horizontal movement of the player
-    float vertical;                                         // Variable for the vertical movement of the player
+    bool grounded;                                          // This is a boolean variable to check if the player is on the ground
+    bool jumpCheck = true;                                  // This is a boolean variable to check if the player can jump
 
-    private KeyCode jumpKey = KeyCode.Space;                // Variable for the space button which will be used to jump
-    Rigidbody rb;                                   // Variable to store the rigidbody component of the player
+    public Transform direction;                             // This is a variable stores the direction that the player is facing
+
+    float horizontalInput;                                       // Variable for the horizontal movement of the player
+    float verticalInput;                                         // Variable for the vertical movement of the player
+
+    public KeyCode jumpKey = KeyCode.Space;                // Variable for the space button which will be used to jump
+    public KeyCode runKey = KeyCode.LeftShift;
 
     Vector3 moveDirection;                                  // Vector3 moveDirection is incharge of storing values of the direction that player is moving towards
-    
+
+    Rigidbody rb;                                           // Variable to store the rigidbody component of the player
+
+    public MovementState state;
+
     [SerializeField] Transform spawnPoint;
 
      public bool canMove = false; //I have changed this to make it so that if the player hasn't gone into the GameStart state the mouse is still visble and the player object won't move
     /*Why was canMove public before? -Tam
      * I made it public before because I thought I would make other classes that the player can inherit from, and i made canMove public so I can use it in other classes.
      */
+    
+    public enum MovementState
+    {
+        walk,
+        run,
+        jump
+    }
+
 
     private void Awake()
     {
@@ -91,7 +109,8 @@ public class PlayerController : MonoBehaviour
         PlayerInput();
         // There's an issue with rigidbody movement where when you press and hold down the button to move, the speed keeps going up becauase that's how physics work in unity, so the speed control ensures that the player speed stays fixed
         SpeedControl();
-
+        StateHandler();
+        
         // if the player is grounded, then the drag will be set to groundDrag to prevent the player movement from being "floaty"
         if (grounded)  
         {
@@ -117,9 +136,9 @@ public class PlayerController : MonoBehaviour
     private void PlayerInput()
     {
         // The horizontal variable stores the values within the x-axis movement, when going left and right
-        horizontal = Input.GetAxisRaw("Horizontal");
+        horizontalInput = Input.GetAxisRaw("Horizontal");
         // The vertical vairable stores the values within the y-axis moment, when going forward and backward
-        vertical = Input.GetAxisRaw("Vertical");
+        verticalInput = Input.GetAxisRaw("Vertical");
 
         // Checks if the player is holding down the left shift button so the player runs
         if (Input.GetKey(KeyCode.LeftShift) && grounded)
@@ -135,14 +154,31 @@ public class PlayerController : MonoBehaviour
             // Jump method
             Jump();
             // resets the DontJump variable so the player can jump once the player lands on the ground
-            Invoke(nameof(ResetJump), DontJump);
+            Invoke(nameof(ResetJump), jumpCoolDown);
+        }
+    }
+
+    private void StateHandler()
+    {
+        if (grounded && Input.GetKey(runKey))
+        {
+            state = MovementState.run;
+            moveSpeed = runningSpeed;
+        }
+        else if (grounded)
+        {
+            moveSpeed = walkingSpeed;
+        }
+        else
+        {
+            state = MovementState.jump;
         }
     }
 
     private void PlayerMovement()
     {
         // moveDirection variable stores the values from the horizontal value and vertical value. This should let the player move to the direction their looking at
-        moveDirection = direction.forward * vertical + direction.right * horizontal;
+        moveDirection = direction.forward * verticalInput + direction.right * horizontalInput;
         
         // Checks if the player is grounded, then it sets the walking speed to walkingSpeed and because its using rigidbody, it uses forces to move the player
         if (grounded)
@@ -152,7 +188,7 @@ public class PlayerController : MonoBehaviour
         // Checks if the player is not grounded, which when the player jumps, it uses the jumping speed to jumpSpeed and multiplies it by airTime to determine the time the player is in the air
         else if (!grounded)
         {
-            rb.AddForce(moveDirection.normalized * jumpSpeed * 10f * airTime, ForceMode.Force);
+            rb.AddForce(moveDirection.normalized * jumpForce * 10f * airMultiplier, ForceMode.Force);
         }
     }
 
@@ -160,7 +196,7 @@ public class PlayerController : MonoBehaviour
     private void PlayerRun()
     {
         // moveDirection variable stores the values from the horizontal value and vertical value
-        moveDirection = direction.forward * vertical + direction.right * horizontal;
+        moveDirection = direction.forward * verticalInput + direction.right * horizontalInput;
         // sets teh running speed to runningSpeed
         rb.AddForce(moveDirection.normalized * runningSpeed * 10f);
     }
@@ -185,8 +221,10 @@ public class PlayerController : MonoBehaviour
     // This method is responsible over the jumping which makes the player go up the y-axis
     private void Jump()
     {
+        float jumpVelocity = jumpForce;
+        jumpVelocity += gravity * Time.deltaTime;
         rb.velocity = new Vector3(rb.velocity.x, 10.0f, rb.velocity.z);
-        rb.AddForce(transform.up * jumpSpeed, ForceMode.Impulse);
+        rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
     }
 
     // Resets when the player jumps and gives the player the ability to jump again when lands on the ground
