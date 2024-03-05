@@ -1981,11 +1981,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b14860a383ae2bd48b2ab9365ec458f4, type: 3}
---- !u!1 &210182089 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6702150518873813514, guid: 96a2fcfecf3c7494093586c96928cd04, type: 3}
-  m_PrefabInstance: {fileID: 1045571873}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &213947801
 GameObject:
   m_ObjectHideFlags: 0
@@ -3179,7 +3174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 961c264164b229f42af77c4ecc1f75ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMenu: {fileID: 210182089}
+  startMenu: {fileID: 2012033443}
   loseMenu: {fileID: 1657135975}
   playerUI: {fileID: 2147476673}
   winMenu: {fileID: 5767738662434228559}
@@ -21873,6 +21868,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1724623225}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!1 &2012033443 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6702150518873813514, guid: 96a2fcfecf3c7494093586c96928cd04, type: 3}
+  m_PrefabInstance: {fileID: 1045571873}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2022143360
 GameObject:
   m_ObjectHideFlags: 0
