@@ -18,7 +18,7 @@ public class HeadBob : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartPos = transform.position;
+        StartPos = transform.localPosition;
     }
 
     // Update is called once per frame

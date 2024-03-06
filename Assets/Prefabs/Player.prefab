@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4583610094785338803}
   - component: {fileID: 4788863689006442077}
+  - component: {fileID: 3272160004298913038}
   m_Layer: 3
   m_Name: Flashlight
   m_TagString: Untagged
@@ -94,6 +95,19 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &3272160004298913038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882244597941460449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bae06c666a6ab54b8eb3075a6b47b7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orientation: {fileID: 3244926237278540685}
 --- !u!1 &4226373909469331537
 GameObject:
   m_ObjectHideFlags: 0
@@ -135,7 +149,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8795826725794157480}
   - component: {fileID: 7314122365594824897}
-  - component: {fileID: -2188299439669935115}
   - component: {fileID: 8790935142755157927}
   - component: {fileID: 7049245862342248590}
   m_Layer: 3
@@ -175,14 +188,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f8d9db986316a04e89095f99e08d653, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkingSpeed: 7
+  walkingSpeed: 10
   runningSpeed: 15
   GroundDrag: 5
   playerHeight: 20
   gravity: -20
-  jumpForce: 12
+  jumpForce: 10
   jumpCoolDown: 0.25
-  airMultiplier: 7
+  airMultiplier: 10
   Ground:
     serializedVersion: 2
     m_Bits: 128
@@ -192,29 +205,6 @@ MonoBehaviour:
   state: 0
   spawnPoint: {fileID: 0}
   canMove: 0
---- !u!136 &-2188299439669935115
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6883448762971171425}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1
-  m_Height: 4
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &8790935142755157927
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -266,7 +256,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3244926237278540685}
   m_Layer: 3
-  m_Name: Direction
+  m_Name: Orientation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
