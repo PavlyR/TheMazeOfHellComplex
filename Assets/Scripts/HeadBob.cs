@@ -36,6 +36,12 @@ public class HeadBob : MonoBehaviour
         {
             StartHeadBob();
         }
+        else if (inputMagnitude == 0)
+        {
+            Vector3 standing = Vector3.zero;
+            standing.y += Mathf.Lerp(standing.y, Mathf.Sin(Time.time * 10.0f) * 0.01f * 2.0f, 10.0f * Time.deltaTime);
+            transform.position += standing;
+        }
     }
 
     private Vector3 StartHeadBob()
