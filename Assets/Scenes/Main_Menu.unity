@@ -793,6 +793,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 95130324}
     m_Modifications:
+    - target: {fileID: 46225322157443910, guid: 9257279036b883d43832e338f3bc0b45, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -210
+      objectReference: {fileID: 0}
     - target: {fileID: 96074192395505497, guid: 9257279036b883d43832e338f3bc0b45, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -845,10 +849,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 1665812238221420938, guid: 9257279036b883d43832e338f3bc0b45, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -90
+      objectReference: {fileID: 0}
     - target: {fileID: 2228818214608503676, guid: 9257279036b883d43832e338f3bc0b45, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1089448227}
+    - target: {fileID: 2779305952387979533, guid: 9257279036b883d43832e338f3bc0b45, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4736681035842055594, guid: 9257279036b883d43832e338f3bc0b45, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -949,10 +961,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5653741571220813162, guid: 9257279036b883d43832e338f3bc0b45, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -150
+      objectReference: {fileID: 0}
     - target: {fileID: 5960057800221722129, guid: 9257279036b883d43832e338f3bc0b45, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 738418758}
+    - target: {fileID: 8895988956430497843, guid: 9257279036b883d43832e338f3bc0b45, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -35
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
