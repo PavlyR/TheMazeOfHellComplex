@@ -57,6 +57,7 @@ public class Timer_Script : MonoBehaviour
             //timerText.text = currentTime.ToString("0");
             //uiTimer.text = currentTime.ToString("0");
             
+            
         }
         if (counting == true && currentTime <= 0) { //This area allows for a check trigger to stop counting
             print("Times Up");
