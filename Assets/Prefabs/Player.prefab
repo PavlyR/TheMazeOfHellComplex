@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1882244597941460449}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.779, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -191,11 +191,11 @@ MonoBehaviour:
   walkingSpeed: 10
   runningSpeed: 15
   GroundDrag: 5
-  playerHeight: 20
+  playerHeight: 18
   gravity: -20
   jumpForce: 10
   jumpCoolDown: 0.25
-  airMultiplier: 10
+  airMultiplier: 7
   Ground:
     serializedVersion: 2
     m_Bits: 128

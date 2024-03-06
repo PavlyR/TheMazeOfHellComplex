@@ -11283,6 +11283,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9111727249687340906, guid: f80fcb7f35f9f534cbb06bd42e47820a, type: 3}
+      propertyPath: Smooth
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 9111727249687340906, guid: f80fcb7f35f9f534cbb06bd42e47820a, type: 3}
+      propertyPath: Frequency
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 9175947006072322196, guid: f80fcb7f35f9f534cbb06bd42e47820a, type: 3}
       propertyPath: direction
       value: 
@@ -19131,14 +19139,6 @@ PrefabInstance:
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 1531028593}
-    - target: {fileID: 7314122365594824897, guid: d786fe88567bce94e8b8253b4c2b4c4b, type: 3}
-      propertyPath: playerHeight
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 7314122365594824897, guid: d786fe88567bce94e8b8253b4c2b4c4b, type: 3}
-      propertyPath: airMultiplier
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 8795826725794157480, guid: d786fe88567bce94e8b8253b4c2b4c4b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -33
