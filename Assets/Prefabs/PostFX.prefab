@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4687692428355383470}
   - component: {fileID: 5340527133337641492}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PostFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,5 +47,5 @@ MonoBehaviour:
   sharedProfile: {fileID: 11400000, guid: 4804aaa233eff1441b62dc441374195f, type: 2}
   isGlobal: 1
   blendDistance: 0
-  weight: 1
+  weight: 0.5
   priority: 0
