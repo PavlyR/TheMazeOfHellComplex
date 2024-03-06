@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class MenuManager : MonoBehaviour
 {
-    [SerializeField] private GameObject startMenu, loseMenu, playerUI, winMenu;
-    // Start is called before the first frame update
+    //[SerializeField] private GameObject startMenu, loseMenu, playerUI, winMenu;
+    [SerializeField] private GameObject playerUI, loseMenu, winMenu;
      void Awake()
     {
         GameManager.OnGameStateChanged += GameManagerOnOnGameStateChanged;
@@ -18,7 +18,7 @@ public class MenuManager : MonoBehaviour
 
     private void GameManagerOnOnGameStateChanged(GameState state)
     {
-        startMenu.SetActive(state == GameState.StartMenu); //By default the menu is set to intactive. Once gamemanager tells it that the Start menu is active it is visible to the player
+        //startMenu.SetActive(state == GameState.StartMenu); //By default the menu is set to intactive. Once gamemanager tells it that the Start menu is active it is visible to the player
         loseMenu.SetActive(state == GameState.LoseMenu);
         playerUI.SetActive(state == GameState.GameStart);
         winMenu.SetActive(state == GameState.WinMenu);
@@ -36,10 +36,14 @@ public class MenuManager : MonoBehaviour
         Debug.Log("The Game is starting");
         GameManager.Instance.UpdateGameState(GameState.GameStart);
     }
+
+    /*
     public void MainMenuStart()
     {
         GameManager.Instance.UpdateGameState(GameState.StartMenu);
     }
+    */
+
     public void GameQuit()
     {
         Debug.Log("The Game is over");

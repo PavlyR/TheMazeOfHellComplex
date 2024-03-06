@@ -17,7 +17,8 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        UpdateGameState(GameState.StartMenu);
+        //UpdateGameState(GameState.StartMenu);
+        UpdateGameState(GameState.GameStart);
     }
 
  
@@ -31,8 +32,8 @@ public class GameManager : MonoBehaviour
 
         switch (newState) //This switch state looks at the state of the game and does something based on that.
         {
-            case GameState.StartMenu:
-                break;
+            //case GameState.StartMenu:
+                //break;
             case GameState.GameStart:
                 break;
             case GameState.LoseMenu:
@@ -49,7 +50,7 @@ public class GameManager : MonoBehaviour
 
 public enum GameState
 {
-    StartMenu,
+    //StartMenu,
     GameStart,
     LoseMenu,
     WinMenu
