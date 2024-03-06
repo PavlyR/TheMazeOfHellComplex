@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
 
 public class MenuManager : MonoBehaviour
@@ -44,6 +45,7 @@ public class MenuManager : MonoBehaviour
     }
     */
 
+    /*
     public void GameQuit()
     {
         Debug.Log("The Game is over");
@@ -52,6 +54,8 @@ public class MenuManager : MonoBehaviour
 
         Application.Quit(); //This only works when it is exported into an application
     }
+    */
+
     // Update is called once per frame
     void Update()
     {

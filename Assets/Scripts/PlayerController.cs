@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
 
     private void GameManagerOnOnGameStateChanged(GameState state)
     {
-      if(state ==GameState.GameStart)
+      if(state == GameState.GameStart)
         {
             EnableMovement(true); //Will need to add a way to check if the player has had this happen before to best use this
         }
