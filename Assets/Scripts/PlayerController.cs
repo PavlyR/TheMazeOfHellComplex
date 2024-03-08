@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private float moveSpeed;
+    private float moveSpeed;                // This variable is for the player moving speed
     
     [SerializeField] public float walkingSpeed;             // This variable is for the player walking speed
     [SerializeField] public float runningSpeed;             // This variable is for the player running speed
@@ -35,7 +36,7 @@ public class PlayerController : MonoBehaviour
 
     Rigidbody rb;                                           // Variable to store the rigidbody component of the player
 
-    public MovementState state;
+    public MovementState state;                             // This variable tracts the state of the player movement, if the player is walking, running, or jumping
 
     [SerializeField] Transform spawnPoint;
 
@@ -44,6 +45,7 @@ public class PlayerController : MonoBehaviour
      * I made it public before because I thought I would make other classes that the player can inherit from, and i made canMove public so I can use it in other classes.
      */
     
+    // This enum method is in charge of all the player states
     public enum MovementState
     {
         walk,
@@ -158,17 +160,21 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // This method determines the current state of the player
     private void StateHandler()
     {
+        // Checks if the player is on the ground and pressing the left shift key. Then the movemement state changes to run which makes the player go faster 
         if (grounded && Input.GetKey(runKey))
         {
             state = MovementState.run;
             moveSpeed = runningSpeed;
         }
+        // if the player is on the ground, then the moveSpeed is set to the walking speed
         else if (grounded)
         {
             moveSpeed = walkingSpeed;
         }
+        // Otherwise, the player is jumping
         else
         {
             state = MovementState.jump;
