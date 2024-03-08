@@ -224,18 +224,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1676153919403978929, guid: 041648d0b32836d43b34be7d9446e640, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2.5250502
-      objectReference: {fileID: 0}
-    - target: {fileID: 1676153919403978929, guid: 041648d0b32836d43b34be7d9446e640, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2.5250502
-      objectReference: {fileID: 0}
-    - target: {fileID: 1676153919403978929, guid: 041648d0b32836d43b34be7d9446e640, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2.5250502
-      objectReference: {fileID: 0}
-    - target: {fileID: 1676153919403978929, guid: 041648d0b32836d43b34be7d9446e640, type: 3}
       propertyPath: m_LocalPosition.x
       value: -345.92
       objectReference: {fileID: 0}
@@ -275,23 +263,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1986033228806063120, guid: 041648d0b32836d43b34be7d9446e640, type: 3}
-      propertyPath: m_Radius
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1986033228806063120, guid: 041648d0b32836d43b34be7d9446e640, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2020204969831148043, guid: 041648d0b32836d43b34be7d9446e640, type: 3}
       propertyPath: m_Name
       value: Alan
       objectReference: {fileID: 0}
     - target: {fileID: 2869906419129457630, guid: 041648d0b32836d43b34be7d9446e640, type: 3}
-      propertyPath: radius
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2869906419129457630, guid: 041648d0b32836d43b34be7d9446e640, type: 3}
       propertyPath: playerRef
       value: 
       objectReference: {fileID: 373422123}
@@ -299,22 +275,6 @@ PrefabInstance:
       propertyPath: playerRef
       value: 
       objectReference: {fileID: 373422123}
-    - target: {fileID: 6983767624770712209, guid: 041648d0b32836d43b34be7d9446e640, type: 3}
-      propertyPath: patrolRadius
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 6983767624770712209, guid: 041648d0b32836d43b34be7d9446e640, type: 3}
-      propertyPath: ground.m_Bits
-      value: 128
-      objectReference: {fileID: 0}
-    - target: {fileID: 7819062159585528556, guid: 041648d0b32836d43b34be7d9446e640, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8716406989562662110, guid: 041648d0b32836d43b34be7d9446e640, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

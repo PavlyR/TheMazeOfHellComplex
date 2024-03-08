@@ -169,27 +169,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 85df599338686764aa160fbaa6cd0ffc, type: 3}
       propertyPath: m_LocalScale.x
-      value: 5
+      value: 2.5250502
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 85df599338686764aa160fbaa6cd0ffc, type: 3}
       propertyPath: m_LocalScale.y
-      value: 5
+      value: 2.5250502
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 85df599338686764aa160fbaa6cd0ffc, type: 3}
       propertyPath: m_LocalScale.z
-      value: 5
+      value: 2.5250502
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 85df599338686764aa160fbaa6cd0ffc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.23
+      value: -345.92
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 85df599338686764aa160fbaa6cd0ffc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8
+      value: 7.57
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 85df599338686764aa160fbaa6cd0ffc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -22.2
+      value: -324.71353
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 85df599338686764aa160fbaa6cd0ffc, type: 3}
       propertyPath: m_LocalRotation.w
@@ -291,10 +291,11 @@ MonoBehaviour:
   playerRef: {fileID: 0}
   agro: 0
   agroTimer: 10
+  ground:
+    serializedVersion: 2
+    m_Bits: 128
+  patrolRadius: 20
   line: {fileID: 9117727539995506966}
-  spawnPoints:
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!195 &1986033228806063120
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -304,7 +305,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 2020204969831148043}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.1
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -329,7 +330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3831b5c45f6905418a202b6b36fb9c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 20
+  radius: 5
   angle: 138
   playerRef: {fileID: 0}
   alanRef: {fileID: 0}
@@ -357,7 +358,7 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Radius: 1.7
   m_Center: {x: 0, y: 0, z: 0}
@@ -401,7 +402,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Height: 1
