@@ -13,19 +13,21 @@ public class Alan_Controller : MonoBehaviour
     private float timeSinceSpotted = 0f;
 
 
-    
-    private Transform patrolTarget;
+    public LayerMask ground;
+    private Vector3 patrolTarget;
+    private bool targetSet = false;
 
-    
+    [SerializeField]
+    private int patrolRadius;
     [SerializeField]
     private LineRenderer line;
-    private bool aiActive = false;
+    private bool aiActive = true;
 
-    [SerializeField]
+    /*[SerializeField] Waypoint hold over
     private Transform[] spawnPoints;
 
     private int lastPoint;
-
+    */
 
 
 
@@ -40,9 +42,11 @@ public class Alan_Controller : MonoBehaviour
 
         GetComponent<Collider>().isTrigger = true;
     }
+
+    
     private void GameManagerOnOnGameStateChanged(GameState state)
     {
-
+        /* Legacy code from when we used gamestates more. Keeping this since we will need a pause menu in the future which could use sections of this. 
         if (state == GameState.GameStart)
         {
             EnemySpawn(); //This could be handled by the gamemanager in the future. When the gamemanager changes it would call Alan_Mov's Enemy Spawn void maybe instead but will work on that later
@@ -54,54 +58,62 @@ public class Alan_Controller : MonoBehaviour
             aiActive = false;
 
         }
+       */
     }
-    private void EnemySpawn()
+    
+
+    /*
+    private void EnemySpawn() //
     {
         int tempPoint = Random.Range(0, spawnPoints.Length - 1); //Looks at the points that Alan has then selects one at random to spawn at.
         this.transform.position = spawnPoints[tempPoint].position;
-
-        lastPoint = tempPoint;
-        if (tempPoint == spawnPoints.Length - 1)
-        {
-            patrolTarget = spawnPoints[0];
-        }
-        else
-        {
-            patrolTarget = spawnPoints[tempPoint + 1];
-        }
         aiActive = true;
+    } Player spawn is set right now so Alan will be set as well atleast until we change it. This will be saved just in case of that
+    */
 
+    private void Patrol()
+    {
+        while (!targetSet) SetPatrolPoint(); //While the target isn't set it will try to discover a point within the navmesh
 
+        if (targetSet) agent.SetDestination(patrolTarget);
+
+        Vector3 distanceToTarget = transform.position - patrolTarget;
+
+        if (distanceToTarget.magnitude < 1f) targetSet = false; //If Alan is close to the target find a new target 
+    }
+
+    private void SetPatrolPoint() //Note to self, use Random.Range + a sphere around the player to set new walk points
+    {
+        float randomZ = Random.Range(-patrolRadius, patrolRadius);
+        float randomX = Random.Range(-patrolRadius, patrolRadius );
+
+        patrolTarget = new Vector3 (playerRef.transform.position.x + randomX, playerRef.transform.position.y, playerRef.transform.position.z + randomZ);
+        
+        if (Physics.Raycast(patrolTarget, -transform.up, 2f, ground)) //If it is unable to hit a ground object it won't set walkpoint to true meaning the function is called until a walkpoint within the area is found
+        {
+            targetSet = true;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (aiActive == true && agro == false) //(Works sort of)
+        if (aiActive == true && agro == false) 
         {
-            agent.SetDestination(patrolTarget.position);
-           // line.SetPosition(0, transform.position); //set the line's origin
+            Patrol();
             DrawPath(agent.path);
-            if (agent)
-            {
-                if (transform.position.x == patrolTarget.position.x && transform.position.z == patrolTarget.position.z)
-                {
-                    Arrived();
-
-                }
-            }
         }
         if (agro == true && aiActive == true)
         {
             agent.SetDestination(playerRef.transform.position);
             timeSinceSpotted -= Time.deltaTime;
-            // line.SetPosition(0, transform.position);
             DrawPath(agent.path);
 
             if (timeSinceSpotted <= 0)
             {
                 agro = false;
                 timeSinceSpotted = agroTimer;
+                targetSet = false;
 
             }
             
@@ -131,7 +143,8 @@ public class Alan_Controller : MonoBehaviour
 
     }
 
-   private void Arrived()
+    /*
+   private void Arrived() Legacy code from the waypoint system.
     {
         lastPoint++;  ///
 
@@ -149,6 +162,7 @@ public class Alan_Controller : MonoBehaviour
             patrolTarget = spawnPoints[lastPoint + 1];
         }
     }
+    */
 
     private void DrawPath(NavMeshPath path)
     {
