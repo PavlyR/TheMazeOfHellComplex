@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UIElements;
-using UnityEditor; //Allows you to use the textmesh timer
+using UnityEditor;
+using System; //Allows you to use the textmesh timer
 
 public class Timer_Script : MonoBehaviour
 
@@ -17,8 +18,8 @@ public class Timer_Script : MonoBehaviour
     float currentTime = 0f;
     public float timeLimit;
     bool counting;
-    //[SerializeField] private TextMeshProUGUI uiTimer;
-    [SerializeField] private VisualTreeAsset Timer;
+    [SerializeField] private TextMeshProUGUI uiTimer;
+    //[SerializeField] private VisualTreeAsset Timer;
 
     void Start()
     {
@@ -54,7 +55,10 @@ public class Timer_Script : MonoBehaviour
         {
             currentTime -= 1 * Time.deltaTime;
             //timerText.text = currentTime.ToString("0");
-            //uiTimer.text = currentTime.ToString("0");
+            //uiTimer.text = currentTime.ToString(@"mm\:ss\:ff");
+
+            TimeSpan timeSpan = TimeSpan.FromSeconds(currentTime);
+            uiTimer.text = timeSpan.ToString(@"mm\:ss");
         }
         if (counting == true && currentTime <= 0) { //This area allows for a check trigger to stop counting
             print("Times Up");

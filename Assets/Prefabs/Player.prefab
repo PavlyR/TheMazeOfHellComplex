@@ -40,7 +40,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1882244597941460449}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
@@ -192,10 +192,10 @@ MonoBehaviour:
   runningSpeed: 15
   GroundDrag: 5
   playerHeight: 18
-  gravity: -20
+  gravity: 30
   jumpForce: 10
   jumpCoolDown: 0.25
-  airMultiplier: 7
+  airMultiplier: 0.02
   Ground:
     serializedVersion: 2
     m_Bits: 128
