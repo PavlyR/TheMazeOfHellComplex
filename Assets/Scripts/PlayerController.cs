@@ -227,9 +227,9 @@ public class PlayerController : MonoBehaviour
     // This method is responsible over the jumping which makes the player go up the y-axis
     private void Jump()
     {
-        float jumpVelocity = jumpForce;
-        jumpVelocity += gravity * Time.deltaTime;
-        rb.velocity = new Vector3(rb.velocity.x, 10.0f, rb.velocity.z);
+        //float jumpVelocity = jumpForce;
+        //jumpVelocity -= gravity * Time.deltaTime;
+        rb.velocity = new Vector3(rb.velocity.x, 5.0f, rb.velocity.z);
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
     }
 
