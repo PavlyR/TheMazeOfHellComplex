@@ -13147,6 +13147,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: GameQuit
       objectReference: {fileID: 0}
+    - target: {fileID: 8330478073244339696, guid: 96a2fcfecf3c7494093586c96928cd04, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20779,6 +20783,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7891926703336567315, guid: d45c74e87b2af2c4089a9a4d2a91b58d, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8487377250371805402, guid: d45c74e87b2af2c4089a9a4d2a91b58d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -27310,6 +27318,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: MainMenu, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 4791640796399182354, guid: 2d7f72d4bb9220e419f11d3be95d0527, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7038406148465615986, guid: 2d7f72d4bb9220e419f11d3be95d0527, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -27466,7 +27478,7 @@ PrefabInstance:
       objectReference: {fileID: 1258475693}
     - target: {fileID: 501789279566082505, guid: 9b0fa8e2a34a1044d9a2562e43fc6f31, type: 3}
       propertyPath: timeLimit
-      value: 180
+      value: 181
       objectReference: {fileID: 0}
     - target: {fileID: 1768549407981954331, guid: 9b0fa8e2a34a1044d9a2562e43fc6f31, type: 3}
       propertyPath: winMenu
