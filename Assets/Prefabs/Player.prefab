@@ -188,12 +188,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f8d9db986316a04e89095f99e08d653, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkingSpeed: 10
-  runningSpeed: 15
+  walkingSpeed: 5
+  runningSpeed: 7
   GroundDrag: 5
-  playerHeight: 18
-  gravity: 30
-  jumpForce: 10
+  playerHeight: 2
+  gravity: 9.8
+  jumpForce: 0.5
   jumpCoolDown: 0.25
   airMultiplier: 0.02
   Ground:
@@ -327,7 +327,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8559525403455319483}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
