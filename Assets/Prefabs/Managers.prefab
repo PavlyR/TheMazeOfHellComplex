@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5718981ec44612043bcf37c231ba1ba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeLimit: 181
+  timeLimit: 5
   uiTimer: {fileID: 0}
 --- !u!1 &3660357281621512218
 GameObject:

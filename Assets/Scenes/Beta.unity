@@ -1906,26 +1906,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1461764838330997871, guid: 2d7f72d4bb9220e419f11d3be95d0527, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1461764838330997871, guid: 2d7f72d4bb9220e419f11d3be95d0527, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1461764838330997871, guid: 2d7f72d4bb9220e419f11d3be95d0527, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: -358.91895
-      objectReference: {fileID: 0}
     - target: {fileID: 3541376182548254751, guid: 2d7f72d4bb9220e419f11d3be95d0527, type: 3}
       propertyPath: m_Name
       value: WinMenu
       objectReference: {fileID: 0}
-    - target: {fileID: 3541376182548254751, guid: 2d7f72d4bb9220e419f11d3be95d0527, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 3884923724696955750, guid: 2d7f72d4bb9220e419f11d3be95d0527, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2867001188427090227}
     - target: {fileID: 7038406148465615986, guid: 2d7f72d4bb9220e419f11d3be95d0527, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -34098,33 +34086,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 714968227312857223, guid: d45c74e87b2af2c4089a9a4d2a91b58d, type: 3}
-      propertyPath: m_UiScaleMode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1776535782665061609, guid: d45c74e87b2af2c4089a9a4d2a91b58d, type: 3}
       propertyPath: m_Name
       value: LoseMenu
-      objectReference: {fileID: 0}
-    - target: {fileID: 1776535782665061609, guid: d45c74e87b2af2c4089a9a4d2a91b58d, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1994651596680267445, guid: d45c74e87b2af2c4089a9a4d2a91b58d, type: 3}
-      propertyPath: m_AspectRatio
-      value: 1.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7524918754046341488, guid: d45c74e87b2af2c4089a9a4d2a91b58d, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7524918754046341488, guid: d45c74e87b2af2c4089a9a4d2a91b58d, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7524918754046341488, guid: d45c74e87b2af2c4089a9a4d2a91b58d, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7591994150965861839, guid: d45c74e87b2af2c4089a9a4d2a91b58d, type: 3}
       propertyPath: m_Pivot.x
@@ -34206,6 +34170,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8487377250371805402, guid: d45c74e87b2af2c4089a9a4d2a91b58d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2867001188427090227}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -39696,6 +39664,10 @@ PrefabInstance:
       propertyPath: uiTimer
       value: 
       objectReference: {fileID: 2033816661}
+    - target: {fileID: 501789279566082505, guid: 9b0fa8e2a34a1044d9a2562e43fc6f31, type: 3}
+      propertyPath: timeLimit
+      value: 181
+      objectReference: {fileID: 0}
     - target: {fileID: 1768549407981954331, guid: 9b0fa8e2a34a1044d9a2562e43fc6f31, type: 3}
       propertyPath: winMenu
       value: 
@@ -39757,6 +39729,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b0fa8e2a34a1044d9a2562e43fc6f31, type: 3}
+--- !u!114 &2867001188427090227 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1768549407981954331, guid: 9b0fa8e2a34a1044d9a2562e43fc6f31, type: 3}
+  m_PrefabInstance: {fileID: 2867001188427090226}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 961c264164b229f42af77c4ecc1f75ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8916885477361109242
 PrefabInstance:
   m_ObjectHideFlags: 0
