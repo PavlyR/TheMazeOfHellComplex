@@ -39,7 +39,7 @@ public class HeadBob : MonoBehaviour
         else if (inputMagnitude == 0)
         {
             Vector3 standing = Vector3.zero;
-            standing.y += Mathf.Lerp(standing.y, Mathf.Sin(Time.time * 10.0f) * 0.01f * 2.0f, 10.0f * Time.deltaTime);
+            standing.y += Mathf.Lerp(standing.y, Mathf.Sin(Time.time * 2.0f) * 0.01f * 0.5f, 10.0f * Time.deltaTime);
             transform.position += standing;
         }
     }
@@ -57,6 +57,6 @@ public class HeadBob : MonoBehaviour
     private void StopHeadBob()
     {
         if (transform.localPosition == StartPos) return;
-        transform.localPosition = Vector3.Lerp(transform.localPosition, StartPos, 1 * Time.deltaTime);
+        transform.localPosition = Vector3.Lerp(transform.localPosition, StartPos, 0.5f * Time.deltaTime);
     }
 }
