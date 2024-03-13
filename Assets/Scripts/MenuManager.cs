@@ -6,7 +6,7 @@ using UnityEngine;
 public class MenuManager : MonoBehaviour
 {
     //[SerializeField] private GameObject startMenu, loseMenu, playerUI, winMenu;
-    [SerializeField] private GameObject playerUI, loseMenu, winMenu;
+    [SerializeField] private GameObject playerUI, loseMenu, winMenu, pauseMenu;
      void Awake()
     {
         GameManager.OnGameStateChanged += GameManagerOnOnGameStateChanged;
@@ -23,6 +23,7 @@ public class MenuManager : MonoBehaviour
         loseMenu.SetActive(state == GameState.LoseMenu);
         playerUI.SetActive(state == GameState.GameStart);
         winMenu.SetActive(state == GameState.WinMenu);
+        pauseMenu.SetActive(state == GameState.PauseMenu);
         /*
         if (state != GameState.StartMenu || state != GameState.LoseMenu)//When the game state changes if the state isn't the start state it will make sure to turn off that menu.
         {

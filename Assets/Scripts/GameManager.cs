@@ -40,6 +40,8 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.WinMenu:
                 break;
+            case GameState.PauseMenu:
+                break;
             default:
                 break;
 
@@ -53,6 +55,7 @@ public enum GameState
     //StartMenu,
     GameStart,
     LoseMenu,
-    WinMenu
+    WinMenu,
+    PauseMenu
 
 };
