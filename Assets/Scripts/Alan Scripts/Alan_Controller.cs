@@ -22,6 +22,8 @@ public class Alan_Controller : MonoBehaviour
     [SerializeField]
     private LineRenderer line;
     private bool aiActive = true;
+    [SerializeField] LayerMask wall;
+    [SerializeField] NavMeshData walkAble;
 
     /*[SerializeField] Waypoint hold over
     private Transform[] spawnPoints;
@@ -37,7 +39,7 @@ public class Alan_Controller : MonoBehaviour
 
     void Awake()
     {
-        playerRef = GameObject.FindGameObjectWithTag("Player");
+        //playerRef = GameObject.FindGameObjectWithTag("Player");
         GameManager.OnGameStateChanged += GameManagerOnOnGameStateChanged;
 
         GetComponent<Collider>().isTrigger = true;
@@ -79,7 +81,7 @@ public class Alan_Controller : MonoBehaviour
 
         Vector3 distanceToTarget = transform.position - patrolTarget;
 
-        if (distanceToTarget.magnitude < 1f) targetSet = false; //If Alan is close to the target find a new target 
+        if (distanceToTarget.magnitude < 3f) targetSet = false; //If Alan is close to the target find a new target 
     }
 
     private void SetPatrolPoint() //Note to self, use Random.Range + a sphere around the player to set new walk points
@@ -88,12 +90,18 @@ public class Alan_Controller : MonoBehaviour
         float randomX = Random.Range(-patrolRadius, patrolRadius );
 
         patrolTarget = new Vector3 (playerRef.transform.position.x + randomX, playerRef.transform.position.y, playerRef.transform.position.z + randomZ);
-        
-        if (Physics.Raycast(patrolTarget, -transform.up, 2f, ground)) //If it is unable to hit a ground object it won't set walkpoint to true meaning the function is called until a walkpoint within the area is found
+
+        NavMeshHit hit;
+        if (NavMesh.Raycast(patrolTarget, -transform.up, out hit, 3)) //If it is unable to hit a ground object it won't set walkpoint to true meaning the function is called until a walkpoint within the area is found
         {
-            targetSet = true;
+          
+            agent.SetDestination(patrolTarget);
+            if (agent.path.status == NavMeshPathStatus.PathComplete)
+            {
+                targetSet = true;
+            }
+            }
         }
-    }
 
     // Update is called once per frame
     void Update()
@@ -188,7 +196,13 @@ public class Alan_Controller : MonoBehaviour
             {
                 interactObj.Interact(); //calls the interact of the object being looked at.
             }
+            if(hit.transform.gameObject.layer == wall)
+            {
+                print("I am stuck");
+                targetSet = false;
+            }
         }
+
 
     }
 }
