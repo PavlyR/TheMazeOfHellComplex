@@ -35928,22 +35928,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 6883448762971171425, guid: d786fe88567bce94e8b8253b4c2b4c4b, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7049245862342248590, guid: d786fe88567bce94e8b8253b4c2b4c4b, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7314122365594824897, guid: d786fe88567bce94e8b8253b4c2b4c4b, type: 3}
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 504979435}
-    - target: {fileID: 7314122365594824897, guid: d786fe88567bce94e8b8253b4c2b4c4b, type: 3}
-      propertyPath: interactRange
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 8795826725794157480, guid: d786fe88567bce94e8b8253b4c2b4c4b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -420.41

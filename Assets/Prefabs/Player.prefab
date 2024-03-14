@@ -196,6 +196,7 @@ MonoBehaviour:
   jumpForce: 0.5
   jumpCoolDown: 0.25
   airMultiplier: 0.02
+  interactRange: 50
   Ground:
     serializedVersion: 2
     m_Bits: 128
@@ -239,7 +240,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6883448762971171425}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a2fe64865b87a341991259be0ed9805, type: 3}
   m_Name: 
