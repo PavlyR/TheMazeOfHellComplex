@@ -15,7 +15,7 @@ public class Timer_Script : MonoBehaviour
      * of how that would be done.
      */
 {
-    float currentTime = 0f;
+    public static float currentTime = 0f;
     public float timeLimit;
     bool counting;
     [SerializeField] private TextMeshProUGUI uiTimer;
