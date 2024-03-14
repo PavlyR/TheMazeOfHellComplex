@@ -23,15 +23,17 @@ public class Door1 : MonoBehaviour, IInteractable //Sorry had to add the interac
     // This float variable stores the time that it takes for the door to open
     protected float openTime = 0;
 
+    [SerializeField] GameObject pivotPoint;
+
     // Start is called before the first frame update
     void Start()
     {
         // initializing the default and current angle of the door
-        defaultRotationAngle = transform.localEulerAngles.y;
-        currentRotationAngle = transform.localEulerAngles.y;
+        defaultRotationAngle = pivotPoint.transform.localEulerAngles.y;
+        currentRotationAngle = pivotPoint.transform.localEulerAngles.y;
 
         // initializing the collider which is a sphere collider that will detect the player when close to the door to interact with the door
-        GetComponent<Collider>().isTrigger = true;
+        //GetComponent<Collider>().isTrigger = true;
     }
 
     void Awake()
@@ -57,22 +59,27 @@ public class Door1 : MonoBehaviour, IInteractable //Sorry had to add the interac
         }
         
         // This code is responsible for the continuous angle changes of the door opening
-        transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, Mathf.LerpAngle(currentRotationAngle, defaultRotationAngle + (open ? openDoorAngle : 0), openTime), transform.localEulerAngles.z);
+        pivotPoint.transform.localEulerAngles = new Vector3(pivotPoint.transform.localEulerAngles.x, Mathf.LerpAngle(currentRotationAngle, defaultRotationAngle + (open ? openDoorAngle : 0), openTime), pivotPoint.transform.localEulerAngles.z);
         
         // This if statement checks if the player is close to the door and if the player pressed the E button then it opens the door
+     
+        /* Legacy Code
         if (Input.GetKeyDown(KeyCode.E) && enter)
         {
             OnOpen();
         }
+        */
     }
 
     protected virtual void OnOpen() //This void was made to allow for the win door to work with the classical door code.
     {
         open = !open;
-        currentRotationAngle = transform.localEulerAngles.y;
+        currentRotationAngle = pivotPoint.transform.localEulerAngles.y;
         openTime = 0;
     }
 
+
+    /* Legacy code from when colliders where used
     // This method checks if the player has entered the collider and checks if the player prefab has the player tag
     private void OnTriggerEnter(Collider other)
     {
@@ -90,10 +97,11 @@ public class Door1 : MonoBehaviour, IInteractable //Sorry had to add the interac
             enter = false;
         }
     }
+    */
     public void Interact()
     {
-        if (open == false) {
+        //if (open == false) {
             OnOpen();
-                }
+           //     }
     }
 }

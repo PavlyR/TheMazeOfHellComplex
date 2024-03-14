@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public float jumpForce;                // This variable is for the player jumping speed
     [SerializeField] public float jumpCoolDown;             // This variable is to stop the player from jumping while in mid-air
     [SerializeField] public float airMultiplier;            // This variable is to time the player while in the air after a jump
+    [SerializeField] public float interactRange;
     
     public LayerMask Ground;                                // This is a LayerMask variable for the ground that helps the player detect the ground
 
@@ -157,6 +158,17 @@ public class PlayerController : MonoBehaviour
             Jump();
             // resets the DontJump variable so the player can jump once the player lands on the ground
             Invoke(nameof(ResetJump), jumpCoolDown);
+        }
+        if (Input.GetKeyDown(KeyCode.E)) //Classic check to see if the interact key is down
+        {
+            Ray r = new Ray(transform.position, direction.forward); //Checks to see if the object is close enough to the player
+            if (Physics.Raycast(r, out RaycastHit hitInfo, interactRange))
+            {
+                if (hitInfo.collider.gameObject.TryGetComponent(out IInteractable interactObj))
+                {
+                    interactObj.Interact(); //calls the interact of the object being looked at.
+                }
+            }
         }
     }
 
