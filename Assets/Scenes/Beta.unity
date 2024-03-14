@@ -17882,7 +17882,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3822619667721083922, guid: 36fba1827153c8246a8c70c21e856c28, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4100797527496191930, guid: 36fba1827153c8246a8c70c21e856c28, type: 3}
       propertyPath: m_LocalScale.x
@@ -17994,7 +17994,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6007313029750271831, guid: 36fba1827153c8246a8c70c21e856c28, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6933798399474819949, guid: 36fba1827153c8246a8c70c21e856c28, type: 3}
       propertyPath: m_Layer
@@ -18002,11 +18002,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7106545855376342916, guid: 36fba1827153c8246a8c70c21e856c28, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7153958537301909416, guid: 36fba1827153c8246a8c70c21e856c28, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7212056850671019767, guid: 36fba1827153c8246a8c70c21e856c28, type: 3}
       propertyPath: m_Layer
@@ -18030,7 +18030,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8193327072534696227, guid: 36fba1827153c8246a8c70c21e856c28, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -36039,7 +36039,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6883448762971171425, guid: d786fe88567bce94e8b8253b4c2b4c4b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7314122365594824897, guid: d786fe88567bce94e8b8253b4c2b4c4b, type: 3}
       propertyPath: spawnPoint
