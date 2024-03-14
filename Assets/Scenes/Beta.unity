@@ -3313,7 +3313,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6983767624770712209, guid: 041648d0b32836d43b34be7d9446e640, type: 3}
       propertyPath: patrolRadius
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7347869042746058994, guid: 041648d0b32836d43b34be7d9446e640, type: 3}
       propertyPath: angle
