@@ -29103,6 +29103,7 @@ GameObject:
   - component: {fileID: 1454134592}
   - component: {fileID: 1454134595}
   - component: {fileID: 1454134594}
+  - component: {fileID: 1454134596}
   m_Layer: 0
   m_Name: AudioSourceObject
   m_TagString: Untagged
@@ -29122,7 +29123,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7a7fc65824c9ebe40aca8eee32e2a28a, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.25
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -29238,7 +29239,6 @@ MonoBehaviour:
   backgroundMusic: {fileID: 1454134592}
   music: {fileID: 8300000, guid: 7a7fc65824c9ebe40aca8eee32e2a28a, type: 3}
   heartBeatSound: {fileID: 1454134595}
-  beat: {fileID: 8300000, guid: 20901b62c10c2774790dc7755b9f45c5, type: 3}
   play: 0
 --- !u!82 &1454134595
 AudioSource:
@@ -29258,7 +29258,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 120
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -29336,6 +29336,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1454134596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454134591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca338bae25352d647b6fc3db0dd703d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 1044940705}
+  music: {fileID: 1454134592}
+  beat: {fileID: 1454134595}
 --- !u!1001 &1455127449
 PrefabInstance:
   m_ObjectHideFlags: 0

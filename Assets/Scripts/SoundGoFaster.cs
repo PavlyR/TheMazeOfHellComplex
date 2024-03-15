@@ -9,9 +9,8 @@ public class SoundGoFaster : Timer_Script
     [SerializeField] AudioClip music;
 
     [SerializeField] AudioSource heartBeatSound;
-    [SerializeField] AudioClip beat;
 
-    private float volume = 0.25f;
+    private float volume = 0.50f;
     private float pitch = 1.0f;
     private float transition = 1.75f;
     private float percentage = 0f;
@@ -23,9 +22,7 @@ public class SoundGoFaster : Timer_Script
     {
         backgroundMusic.PlayOneShot(music);
         backgroundMusic.PlayScheduled(AudioSettings.dspTime + music.length);
-
-        heartBeatSound.PlayOneShot(beat);
-        heartBeatSound.PlayScheduled(AudioSettings.dspTime + music.length);
+        heartBeatSound.Play();
     }
     void Awake()
     {
@@ -47,39 +44,32 @@ public class SoundGoFaster : Timer_Script
     // Update is called once per frame
     void Update()
     {
-        if (play == true && Timer_Script.currentTime > 10.0f)
+        if (play == true && Timer_Script.currentTime >= 60.0f)
         {
             backgroundMusic.pitch = pitch;
-
-            heartBeatSound.pitch = pitch;
             heartBeatSound.volume = volume;
+            heartBeatSound.pitch = pitch;
         }
         if (play == true && Timer_Script.currentTime <= 60.0f)
         {
             backgroundMusic.pitch = Mathf.Lerp(pitch, 2.0f, percentage);
-
-            heartBeatSound.volume = 0.7f;
-            heartBeatSound.pitch = Mathf.Lerp(pitch, 1.5f, percentage);
-
             percentage += Time.deltaTime / transition;
+            heartBeatSound.volume = 0.7f;
+            heartBeatSound.pitch = 1.5f;   
         }
         if (play == true && Timer_Script.currentTime <= 30.0f)
         {
             backgroundMusic.pitch = Mathf.Lerp(2.0f, 2.5f, percentage);
-
-            heartBeatSound.volume = 0.8f;
-            heartBeatSound.pitch = Mathf.Lerp(pitch, 2.0f, percentage);
-
             percentage += Time.deltaTime / transition;
+            heartBeatSound.volume = 0.8f;
+            heartBeatSound.pitch = 2.0f;
         }
         if (play == true && Timer_Script.currentTime <= 10.0f)
         {
             backgroundMusic.pitch = Mathf.Lerp(2.5f, 3.0f, percentage);
-
-            heartBeatSound.volume = 1f;
-            heartBeatSound.pitch = Mathf.Lerp(pitch, 2.5f, percentage);
-
             percentage += Time.deltaTime / transition;
+            heartBeatSound.volume = 1f;
+            heartBeatSound.pitch = 3.0f;
         }
         if (play == false || Timer_Script.currentTime == 0f)
         {
