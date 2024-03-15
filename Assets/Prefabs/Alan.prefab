@@ -231,6 +231,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Alan
       objectReference: {fileID: 0}
+    - target: {fileID: 3152848262345445518, guid: 85df599338686764aa160fbaa6cd0ffc, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5178f2ab6236de744a858a36e35ab4b1, type: 2}
     - target: {fileID: 5866666021909216657, guid: 85df599338686764aa160fbaa6cd0ffc, type: 3}
       propertyPath: m_Controller
       value: 
@@ -296,6 +300,10 @@ MonoBehaviour:
     m_Bits: 128
   patrolRadius: 20
   line: {fileID: 9117727539995506966}
+  wall:
+    serializedVersion: 2
+    m_Bits: 0
+  walkAble: {fileID: 0}
 --- !u!195 &1986033228806063120
 NavMeshAgent:
   m_ObjectHideFlags: 0
