@@ -15,6 +15,7 @@ public class SoundGoFaster : Timer_Script
     private float pitch = 1.0f;
     private float transition = 1.75f;
     private float percentage = 0f;
+
     public bool play;
 
     // Start is called before the first frame update
@@ -80,7 +81,7 @@ public class SoundGoFaster : Timer_Script
 
             percentage += Time.deltaTime / transition;
         }
-        if (play == false && Timer_Script.currentTime == 0f)
+        if (play == false || Timer_Script.currentTime == 0f)
         {
             backgroundMusic.Stop();
             heartBeatSound.Stop();
