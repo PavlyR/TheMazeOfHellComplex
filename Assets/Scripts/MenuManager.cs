@@ -7,11 +7,11 @@ public class MenuManager : MonoBehaviour
 {
     //[SerializeField] private GameObject startMenu, loseMenu, playerUI, winMenu;
     [SerializeField] private GameObject playerUI, loseMenu, winMenu, pauseMenu;
-     void Awake()
+     void Start()
     {
         GameManager.OnGameStateChanged += GameManagerOnOnGameStateChanged;
-
-     }
+        DontDestroyOnLoad(this);
+    }
     private void OnDestroy()
     {
         GameManager.OnGameStateChanged -= GameManagerOnOnGameStateChanged;

@@ -7,11 +7,13 @@ public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
     public static bool isPaused;
+    public GameState State;
 
     // Start is called before the first frame update
     void Start()
     {
         pauseMenu.SetActive(false);
+        GameManager.Instance.UpdateGameState(GameState.GameStart);
     }
 
     // Update is called once per frame
@@ -56,6 +58,7 @@ public class PauseMenu : MonoBehaviour
     public void GoToMainMenu()
     {
         Time.timeScale = 1f;
+        //GameManager.Instance.UpdateGameState(GameState.GameStart);
         SceneManager.LoadScene("Main_Menu");
     }
 }

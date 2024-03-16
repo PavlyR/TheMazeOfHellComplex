@@ -37,7 +37,7 @@ public class Alan_Controller : MonoBehaviour
     /// This script is to test the navmesh, it will be incoperated into the Alan mov once the floor is completed.
     /// </summary>
 
-    void Awake()
+    void Start()
     {
         //playerRef = GameObject.FindGameObjectWithTag("Player");
         GameManager.OnGameStateChanged += GameManagerOnOnGameStateChanged;

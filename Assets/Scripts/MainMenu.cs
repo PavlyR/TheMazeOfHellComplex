@@ -12,6 +12,7 @@ public class MainMenu : MonoBehaviour
 
     public void BackToMain()
     {
+     
         SceneManager.LoadScene(0);
     }
 

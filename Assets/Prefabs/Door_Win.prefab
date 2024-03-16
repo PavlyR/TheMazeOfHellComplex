@@ -124,6 +124,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   openDoorSpeed: 2
   openDoorAngle: 90
+  pivotPoint: {fileID: 0}
 --- !u!1001 &3147397478888045717
 PrefabInstance:
   m_ObjectHideFlags: 0

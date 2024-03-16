@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     {
         //UpdateGameState(GameState.StartMenu);
         UpdateGameState(GameState.GameStart);
+        DontDestroyOnLoad(this);
     }
 
  

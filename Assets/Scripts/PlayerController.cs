@@ -4,9 +4,12 @@ using System.Data;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class PlayerController : MonoBehaviour
 {
+  
     private float moveSpeed;                // This variable is for the player moving speed
     
     [SerializeField] public float walkingSpeed;             // This variable is for the player walking speed
@@ -57,8 +60,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        GameManager.OnGameStateChanged += GameManagerOnOnGameStateChanged;
-        EnableMovement(true);
+
     }
 
     private void GameManagerOnOnGameStateChanged(GameState state)
@@ -100,6 +102,9 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();                         // Initializing the rigidbody component
         rb.freezeRotation = true;
+        GameManager.OnGameStateChanged += GameManagerOnOnGameStateChanged;
+        EnableMovement(true);
+        DontDestroyOnLoad(this);
     }
 
     // Update is called once per frame
