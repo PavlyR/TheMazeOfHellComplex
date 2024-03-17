@@ -9,6 +9,8 @@ public class PauseMenu : MonoBehaviour
     public static bool isPaused;
     public GameState State;
 
+    bool play;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,10 +18,27 @@ public class PauseMenu : MonoBehaviour
         GameManager.Instance.UpdateGameState(GameState.GameStart);
     }
 
+    void Awake()
+    {
+        GameManager.OnGameStateChanged += GameManagerOnGameStateChanged;
+    }
+
+    private void GameManagerOnGameStateChanged(GameState state)
+    {
+        if (state == GameState.GameStart)
+        {
+            play = true;
+        }
+        else
+        {
+            play = false;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && play == true)
         {
             if(isPaused) 
             {

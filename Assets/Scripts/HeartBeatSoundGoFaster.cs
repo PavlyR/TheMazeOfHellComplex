@@ -1,14 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Build;
 using UnityEngine;
+using UnityEngine.UIElements;
 
-public class SoundGoFaster : Timer_Script
+public class HeartBeatSoundGoFaster : Timer_Script
 {
-    [SerializeField] AudioSource background;
-    [SerializeField] AudioClip sound;
+    [SerializeField] AudioSource HeartBeat;
 
-    private float pitch = 1.0f;
+    private float pitch;
     private float transition = 1.75f;
     private float percentage = 0f;
 
@@ -17,9 +16,9 @@ public class SoundGoFaster : Timer_Script
     // Start is called before the first frame update
     void Start()
     {
-        background.PlayOneShot(sound);
-        background.PlayScheduled(AudioSettings.dspTime + sound.length);
+        HeartBeating();
     }
+
     void Awake()
     {
         GameManager.OnGameStateChanged += GameManagerOnGameStateChanged;
@@ -40,35 +39,33 @@ public class SoundGoFaster : Timer_Script
     // Update is called once per frame
     void Update()
     {
+        
+    }
+
+    public void HeartBeating()
+    {
         if (play == true && Timer_Script.currentTime >= 60.0f)
         {
-            background.pitch = pitch;
+            HeartBeat.pitch = pitch;
         }
         if (play == true && Timer_Script.currentTime <= 60.0f)
         {
-            background.pitch = Mathf.Lerp(pitch, pitch * 2.0f, percentage);
+            HeartBeat.pitch = Mathf.Lerp(pitch, pitch * 2.0f, percentage);
             percentage += Time.deltaTime / transition;
         }
         if (play == true && Timer_Script.currentTime <= 30.0f)
         {
-            background.pitch = Mathf.Lerp(pitch, pitch + 0.5f, percentage);
+            HeartBeat.pitch = Mathf.Lerp(pitch, pitch + 0.5f, percentage);
             percentage += Time.deltaTime / transition;
         }
         if (play == true && Timer_Script.currentTime <= 10.0f)
         {
-            background.pitch = Mathf.Lerp(pitch, pitch + 0.5f, percentage);
+            HeartBeat.pitch = Mathf.Lerp(pitch, pitch + 0.5f, percentage);
             percentage += Time.deltaTime / transition;
         }
-        /*
-        if (play == true && run == true)
-        {
-            background.pitch = Mathf.Lerp(pitch, pitch + 0.5f, percentage);
-            percentage += Time.deltaTime / transition;
-        }
-        */
         if (play == false || Timer_Script.currentTime == 0f)
         {
-            background.Stop();
+            HeartBeat.Pause();
         }
     }
 }

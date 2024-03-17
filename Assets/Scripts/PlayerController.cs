@@ -9,8 +9,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-  
-    private float moveSpeed;                // This variable is for the player moving speed
+    float moveSpeed;                                         // This variable is for the player moving speed
     
     [SerializeField] public float walkingSpeed;             // This variable is for the player walking speed
     [SerializeField] public float runningSpeed;             // This variable is for the player running speed

@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class PauseMusic : PauseMenu
 {
-    [SerializeField] AudioSource music;
-    [SerializeField] AudioSource beat;
+    [SerializeField] AudioSource sound;
 
     // Start is called before the first frame update
     void Start()
@@ -18,13 +17,11 @@ public class PauseMusic : PauseMenu
     {
         if (PauseMenu.isPaused)
         {
-            music.Pause();
-            beat.Pause();
+            sound.Pause();
         }
         if (!PauseMenu.isPaused)
         {
-            music.Play();
-            beat.Play();
+            sound.Play();
         }
     }
 }
