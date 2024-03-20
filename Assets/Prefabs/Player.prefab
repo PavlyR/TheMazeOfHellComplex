@@ -189,8 +189,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f8d9db986316a04e89095f99e08d653, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 0
   walkingSpeed: 5
   runningSpeed: 7
+  zoned: 2.5
   GroundDrag: 5
   playerHeight: 1
   gravity: 9.8
@@ -201,6 +203,10 @@ MonoBehaviour:
   Ground:
     serializedVersion: 2
     m_Bits: 128
+  ShadowZone:
+    serializedVersion: 2
+    m_Bits: 1024
+  col: {fileID: 7948527351397830247}
   direction: {fileID: 3244926237278540685}
   jumpKey: 32
   runKey: 304

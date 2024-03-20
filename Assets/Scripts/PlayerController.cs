@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using System.Data;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
 public class PlayerController : MonoBehaviour
 {
-    float moveSpeed;                                         // This variable is for the player moving speed
+    public float moveSpeed;                                  // This variable is for the player moving speed
     
     [SerializeField] public float walkingSpeed;             // This variable is for the player walking speed
     [SerializeField] public float runningSpeed;             // This variable is for the player running speed
+    [SerializeField] public float slowMovement;
 
     [SerializeField] public float GroundDrag;               // This variable to create drag for the player movement because the physics engine in Unity makes the player movement floaty, this variable helps with that
     [SerializeField] public float playerHeight;             // This variable is for the player height
@@ -53,9 +55,8 @@ public class PlayerController : MonoBehaviour
     {
         walk,
         run,
-        jump
+        jump,
     }
-
 
     private void Awake()
     {
@@ -73,6 +74,7 @@ public class PlayerController : MonoBehaviour
             EnableMovement(false); //Whenever a state change happen it check to see if the player is in the "game" and then if not enables menu controls
         }
     }
+
     private void EnableMovement(bool enable) //This void will turn on and off the player controls
     {
         if(enable == true)
@@ -134,6 +136,7 @@ public class PlayerController : MonoBehaviour
             this.transform.rotation = spawnPoint.rotation; 
         }
     }
+
     private void FixedUpdate()
     {
         // For some reason, Unity does not like the player movement method to be in the update method, so I placed in the FixedUpdate, but this method is incharge of the player movement
@@ -163,6 +166,7 @@ public class PlayerController : MonoBehaviour
             // resets the DontJump variable so the player can jump once the player lands on the ground
             Invoke(nameof(ResetJump), jumpCoolDown);
         }
+
         if (Input.GetKeyDown(KeyCode.E)) //Classic check to see if the interact key is down
         {
             Ray r = new Ray(transform.position, direction.forward); //Checks to see if the object is close enough to the player
@@ -188,13 +192,14 @@ public class PlayerController : MonoBehaviour
         // if the player is on the ground, then the moveSpeed is set to the walking speed
         else if (grounded)
         {
+            state = MovementState.walk;
             moveSpeed = walkingSpeed;
         }
         // Otherwise, the player is jumping
-        else
+        else if (!grounded)
         {
             state = MovementState.jump;
-        }
+        }   
     }
 
     private void PlayerMovement()
@@ -219,7 +224,7 @@ public class PlayerController : MonoBehaviour
     {
         // moveDirection variable stores the values from the horizontal value and vertical value
         moveDirection = direction.forward * verticalInput + direction.right * horizontalInput;
-        // sets teh running speed to runningSpeed
+        // sets the running speed to runningSpeed
         rb.AddForce(moveDirection.normalized * runningSpeed * 10f);
     }
 
@@ -253,5 +258,21 @@ public class PlayerController : MonoBehaviour
     private void ResetJump()
     {
         jumpCheck = true;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other == other.gameObject.CompareTag("ShadowZone"))
+        {
+            Debug.Log("I am in the zone");
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+       if (other == other.gameObject.CompareTag("ShadowZone"))
+        {
+            Debug.Log("I have exited the zone");
+        }
     }
 }
