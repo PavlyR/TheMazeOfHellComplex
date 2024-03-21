@@ -5,21 +5,18 @@ using UnityEngine;
 
 public class SoundGoFaster : Timer_Script
 {
-    [SerializeField] AudioSource background;
-    [SerializeField] AudioClip sound;
+    public AudioSource background;
 
-    private float pitch = 1.0f;
-    private float transition = 1.75f;
-    private float percentage = 0f;
+    public float pitch = 1.0f;
+    public float transition = 1.75f;
+    public float percentage = 0f;
 
     public bool play;
 
     // Start is called before the first frame update
     void Start()
     {
-        background.PlayOneShot(sound);
-        background.PlayScheduled(AudioSettings.dspTime + sound.length);
-        background.loop = true;
+        background = GetComponent<AudioSource>();
     }
     void Awake()
     {
@@ -41,10 +38,6 @@ public class SoundGoFaster : Timer_Script
     // Update is called once per frame
     void Update()
     {
-        if (play == true && Timer_Script.currentTime >= 60.0f)
-        {
-            background.pitch = pitch;
-        }
         if (play == true && Timer_Script.currentTime <= 60.0f)
         {
             background.pitch = Mathf.Lerp(pitch, pitch * 2.0f, percentage);

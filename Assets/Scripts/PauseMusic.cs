@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class PauseMusic : PauseMenu
 {
-    [SerializeField] AudioSource sound;
+    [SerializeField] public AudioSource sound;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        sound = GetComponent<AudioSource>();    
     }
 
     // Update is called once per frame
@@ -21,7 +21,7 @@ public class PauseMusic : PauseMenu
         }
         if (!PauseMenu.isPaused)
         {
-            sound.Play();
+            sound.UnPause();
         }
     }
 }

@@ -1182,10 +1182,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ba81763db466f84e9403cab46f09864, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeLimit: 181
+  timeLimit: 0
   uiTimer: {fileID: 2033816661}
-  background: {fileID: 58585002}
-  sound: {fileID: 8300000, guid: 485becd1f21f4f747aad1b0e85132fa8, type: 3}
+  background: {fileID: 0}
+  pitch: 1
+  transition: 1.75
+  percentage: 0
   play: 0
 --- !u!114 &58585005
 MonoBehaviour:
@@ -1201,7 +1203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1044940705}
   State: 0
-  sound: {fileID: 58585002}
+  sound: {fileID: 0}
 --- !u!1001 &63906982
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39279,10 +39281,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ba81763db466f84e9403cab46f09864, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeLimit: 181
+  timeLimit: 0
   uiTimer: {fileID: 2033816661}
-  background: {fileID: 2057333035}
-  sound: {fileID: 8300000, guid: 7a7fc65824c9ebe40aca8eee32e2a28a, type: 3}
+  background: {fileID: 0}
+  pitch: 1
+  transition: 1.75
+  percentage: 0
   play: 0
 --- !u!82 &2057333035
 AudioSource:
@@ -39296,9 +39300,9 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7a7fc65824c9ebe40aca8eee32e2a28a, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.7
+  m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -39409,7 +39413,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1044940705}
   State: 0
-  sound: {fileID: 2057333035}
+  sound: {fileID: 0}
 --- !u!1001 &2058283529
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40116,6 +40120,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spot Light (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5116029374301347169, guid: 8f1ec094a0aaf474897c65cbd5d7e3a2, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116029374301347169, guid: 8f1ec094a0aaf474897c65cbd5d7e3a2, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 1044940705}
     - target: {fileID: 5502895949831172248, guid: 8f1ec094a0aaf474897c65cbd5d7e3a2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.7000117
@@ -41697,6 +41709,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spot Light
       objectReference: {fileID: 0}
+    - target: {fileID: 5116029374301347169, guid: 8f1ec094a0aaf474897c65cbd5d7e3a2, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 1044940705}
     - target: {fileID: 5502895949831172248, guid: 8f1ec094a0aaf474897c65cbd5d7e3a2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.2210093

@@ -36,6 +36,7 @@ public class FlickeringLights : MonoBehaviour
          _light.enabled = !_light.enabled;
          Timer = Random.Range(MinTime, MaxTime);
          AS.PlayOneShot(LightAudio);
+         //AS.Play();
         }
     }
 

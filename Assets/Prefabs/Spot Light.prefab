@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5502895949831172248}
   - component: {fileID: 7700528129501335932}
   - component: {fileID: 6954402169841211605}
+  - component: {fileID: 5116029374301347169}
   - component: {fileID: 7701754642069459547}
   - component: {fileID: 7264000917778421733}
   m_Layer: 0
@@ -115,6 +116,21 @@ MonoBehaviour:
   Timer: 0
   AS: {fileID: 0}
   LightAudio: {fileID: 0}
+--- !u!114 &5116029374301347169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4696092045331441480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca338bae25352d647b6fc3db0dd703d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 0}
+  State: 0
+  sound: {fileID: 0}
 --- !u!23 &7701754642069459547
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -169,13 +185,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 32fdd5ada473835439c4df178da4f61a, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 256
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
