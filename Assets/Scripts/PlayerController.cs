@@ -14,7 +14,6 @@ public class PlayerController : MonoBehaviour
     
     [SerializeField] public float walkingSpeed;             // This variable is for the player walking speed
     [SerializeField] public float runningSpeed;             // This variable is for the player running speed
-    [SerializeField] public float slowMovement;
 
     [SerializeField] public float GroundDrag;               // This variable to create drag for the player movement because the physics engine in Unity makes the player movement floaty, this variable helps with that
     [SerializeField] public float playerHeight;             // This variable is for the player height
@@ -258,25 +257,5 @@ public class PlayerController : MonoBehaviour
     private void ResetJump()
     {
         jumpCheck = true;
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("ShadowZone"))
-        {
-            Debug.Log("I am in the zone");
-            moveDirection = direction.forward * verticalInput + direction.right * horizontalInput;
-            rb.AddForce(moveDirection.normalized * slowMovement * 10f, ForceMode.Force);
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("ShadowZone"))
-        {
-            Debug.Log("I have exited the zone");
-            moveDirection = direction.forward * verticalInput + direction.right * horizontalInput;
-            rb.AddForce(moveDirection.normalized * walkingSpeed * 10f, ForceMode.Force);
-        }
     }
 }

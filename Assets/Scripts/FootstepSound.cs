@@ -15,36 +15,36 @@ public class FootstepSound : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey("w"))
+        if(Input.GetKey("w") || Input.GetKey("up"))
         {
             FootSteps();
         }
-        if(Input.GetKey("a"))
+        if(Input.GetKey("a") || Input.GetKey("left"))
         {
             FootSteps();
         }
-        if(Input.GetKey("s"))
+        if(Input.GetKey("s") || Input.GetKey("down"))
         {
             FootSteps();
         }
-        if(Input.GetKey("d"))
+        if(Input.GetKey("d") || Input.GetKey("right"))
         {
             FootSteps();
         }
 
-        if (Input.GetKeyUp("w"))
+        if (Input.GetKeyUp("w") || Input.GetKeyUp("up"))
         {
             StopFootSteps();
         }
-        if (Input.GetKeyUp("a"))
+        if (Input.GetKeyUp("a") || Input.GetKeyUp("left"))
         {
             StopFootSteps();
         }
-        if (Input.GetKeyUp("s"))
+        if (Input.GetKeyUp("s") || Input.GetKeyUp("down"))
         {
             StopFootSteps();
         }
-        if (Input.GetKeyUp("d"))
+        if (Input.GetKeyUp("d") || Input.GetKeyUp("right"))
         {
             StopFootSteps();
         }
@@ -59,5 +59,4 @@ public class FootstepSound : MonoBehaviour
     {
         footstep.SetActive(false);
     }
-
 }
