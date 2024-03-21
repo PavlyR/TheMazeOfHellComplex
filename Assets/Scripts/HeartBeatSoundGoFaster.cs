@@ -39,11 +39,6 @@ public class HeartBeatSoundGoFaster : Timer_Script
     // Update is called once per frame
     void Update()
     {
-        HeartBeating();
-    }
-
-    public void HeartBeating()
-    {
         if (play == true && Timer_Script.currentTime >= 60.0f)
         {
             HeartBeat.pitch = pitch;
