@@ -24,7 +24,7 @@ public class Alan_Controller : MonoBehaviour
     private bool aiActive = true;
     [SerializeField] LayerMask wall;
     [SerializeField] NavMeshData walkAble;
-
+    [SerializeField] private Transform[] spawnPoints;
     /*[SerializeField] Waypoint hold over
     private Transform[] spawnPoints;
 
@@ -48,7 +48,7 @@ public class Alan_Controller : MonoBehaviour
     
     private void GameManagerOnOnGameStateChanged(GameState state)
     {
-        /* Legacy code from when we used gamestates more. Keeping this since we will need a pause menu in the future which could use sections of this. 
+         
         if (state == GameState.GameStart)
         {
             EnemySpawn(); //This could be handled by the gamemanager in the future. When the gamemanager changes it would call Alan_Mov's Enemy Spawn void maybe instead but will work on that later
@@ -60,18 +60,18 @@ public class Alan_Controller : MonoBehaviour
             aiActive = false;
 
         }
-       */
+      
     }
     
 
-    /*
-    private void EnemySpawn() //
+    
+    private void EnemySpawn()
     {
         int tempPoint = Random.Range(0, spawnPoints.Length - 1); //Looks at the points that Alan has then selects one at random to spawn at.
         this.transform.position = spawnPoints[tempPoint].position;
         aiActive = true;
-    } Player spawn is set right now so Alan will be set as well atleast until we change it. This will be saved just in case of that
-    */
+    } 
+    
 
     private void Patrol()
     {
