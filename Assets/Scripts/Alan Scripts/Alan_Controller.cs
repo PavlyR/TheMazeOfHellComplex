@@ -25,6 +25,9 @@ public class Alan_Controller : MonoBehaviour
     [SerializeField] LayerMask wall;
     [SerializeField] NavMeshData walkAble;
     [SerializeField] private Transform[] spawnPoints;
+
+    public static GameObject alan;
+
     /*[SerializeField] Waypoint hold over
     private Transform[] spawnPoints;
 
@@ -45,7 +48,25 @@ public class Alan_Controller : MonoBehaviour
         GetComponent<Collider>().isTrigger = true;
     }
 
-    
+    void Awake()
+    {
+        if(alan == null)
+        { 
+            alan = this.gameObject;
+            DontDestroyOnLoad(alan);
+          
+        }
+        else
+        {
+            GameObject[] gameObjects;
+            gameObjects = GameObject.FindGameObjectsWithTag("Alan");
+            DestroyImmediate(gameObjects[1]);
+        }
+        
+        
+    }
+
+
     private void GameManagerOnOnGameStateChanged(GameState state)
     {
          
