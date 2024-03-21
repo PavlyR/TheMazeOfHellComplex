@@ -1071,7 +1071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30a7e2e9d6a34aa44a2192669162f1f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeLimit: 0
+  timeLimit: 181
   uiTimer: {fileID: 2033816661}
   HeartBeat: {fileID: 58585002}
   play: 0
@@ -2079,6 +2079,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1280168145225152278, guid: 2d7f72d4bb9220e419f11d3be95d0527, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c8fa54afb0f1f524eb2dbed62ba6ace8, type: 3}
     - target: {fileID: 1461764838330997871, guid: 2d7f72d4bb9220e419f11d3be95d0527, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -2089,7 +2093,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1461764838330997871, guid: 2d7f72d4bb9220e419f11d3be95d0527, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: -349.9823
       objectReference: {fileID: 0}
     - target: {fileID: 3541376182548254751, guid: 2d7f72d4bb9220e419f11d3be95d0527, type: 3}
       propertyPath: m_Name
@@ -28062,7 +28066,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb123c7d9b0b4d542984fc33144d6c05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraShake: {fileID: 0}
 --- !u!1001 &1350626004
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31104,7 +31107,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb123c7d9b0b4d542984fc33144d6c05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraShake: {fileID: 0}
 --- !u!114 &1512836524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31117,7 +31119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb123c7d9b0b4d542984fc33144d6c05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraShake: {fileID: 0}
 --- !u!1001 &1514112853
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35873,6 +35874,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3675315418852532231, guid: d45c74e87b2af2c4089a9a4d2a91b58d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: efab358a996c1574ea952a91850390e3, type: 3}
     - target: {fileID: 7524918754046341488, guid: d45c74e87b2af2c4089a9a4d2a91b58d, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -35883,7 +35888,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7524918754046341488, guid: d45c74e87b2af2c4089a9a4d2a91b58d, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -35
+      value: -34.96991
+      objectReference: {fileID: 0}
+    - target: {fileID: 7524918754046341488, guid: d45c74e87b2af2c4089a9a4d2a91b58d, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7524918754046341488, guid: d45c74e87b2af2c4089a9a4d2a91b58d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7524918754046341488, guid: d45c74e87b2af2c4089a9a4d2a91b58d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7591994150965861839, guid: d45c74e87b2af2c4089a9a4d2a91b58d, type: 3}
       propertyPath: m_Pivot.x
@@ -38160,7 +38177,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb123c7d9b0b4d542984fc33144d6c05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraShake: {fileID: 0}
 --- !u!1001 &1946241932
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39465,7 +39481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ba81763db466f84e9403cab46f09864, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeLimit: 0
+  timeLimit: 181
   uiTimer: {fileID: 2033816661}
   background: {fileID: 2057333035}
   sound: {fileID: 8300000, guid: 7a7fc65824c9ebe40aca8eee32e2a28a, type: 3}

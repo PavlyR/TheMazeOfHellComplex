@@ -59,13 +59,6 @@ public class SoundGoFaster : Timer_Script
             background.pitch = Mathf.Lerp(pitch, pitch + 0.5f, percentage);
             percentage += Time.deltaTime / transition;
         }
-        /*
-        if (play == true && run == true)
-        {
-            background.pitch = Mathf.Lerp(pitch, pitch + 0.5f, percentage);
-            percentage += Time.deltaTime / transition;
-        }
-        */
         if (play == false || Timer_Script.currentTime == 0f)
         {
             background.Stop();
