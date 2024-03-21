@@ -10,10 +10,11 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed;                                  // This variable is for the player moving speed
+    public float moveSpeed;                                   // This variable is for the player moving speed
     
-    [SerializeField] public float walkingSpeed;             // This variable is for the player walking speed
-    [SerializeField] public float runningSpeed;             // This variable is for the player running speed
+    [SerializeField] public float walkingSpeed;              // This variable is for the player walking speed
+    [SerializeField] public float runningSpeed;              // This variable is for the player running speed
+    [SerializeField] public float moveSlowSpeed = 2.5f;
 
     [SerializeField] public float GroundDrag;               // This variable to create drag for the player movement because the physics engine in Unity makes the player movement floaty, this variable helps with that
     [SerializeField] public float playerHeight;             // This variable is for the player height
@@ -48,7 +49,8 @@ public class PlayerController : MonoBehaviour
     /*Why was canMove public before? -Tam
      * I made it public before because I thought I would make other classes that the player can inherit from, and i made canMove public so I can use it in other classes.
      */
-    
+    public bool enter = false;
+
     // This enum method is in charge of all the player states
     public enum MovementState
     {
@@ -216,6 +218,18 @@ public class PlayerController : MonoBehaviour
         {
             rb.AddForce(moveDirection.normalized * jumpForce * 10f * airMultiplier, ForceMode.Force);
         }
+
+        if (enter)
+        {
+            walkingSpeed = moveSlowSpeed;
+            rb.AddForce(moveDirection.normalized * walkingSpeed, ForceMode.Force);
+
+        }
+        if (!enter)
+        {
+            walkingSpeed = moveSlowSpeed * 2;
+            rb.AddForce(moveDirection.normalized * walkingSpeed, ForceMode.Force);
+        }
     }
 
     // This method is for when the player runs, same logic as the walking.
@@ -257,5 +271,21 @@ public class PlayerController : MonoBehaviour
     private void ResetJump()
     {
         jumpCheck = true;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("ShadowZone"))
+        {
+            enter = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("ShadowZone"))
+        {
+            enter = false;
+        }
     }
 }
