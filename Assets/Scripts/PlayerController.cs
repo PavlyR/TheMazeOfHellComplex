@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public float walkingSpeed;              // This variable is for the player walking speed
     [SerializeField] public float runningSpeed;              // This variable is for the player running speed
     [SerializeField] public float moveSlowSpeed = 2.5f;
+    [SerializeField] public float runSlowSpeed = 3.5f;
 
     [SerializeField] public float GroundDrag;               // This variable to create drag for the player movement because the physics engine in Unity makes the player movement floaty, this variable helps with that
     [SerializeField] public float playerHeight;             // This variable is for the player height
@@ -222,13 +223,17 @@ public class PlayerController : MonoBehaviour
         if (enter)
         {
             walkingSpeed = moveSlowSpeed;
+            runningSpeed = runSlowSpeed;
             rb.AddForce(moveDirection.normalized * walkingSpeed, ForceMode.Force);
+            rb.AddForce(moveDirection.normalized * runningSpeed, ForceMode.Force);
 
         }
         if (!enter)
         {
             walkingSpeed = moveSlowSpeed * 2;
+            runningSpeed = runSlowSpeed * 2;
             rb.AddForce(moveDirection.normalized * walkingSpeed, ForceMode.Force);
+            rb.AddForce(moveDirection.normalized * runningSpeed, ForceMode.Force);
         }
     }
 
