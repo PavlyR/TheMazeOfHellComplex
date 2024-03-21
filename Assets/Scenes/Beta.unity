@@ -39011,6 +39011,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spot Light (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5116029374301347169, guid: 8f1ec094a0aaf474897c65cbd5d7e3a2, type: 3}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116029374301347169, guid: 8f1ec094a0aaf474897c65cbd5d7e3a2, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 1044940705}
     - target: {fileID: 5502895949831172248, guid: 8f1ec094a0aaf474897c65cbd5d7e3a2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 24.630003

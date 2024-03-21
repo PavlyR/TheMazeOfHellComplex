@@ -130,7 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
   State: 0
-  sound: {fileID: 0}
+  sound: {fileID: 7264000917778421733}
 --- !u!23 &7701754642069459547
 MeshRenderer:
   m_ObjectHideFlags: 0
