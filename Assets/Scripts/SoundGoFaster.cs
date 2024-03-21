@@ -19,6 +19,7 @@ public class SoundGoFaster : Timer_Script
     {
         background.PlayOneShot(sound);
         background.PlayScheduled(AudioSettings.dspTime + sound.length);
+        background.loop = true;
     }
     void Awake()
     {
@@ -51,12 +52,12 @@ public class SoundGoFaster : Timer_Script
         }
         if (play == true && Timer_Script.currentTime <= 30.0f)
         {
-            background.pitch = Mathf.Lerp(pitch, pitch + 0.5f, percentage);
+            background.pitch = Mathf.Lerp(pitch, 2.5f, percentage);
             percentage += Time.deltaTime / transition;
         }
         if (play == true && Timer_Script.currentTime <= 10.0f)
         {
-            background.pitch = Mathf.Lerp(pitch, pitch + 0.5f, percentage);
+            background.pitch = Mathf.Lerp(pitch, 3.0f, percentage);
             percentage += Time.deltaTime / transition;
         }
         if (play == false || Timer_Script.currentTime == 0f)
