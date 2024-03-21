@@ -63,7 +63,7 @@ public class HeartBeatSoundGoFaster : Timer_Script
             HeartBeat.pitch = Mathf.Lerp(pitch, pitch + 0.5f, percentage);
             percentage += Time.deltaTime / transition;
         }
-        if (play == false || Timer_Script.currentTime == 0f)
+        if (play == false || Timer_Script.currentTime == 0.0f)
         {
             HeartBeat.Pause();
         }

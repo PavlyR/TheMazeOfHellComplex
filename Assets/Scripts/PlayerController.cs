@@ -262,17 +262,21 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other == other.gameObject.CompareTag("ShadowZone"))
+        if (other.gameObject.CompareTag("ShadowZone"))
         {
             Debug.Log("I am in the zone");
+            moveDirection = direction.forward * verticalInput + direction.right * horizontalInput;
+            rb.AddForce(moveDirection.normalized * slowMovement * 10f, ForceMode.Force);
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-       if (other == other.gameObject.CompareTag("ShadowZone"))
+        if (other.gameObject.CompareTag("ShadowZone"))
         {
             Debug.Log("I have exited the zone");
+            moveDirection = direction.forward * verticalInput + direction.right * horizontalInput;
+            rb.AddForce(moveDirection.normalized * walkingSpeed * 10f, ForceMode.Force);
         }
     }
 }
