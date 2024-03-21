@@ -15,23 +15,25 @@ public class FlickeringLights : MonoBehaviour
 
     void Start ()
     {
+        _light = GetComponent<Light>();
+        AS = GetComponent<AudioSource>();
         Timer = Random.Range(MinTime, MaxTime);
     }
 
     void Update ()
     {
-        FlickerLights();
+        FlickerLight();
         
     }
 
-    void FlickerLight() 
-    }
+    void FlickerLight()
+    {
         if (Timer > 0)
              Timer -= Time.deltaTime;
 
         if(Timer<=0)
         {
-         _Light.enabled = !_Light.enabled;
+         _light.enabled = !_light.enabled;
          Timer = Random.Range(MinTime, MaxTime);
          AS.PlayOneShot(LightAudio);
         }
