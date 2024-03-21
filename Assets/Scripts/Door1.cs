@@ -25,12 +25,15 @@ public class Door1 : MonoBehaviour, IInteractable //Sorry had to add the interac
 
     [SerializeField] GameObject pivotPoint;
 
+    AudioSource audioData;
+
     // Start is called before the first frame update
     void Start()
     {
         // initializing the default and current angle of the door
         defaultRotationAngle = pivotPoint.transform.localEulerAngles.y;
         currentRotationAngle = pivotPoint.transform.localEulerAngles.y;
+        audioData = GetComponent<AudioSource>();
 
         // initializing the collider which is a sphere collider that will detect the player when close to the door to interact with the door
         //GetComponent<Collider>().isTrigger = true;
@@ -76,6 +79,7 @@ public class Door1 : MonoBehaviour, IInteractable //Sorry had to add the interac
         open = !open;
         currentRotationAngle = pivotPoint.transform.localEulerAngles.y;
         openTime = 0;
+       
     }
 
 
@@ -102,6 +106,7 @@ public class Door1 : MonoBehaviour, IInteractable //Sorry had to add the interac
     {
         //if (open == false) {
             OnOpen();
-           //     }
+        audioData.Play();
+        //     }
     }
 }
