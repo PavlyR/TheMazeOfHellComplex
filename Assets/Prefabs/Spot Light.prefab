@@ -116,6 +116,7 @@ MonoBehaviour:
   Timer: 0
   AS: {fileID: 0}
   LightAudio: {fileID: 0}
+  play: 0
 --- !u!114 &5116029374301347169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,13 +186,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 32fdd5ada473835439c4df178da4f61a, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.3
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 256
+  Priority: 90
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
