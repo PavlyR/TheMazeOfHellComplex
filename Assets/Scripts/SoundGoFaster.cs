@@ -17,6 +17,7 @@ public class SoundGoFaster : Timer_Script
     void Start()
     {
         background = GetComponent<AudioSource>();
+        DontDestroyOnLoad(this);
     }
     void Awake()
     {
