@@ -74,7 +74,7 @@ public class Door1 : MonoBehaviour, IInteractable //Sorry had to add the interac
         */
     }
 
-    protected virtual void OnOpen() //This void was made to allow for the win door to work with the classical door code.
+    protected virtual void OnOpen(GameObject x) //This void was made to allow for the win door to work with the classical door code.
     {
         open = !open;
         currentRotationAngle = pivotPoint.transform.localEulerAngles.y;
@@ -102,10 +102,10 @@ public class Door1 : MonoBehaviour, IInteractable //Sorry had to add the interac
         }
     }
     */
-    public void Interact()
+    public void Interact(GameObject x)
     {
         //if (open == false) {
-            OnOpen();
+            OnOpen(x);
         audioData.Play();
         //     }
     }

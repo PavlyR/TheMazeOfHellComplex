@@ -215,7 +215,7 @@ public class Alan_Controller : MonoBehaviour
             float dist = Vector3.Distance(transform.position, hit.collider.gameObject.transform.position);
             if (hit.collider.gameObject.TryGetComponent(out IInteractable interactObj)&& dist <= 10)
             {
-                interactObj.Interact(); //calls the interact of the object being looked at.
+                interactObj.Interact(this.gameObject); //calls the interact of the object being looked at.
             }
             if(hit.transform.gameObject.layer == wall)
             {

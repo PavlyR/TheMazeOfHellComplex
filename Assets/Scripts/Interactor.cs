@@ -4,7 +4,7 @@ using UnityEngine;
 
 interface IInteractable //The object the player interacts with inherits this interface allowing the object to define the outcome.
 {
-    public void Interact();
+    public void Interact(GameObject x);
 }
 public class Interactor : MonoBehaviour
 {
@@ -21,7 +21,7 @@ public class Interactor : MonoBehaviour
             {
                 if (hitInfo.collider.gameObject.TryGetComponent(out IInteractable interactObj))
                 {
-                    interactObj.Interact(); //calls the interact of the object being looked at.
+                    interactObj.Interact(this.gameObject); //calls the interact of the object being looked at.
                 } 
             }
         }

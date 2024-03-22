@@ -176,7 +176,7 @@ public class PlayerController : MonoBehaviour
             {
                 if (hitInfo.collider.gameObject.TryGetComponent(out IInteractable interactObj))
                 {
-                    interactObj.Interact(); //calls the interact of the object being looked at.
+                    interactObj.Interact(this.gameObject); //calls the interact of the object being looked at.
                 }
             }
         }

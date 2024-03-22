@@ -64,7 +64,7 @@ public class Door : MonoBehaviour, IInteractable
         }
     }
 
-    public void Interact()
+    public void Interact(GameObject x)
     {
         interacted = true; //When the player hits the interact key it starts the opening process. 
        
