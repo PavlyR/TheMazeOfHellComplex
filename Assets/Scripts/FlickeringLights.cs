@@ -19,6 +19,7 @@ public class FlickeringLights : MonoBehaviour
     {
         _light = GetComponent<Light>();
         AS = GetComponent<AudioSource>();
+        LightAudio = GetComponent<AudioClip>();
         Timer = Random.Range(MinTime, MaxTime);
     }
 
