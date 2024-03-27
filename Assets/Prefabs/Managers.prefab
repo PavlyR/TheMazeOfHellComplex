@@ -94,6 +94,7 @@ MonoBehaviour:
   playerUI: {fileID: 0}
   loseMenu: {fileID: 0}
   winMenu: {fileID: 0}
+  pauseMenu: {fileID: 0}
 --- !u!114 &3509269972828205368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,7 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
-  isPaused: 0
+  State: 0
 --- !u!1 &4088130999386937405
 GameObject:
   m_ObjectHideFlags: 0

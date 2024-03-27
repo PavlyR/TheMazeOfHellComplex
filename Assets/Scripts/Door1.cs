@@ -14,7 +14,7 @@ public class Door1 : MonoBehaviour, IInteractable //Sorry had to add the interac
     // this bool variable determines if the door is open or closed
     protected bool open = false;
     // this bool variable determines if the player is close to the door 
-    bool enter = false;
+    //bool enter = false;
 
     // This float variable stores the original angle of the door
     float defaultRotationAngle;

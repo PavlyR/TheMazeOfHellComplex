@@ -10,8 +10,8 @@ public class PlayerMovementScript : MonoBehaviour
 
     [SerializeField] private float walkingSpeed = 5.0f;
     [SerializeField] private float runningSpeed = 10.0f;
-    [SerializeField] private float jumpSpeed = 10.0f;
-    [SerializeField] private float gravity = 10.0f;
+    //[SerializeField] private float jumpSpeed = 10.0f;
+    //[SerializeField] private float gravity = 10.0f;
 
     public Camera playerCamera;
     public float sensitivity = 5.0f;
