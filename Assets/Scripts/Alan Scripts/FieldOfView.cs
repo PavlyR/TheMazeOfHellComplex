@@ -11,6 +11,7 @@ public class FieldOfView : MonoBehaviour
 
     public GameObject playerRef;
     public GameObject alanRef;
+ 
 
     public LayerMask targetMask;
     public LayerMask obstructionMask;
@@ -53,6 +54,7 @@ public class FieldOfView : MonoBehaviour
                 {
                     canSeePlayer = true;
                     alanRef.GetComponent<Alan_Controller>().Spotted(canSeePlayer);
+                    playerRef.GetComponent<PlayerSpotted>().Seen();
                 }
                 else
                 {
