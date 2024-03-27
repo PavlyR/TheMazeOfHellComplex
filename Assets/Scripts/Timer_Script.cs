@@ -4,7 +4,8 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UIElements;
 using UnityEditor;
-using System; //Allows you to use the textmesh timer
+using System;
+using TMPro.Examples; //Allows you to use the textmesh timer
 
 public class Timer_Script : MonoBehaviour
 
@@ -19,7 +20,6 @@ public class Timer_Script : MonoBehaviour
     public float timeLimit;
     bool counting;
     [SerializeField] private TextMeshProUGUI uiTimer;
-    //[SerializeField] private VisualTreeAsset Timer;
 
     void Start()
     {
