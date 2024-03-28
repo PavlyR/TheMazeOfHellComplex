@@ -712,7 +712,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7884858395152858756, guid: d9d6ab28231ae3e4ea83f0c49396d269, type: 3}
       propertyPath: m_Size.x
-      value: 4.172333
+      value: 6.8721924
       objectReference: {fileID: 0}
     - target: {fileID: 7884858395152858756, guid: d9d6ab28231ae3e4ea83f0c49396d269, type: 3}
       propertyPath: m_Size.z
@@ -720,7 +720,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7884858395152858756, guid: d9d6ab28231ae3e4ea83f0c49396d269, type: 3}
       propertyPath: m_Center.x
-      value: 0.77149963
+      value: 2.1214294
       objectReference: {fileID: 0}
     - target: {fileID: 7884858395152858756, guid: d9d6ab28231ae3e4ea83f0c49396d269, type: 3}
       propertyPath: m_Center.z
@@ -2192,6 +2192,18 @@ PrefabInstance:
       value: ShadowZone
       objectReference: {fileID: 0}
     - target: {fileID: 7884858395152858756, guid: d9d6ab28231ae3e4ea83f0c49396d269, type: 3}
+      propertyPath: m_Size.z
+      value: 20.03125
+      objectReference: {fileID: 0}
+    - target: {fileID: 7884858395152858756, guid: d9d6ab28231ae3e4ea83f0c49396d269, type: 3}
+      propertyPath: m_Center.x
+      value: -0.99402595
+      objectReference: {fileID: 0}
+    - target: {fileID: 7884858395152858756, guid: d9d6ab28231ae3e4ea83f0c49396d269, type: 3}
+      propertyPath: m_Center.z
+      value: 4.395326
+      objectReference: {fileID: 0}
+    - target: {fileID: 7884858395152858756, guid: d9d6ab28231ae3e4ea83f0c49396d269, type: 3}
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
@@ -3370,19 +3382,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7884858395152858756, guid: d9d6ab28231ae3e4ea83f0c49396d269, type: 3}
       propertyPath: m_Size.x
-      value: 2.1733704
+      value: 2.4473572
       objectReference: {fileID: 0}
     - target: {fileID: 7884858395152858756, guid: d9d6ab28231ae3e4ea83f0c49396d269, type: 3}
       propertyPath: m_Size.z
-      value: 22.439606
+      value: 19.128845
       objectReference: {fileID: 0}
     - target: {fileID: 7884858395152858756, guid: d9d6ab28231ae3e4ea83f0c49396d269, type: 3}
       propertyPath: m_Center.x
-      value: 0.03224182
+      value: -0.10475159
       objectReference: {fileID: 0}
     - target: {fileID: 7884858395152858756, guid: d9d6ab28231ae3e4ea83f0c49396d269, type: 3}
       propertyPath: m_Center.z
-      value: 3.4062653
+      value: 4.6491394
       objectReference: {fileID: 0}
     - target: {fileID: 7884858395152858756, guid: d9d6ab28231ae3e4ea83f0c49396d269, type: 3}
       propertyPath: m_IsTrigger
