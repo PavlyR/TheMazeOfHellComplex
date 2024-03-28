@@ -18,20 +18,19 @@ public class Timer_Script : MonoBehaviour
 {
     public static float currentTime = 0f;
     public float timeLimit;
-    bool counting;
+    bool counting = false;
     [SerializeField] private TextMeshProUGUI uiTimer;
 
     void Start()
     {
         currentTime = timeLimit; //These two lines could be placed within a bigger function for reseting the level possibly since respawning would do the same thing
-        counting = false;
+        //counting = false;
     }
 
 
     void Awake()
     {
         GameManager.OnGameStateChanged += GameManagerOnOnGameStateChanged;
-
     }
 
     private void GameManagerOnOnGameStateChanged(GameState state) //Whenever the player "spawns" in
