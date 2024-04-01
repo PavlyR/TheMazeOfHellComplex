@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] public PostProcessVolume volume;
     [SerializeField] public Vignette vignette;
+    [SerializeField] public float intensity = 0f;
     
     public LayerMask Ground;                                // This is a LayerMask variable for the ground that helps the player detect the ground
 
@@ -108,6 +109,9 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();                         // Initializing the rigidbody component
         rb.freezeRotation = true;
+
+        volume.profile.TryGetSettings<Vignette>(out vignette);
+
         GameManager.OnGameStateChanged += GameManagerOnOnGameStateChanged;
         EnableMovement(true);
         DontDestroyOnLoad(this);
@@ -229,6 +233,7 @@ public class PlayerController : MonoBehaviour
             runningSpeed = runSlowSpeed;
             rb.AddForce(moveDirection.normalized * walkingSpeed, ForceMode.Force);
             rb.AddForce(moveDirection.normalized * runningSpeed, ForceMode.Force);
+            StartCoroutine(StartEffect());
 
         }
         if (!enter)
@@ -237,6 +242,7 @@ public class PlayerController : MonoBehaviour
             runningSpeed = runSlowSpeed * 2;
             rb.AddForce(moveDirection.normalized * walkingSpeed, ForceMode.Force);
             rb.AddForce(moveDirection.normalized * runningSpeed, ForceMode.Force);
+            StartCoroutine(StopEffect());
         }
     }
 
@@ -295,5 +301,33 @@ public class PlayerController : MonoBehaviour
         {
             enter = false;
         }
+    }
+
+    private IEnumerator StartEffect()
+    {
+        intensity = 2f;
+
+        vignette.enabled.Override(true);
+        vignette.intensity.Override(intensity);
+
+        yield return intensity;
+    }
+
+    private IEnumerator StopEffect()
+    {
+        while (intensity > 0)
+        {
+            intensity -= 0.01f;
+
+            if (intensity < 0)
+            {
+                intensity = 0;
+            }
+
+            vignette.intensity.Override(intensity);
+            yield return new WaitForSeconds(0.1f);
+        }
+        vignette.enabled.Override(false);
+        yield break;
     }
 }
