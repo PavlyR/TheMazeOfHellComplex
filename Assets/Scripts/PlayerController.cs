@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Rendering.PostProcessing;
 
 
 public class PlayerController : MonoBehaviour
@@ -23,6 +24,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public float jumpCoolDown;             // This variable is to stop the player from jumping while in mid-air
     [SerializeField] public float airMultiplier;            // This variable is to time the player while in the air after a jump
     [SerializeField] public float interactRange;
+
+    [SerializeField] public PostProcessVolume volume;
+    [SerializeField] public Vignette vignette;
     
     public LayerMask Ground;                                // This is a LayerMask variable for the ground that helps the player detect the ground
 
@@ -45,7 +49,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] Transform spawnPoint;
 
-     public bool canMove = false; //I have changed this to make it so that if the player hasn't gone into the GameStart state the mouse is still visble and the player object won't move
+    public bool canMove = false; //I have changed this to make it so that if the player hasn't gone into the GameStart state the mouse is still visble and the player object won't move
     /*Why was canMove public before? -Tam
      * I made it public before because I thought I would make other classes that the player can inherit from, and i made canMove public so I can use it in other classes.
      */
