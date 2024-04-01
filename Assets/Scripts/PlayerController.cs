@@ -7,7 +7,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Rendering.PostProcessing;
 
-
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed;                                   // This variable is for the player moving speed
@@ -28,6 +27,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public PostProcessVolume volume;
     [SerializeField] public Vignette vignette;
     [SerializeField] public float intensity = 0f;
+    public float pitch = 1.0f;
+    public float transition = 1.75f;
+    public float percentage = 0f;
+
+    [SerializeField] public GameObject backgroundMusicObject;
+    [SerializeField] public AudioSource backgroundMusic;
     
     public LayerMask Ground;                                // This is a LayerMask variable for the ground that helps the player detect the ground
 
@@ -109,9 +114,8 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();                         // Initializing the rigidbody component
         rb.freezeRotation = true;
-
         volume.profile.TryGetSettings<Vignette>(out vignette);
-
+        backgroundMusic = backgroundMusicObject.GetComponent<AudioSource>();
         GameManager.OnGameStateChanged += GameManagerOnOnGameStateChanged;
         EnableMovement(true);
         DontDestroyOnLoad(this);
@@ -234,6 +238,7 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(moveDirection.normalized * walkingSpeed, ForceMode.Force);
             rb.AddForce(moveDirection.normalized * runningSpeed, ForceMode.Force);
             StartCoroutine(StartEffect());
+            backgroundSlowDown();
 
         }
         if (!enter)
@@ -243,6 +248,7 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(moveDirection.normalized * walkingSpeed, ForceMode.Force);
             rb.AddForce(moveDirection.normalized * runningSpeed, ForceMode.Force);
             StartCoroutine(StopEffect());
+            backgroundSpeedUp();
         }
     }
 
@@ -329,5 +335,17 @@ public class PlayerController : MonoBehaviour
         }
         vignette.enabled.Override(false);
         yield break;
+    }
+
+    private void backgroundSlowDown()
+    {
+        backgroundMusic.pitch = Mathf.Lerp(pitch, pitch - 0.5f, percentage);
+        percentage += Time.deltaTime / transition;
+    }
+
+    private void backgroundSpeedUp()
+    {
+        backgroundMusic.pitch = Mathf.Lerp(pitch, pitch, percentage);
+        percentage += Time.deltaTime / transition;
     }
 }

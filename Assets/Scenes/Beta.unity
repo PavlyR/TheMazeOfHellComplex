@@ -712,7 +712,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7884858395152858756, guid: d9d6ab28231ae3e4ea83f0c49396d269, type: 3}
       propertyPath: m_Size.x
-      value: 6.8721924
+      value: 2.4546204
       objectReference: {fileID: 0}
     - target: {fileID: 7884858395152858756, guid: d9d6ab28231ae3e4ea83f0c49396d269, type: 3}
       propertyPath: m_Size.z
@@ -720,7 +720,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7884858395152858756, guid: d9d6ab28231ae3e4ea83f0c49396d269, type: 3}
       propertyPath: m_Center.x
-      value: 2.1214294
+      value: -0.08735657
       objectReference: {fileID: 0}
     - target: {fileID: 7884858395152858756, guid: d9d6ab28231ae3e4ea83f0c49396d269, type: 3}
       propertyPath: m_Center.z
@@ -1570,6 +1570,11 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 8614266440279403983, guid: ae89d7e11f252c145b7bd3a3940f4b04, type: 3}
   m_PrefabInstance: {fileID: 1429428081}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &638613034 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1098555205008464820, guid: 3ece8b2ab11ee284482c056c0def6351, type: 3}
+  m_PrefabInstance: {fileID: 5000908430784047686}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &676811508
 PrefabInstance:
@@ -4038,6 +4043,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5575139454757029596, guid: d786fe88567bce94e8b8253b4c2b4c4b, type: 3}
+      propertyPath: volume
+      value: 
+      objectReference: {fileID: 1761651171}
     - target: {fileID: 6883448762971171425, guid: d786fe88567bce94e8b8253b4c2b4c4b, type: 3}
       propertyPath: m_Name
       value: Player
@@ -4050,6 +4059,10 @@ PrefabInstance:
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 504979435}
+    - target: {fileID: 7314122365594824897, guid: d786fe88567bce94e8b8253b4c2b4c4b, type: 3}
+      propertyPath: backgroundMusicObject
+      value: 
+      objectReference: {fileID: 638613034}
     - target: {fileID: 8795826725794157480, guid: d786fe88567bce94e8b8253b4c2b4c4b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -416.3
