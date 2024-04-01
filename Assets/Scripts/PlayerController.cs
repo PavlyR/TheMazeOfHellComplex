@@ -27,13 +27,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public PostProcessVolume volume;
     [SerializeField] public Vignette vignette;
     [SerializeField] public float intensity = 0f;
+
+    [SerializeField] public GameObject backgroundMusicObject;
+    [SerializeField] public AudioSource backgroundMusic;
     public float pitch = 1.0f;
     public float transition = 1.75f;
     public float percentage = 0f;
 
-    [SerializeField] public GameObject backgroundMusicObject;
-    [SerializeField] public AudioSource backgroundMusic;
-    
+    [SerializeField] public GameObject HeartBeatObject;
+    [SerializeField] public AudioSource heartBeat;
+
     public LayerMask Ground;                                // This is a LayerMask variable for the ground that helps the player detect the ground
 
     bool grounded;                                          // This is a boolean variable to check if the player is on the ground
@@ -116,6 +119,7 @@ public class PlayerController : MonoBehaviour
         rb.freezeRotation = true;
         volume.profile.TryGetSettings<Vignette>(out vignette);
         backgroundMusic = backgroundMusicObject.GetComponent<AudioSource>();
+        heartBeat = HeartBeatObject.GetComponent<AudioSource>();
         GameManager.OnGameStateChanged += GameManagerOnOnGameStateChanged;
         EnableMovement(true);
         DontDestroyOnLoad(this);
@@ -239,7 +243,7 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(moveDirection.normalized * runningSpeed, ForceMode.Force);
             StartCoroutine(StartEffect());
             backgroundSlowDown();
-
+            heartBeat.Pause();
         }
         if (!enter)
         {
@@ -249,6 +253,7 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(moveDirection.normalized * runningSpeed, ForceMode.Force);
             StartCoroutine(StopEffect());
             backgroundSpeedUp();
+            heartBeat.Play();
         }
     }
 
