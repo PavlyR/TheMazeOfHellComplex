@@ -4715,10 +4715,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 917737508747298753, guid: 58334607005ed9247aa3c1327bbf3ffd, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1196797194929007656, guid: 58334607005ed9247aa3c1327bbf3ffd, type: 3}
       propertyPath: pauseMenu
       value: 
@@ -4766,10 +4762,6 @@ PrefabInstance:
     - target: {fileID: 4697016215217813889, guid: 58334607005ed9247aa3c1327bbf3ffd, type: 3}
       propertyPath: m_Name
       value: HeartBeat
-      objectReference: {fileID: 0}
-    - target: {fileID: 4697016215217813889, guid: 58334607005ed9247aa3c1327bbf3ffd, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
