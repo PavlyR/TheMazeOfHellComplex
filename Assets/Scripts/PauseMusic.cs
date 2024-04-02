@@ -9,7 +9,7 @@ public class PauseMusic : PauseMenu
     // Start is called before the first frame update
     void Start()
     {
-        sound = GetComponent<AudioSource>();    
+        sound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
