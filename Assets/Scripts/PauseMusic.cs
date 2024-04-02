@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMusic : PauseMenu
 {
@@ -22,6 +23,10 @@ public class PauseMusic : PauseMenu
         if (!PauseMenu.isPaused)
         {
             sound.UnPause();
+        }
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Main_Menu"))
+        {
+            sound.Stop();
         }
     }
 }

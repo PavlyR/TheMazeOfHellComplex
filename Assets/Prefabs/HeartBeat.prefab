@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2758382711685095791}
   - component: {fileID: 917737508747298753}
   - component: {fileID: 1196797194929007656}
+  - component: {fileID: 6319585861565908649}
   m_Layer: 0
   m_Name: HeartBeat
   m_TagString: Untagged
@@ -144,3 +145,16 @@ MonoBehaviour:
   pauseMenu: {fileID: 0}
   State: 0
   sound: {fileID: 0}
+  state: 0
+--- !u!114 &6319585861565908649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4697016215217813889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04b631d0d1d6bf8428dd6a088321991a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

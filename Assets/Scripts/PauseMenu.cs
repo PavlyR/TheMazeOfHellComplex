@@ -79,5 +79,6 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         //GameManager.Instance.UpdateGameState(GameState.GameStart);
         SceneManager.LoadScene("Main_Menu");
+        isPaused = false;
     }
 }
