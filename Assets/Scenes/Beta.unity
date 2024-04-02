@@ -1953,6 +1953,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 343836556504715244, guid: 36fba1827153c8246a8c70c21e856c28, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 1044940705}
+    - target: {fileID: 576068978358308896, guid: 36fba1827153c8246a8c70c21e856c28, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 1044940705}
+    - target: {fileID: 1084715654162083964, guid: 36fba1827153c8246a8c70c21e856c28, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 1044940705}
+    - target: {fileID: 3383648093273900237, guid: 36fba1827153c8246a8c70c21e856c28, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 1044940705}
+    - target: {fileID: 3394331043488365676, guid: 36fba1827153c8246a8c70c21e856c28, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 1044940705}
     - target: {fileID: 3720858619328443648, guid: 36fba1827153c8246a8c70c21e856c28, type: 3}
       propertyPath: m_Name
       value: Map+F+D
@@ -1997,6 +2017,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4526707760240369184, guid: 36fba1827153c8246a8c70c21e856c28, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 1044940705}
+    - target: {fileID: 4909777626988744280, guid: 36fba1827153c8246a8c70c21e856c28, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 1044940705}
+    - target: {fileID: 5769018670041598168, guid: 36fba1827153c8246a8c70c21e856c28, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 1044940705}
+    - target: {fileID: 7475292657736728202, guid: 36fba1827153c8246a8c70c21e856c28, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 1044940705}
+    - target: {fileID: 8376869223079119203, guid: 36fba1827153c8246a8c70c21e856c28, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 1044940705}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -11,7 +11,6 @@ public class FlickeringLights : MonoBehaviour
     public float Timer;
 
     public AudioSource AS;
-    //public AudioClip LightAudio;
 
     public bool play;
 
@@ -19,7 +18,6 @@ public class FlickeringLights : MonoBehaviour
     {
         _light = GetComponent<Light>();
         AS = GetComponent<AudioSource>();
-        //LightAudio = GetComponent<AudioClip>();
         Timer = Random.Range(MinTime, MaxTime);
     }
 
@@ -42,23 +40,29 @@ public class FlickeringLights : MonoBehaviour
 
     void Update ()
     {
-        if (play == true)
-        {
-            FlickerLight();
-        }
+        FlickerLight();
     }
 
     void FlickerLight()
     {
         if (Timer > 0)
-             Timer -= Time.deltaTime;
-
-        if(Timer <= 0)
         {
-         _light.enabled = !_light.enabled;
-         Timer = Random.Range(MinTime, MaxTime);
-         //AS.PlayOneShot(LightAudio);
-         AS.Play();
+            Timer -= Time.deltaTime;
+        }
+             
+        if (Timer <= 0)
+        {
+            _light.enabled = !_light.enabled;
+            Timer = Random.Range(MinTime, MaxTime);
+
+            if (play == true)
+            {
+                AS.Play();
+            }
+            if (play == false)
+            {
+                AS.Pause();
+            }
         }
     }
 
