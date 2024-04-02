@@ -1957,10 +1957,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Map+F+D
       objectReference: {fileID: 0}
-    - target: {fileID: 3890529028256171882, guid: 36fba1827153c8246a8c70c21e856c28, type: 3}
-      propertyPath: pauseMenu
-      value: 
-      objectReference: {fileID: 1044940705}
     - target: {fileID: 4100797527496191930, guid: 36fba1827153c8246a8c70c21e856c28, type: 3}
       propertyPath: m_LocalPosition.x
       value: -396.12595
@@ -2001,14 +1997,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5802865783395715256, guid: 36fba1827153c8246a8c70c21e856c28, type: 3}
-      propertyPath: pauseMenu
-      value: 
-      objectReference: {fileID: 1044940705}
-    - target: {fileID: 6568468511182421284, guid: 36fba1827153c8246a8c70c21e856c28, type: 3}
-      propertyPath: pauseMenu
-      value: 
-      objectReference: {fileID: 1044940705}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -42,7 +42,10 @@ public class FlickeringLights : MonoBehaviour
 
     void Update ()
     {
-        FlickerLight();
+        if (play == true)
+        {
+            FlickerLight();
+        }
     }
 
     void FlickerLight()
