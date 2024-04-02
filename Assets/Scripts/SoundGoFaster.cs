@@ -55,7 +55,8 @@ public class SoundGoFaster : Timer_Script
         }
         if (play == false || Timer_Script.currentTime == 0f)
         {
-            background.Stop();
+            background.Pause();
+            background.pitch = pitch;
         }
     }
 }
