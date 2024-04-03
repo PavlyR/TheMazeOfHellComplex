@@ -2218,6 +2218,30 @@ PrefabInstance:
       propertyPath: cameraPosition
       value: 
       objectReference: {fileID: 713575389}
+    - target: {fileID: 6204227711436260721, guid: f80fcb7f35f9f534cbb06bd42e47820a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6204227711436260721, guid: f80fcb7f35f9f534cbb06bd42e47820a, type: 3}
+      propertyPath: m_ShowToolkit
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6204227711436260721, guid: f80fcb7f35f9f534cbb06bd42e47820a, type: 3}
+      propertyPath: antialiasingMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6204227711436260721, guid: f80fcb7f35f9f534cbb06bd42e47820a, type: 3}
+      propertyPath: m_ShowCustomSorter
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6204227711436260721, guid: f80fcb7f35f9f534cbb06bd42e47820a, type: 3}
+      propertyPath: fastApproximateAntialiasing.fastMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6204227711436260721, guid: f80fcb7f35f9f534cbb06bd42e47820a, type: 3}
+      propertyPath: fastApproximateAntialiasing.keepAlpha
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7914274068909074986, guid: f80fcb7f35f9f534cbb06bd42e47820a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -420.41
