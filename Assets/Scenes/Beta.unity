@@ -4574,7 +4574,7 @@ PrefabInstance:
     - target: {fileID: 5575139454757029596, guid: d786fe88567bce94e8b8253b4c2b4c4b, type: 3}
       propertyPath: volume
       value: 
-      objectReference: {fileID: 1761651171}
+      objectReference: {fileID: 0}
     - target: {fileID: 6883448762971171425, guid: d786fe88567bce94e8b8253b4c2b4c4b, type: 3}
       propertyPath: m_Name
       value: Player
@@ -4582,7 +4582,7 @@ PrefabInstance:
     - target: {fileID: 7314122365594824897, guid: d786fe88567bce94e8b8253b4c2b4c4b, type: 3}
       propertyPath: volume
       value: 
-      objectReference: {fileID: 1761651171}
+      objectReference: {fileID: 0}
     - target: {fileID: 7314122365594824897, guid: d786fe88567bce94e8b8253b4c2b4c4b, type: 3}
       propertyPath: spawnPoint
       value: 

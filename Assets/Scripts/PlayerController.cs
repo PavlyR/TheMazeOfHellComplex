@@ -117,6 +117,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();                         // Initializing the rigidbody component
         rb.freezeRotation = true;
+        volume = GameObject.Find("PostFX").GetComponent<PostProcessVolume>();
         volume.profile.TryGetSettings<Vignette>(out vignette);
         backgroundMusic = backgroundMusicObject.GetComponent<AudioSource>();
         heartBeat = HeartBeatObject.GetComponent<AudioSource>();

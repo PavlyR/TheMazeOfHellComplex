@@ -11,6 +11,7 @@ public class PlayerSpotted : MonoBehaviour
 
     private void Start()
     {
+        volume = GameObject.Find("PostFX").GetComponent<PostProcessVolume>();
         volume.profile.TryGetSettings<Vignette>(out vignette);
     }
 
