@@ -10,13 +10,12 @@ public class PlayerSpotted : MonoBehaviour
 {
     [SerializeField] public Volume volume;
     [SerializeField] ChromaticAberration ca;
-    [SerializeField] public float intensity = 0f;
+    public float intensity = 10f;
 
     [SerializeField] public AudioSource backgroundMusic;
     [SerializeField] public AudioSource heartBeat;
 
     public float pitch = 1.0f;
-    public float transition = 1.75f;
 
     private void Start()
     {
