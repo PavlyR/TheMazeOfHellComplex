@@ -330,6 +330,7 @@ public class PlayerController : MonoBehaviour
     {
         intensity = 2f;
 
+        vignette.color.value = Color.black;
         vignette.intensity.value = intensity;
 
         yield return intensity;

@@ -1,6 +1,6 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
@@ -34,10 +34,17 @@ public class PlayerSpotted : MonoBehaviour
 
     public void Seen()
     {
-        print("I think I have been spotted");
         StartCoroutine(StartEffect());
-        speedUpHeartBeat();
-        speedUpBackgroundMusic();
+    }
+
+    public void NotSeen()
+    {
+        StartCoroutine(StopEffect());
+    }
+
+    public void ResetEffect()
+    {
+        StartCoroutine(NoEffect());
     }
 
     private void Update()
@@ -51,22 +58,37 @@ public class PlayerSpotted : MonoBehaviour
     {
         intensity = 0.5f;
 
-        vignette.intensity.value = intensity;
         vignette.color.value = Color.red;
+        vignette.intensity.value = intensity;
 
         yield return intensity;
     }
 
-    private void speedUpHeartBeat()
+    private IEnumerator StopEffect()
     {
-        heartBeat.pitch = Mathf.Lerp(pitch, pitch, percentage);
-        percentage += Time.deltaTime / transition;
+        while (intensity > 0)
+        {
+            intensity -= 0.01f;
+
+            if (intensity < 0)
+            {
+                intensity = 0;
+            }
+
+            vignette.intensity.value = intensity;
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        yield break;
     }
 
-    private void speedUpBackgroundMusic()
+    private IEnumerator NoEffect()
     {
-        backgroundMusic.pitch = Mathf.Lerp(pitch, pitch, percentage);
-        percentage += Time.deltaTime / transition;
+        intensity = 0f;
+
+        vignette.intensity.value = intensity;
+
+        yield return intensity;
     }
 
 }

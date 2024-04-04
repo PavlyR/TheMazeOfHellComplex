@@ -60,12 +60,13 @@ public class FieldOfView : MonoBehaviour
                 else
                 {
                     canSeePlayer = false;
+                    playerRef.GetComponent<PlayerSpotted>().NotSeen();
                 }
             }
             else
             {
-                
                 canSeePlayer = false;
+                playerRef.GetComponent<PlayerSpotted>().ResetEffect();
             }
         }
         else if (canSeePlayer)
