@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Alan_Mov : MonoBehaviour
+public class Cart_Controller : MonoBehaviour
 {
     //The following section helps dictate where they can spawn and the points they will track to 
     [SerializeField]
@@ -23,14 +23,6 @@ public class Alan_Mov : MonoBehaviour
 
     ///The Following Section is for field of View 
 
-
-    public float radius;
-    [Range(0,360)]
-    public float angle;
-
-    
-
-    public bool agro;
 
 
     void Awake()
@@ -63,13 +55,13 @@ public class Alan_Mov : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        EnemySpawn();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (aiActive == true && agro == false) //(Works sort of)
+        if (aiActive == true) //(Works sort of)
         {
             currentMoveTime += Time.deltaTime;
             transform.position = Vector3.Lerp(trackingPoints[lastPoint].position,
@@ -81,13 +73,6 @@ public class Alan_Mov : MonoBehaviour
                 Arrived();
                
             }
-        }
-        if(agro == true && aiActive == true) {
-            print("I can see you");
-            currentMoveTime += Time.deltaTime;
-            transform.position = Vector3.Lerp(trackingPoints[lastPoint].position,
-             activeTarget.position,
-             currentMoveTime / moveTime);
         }
     }
 
@@ -131,12 +116,8 @@ public class Alan_Mov : MonoBehaviour
         }
         transform.LookAt(activeTarget); //This rotates the model to look where they are walking
 
+        currentMoveTime = 0;
     }
-
-    public void Spotted(bool x, Transform location)
-    {
-        agro = x;
-        print(agro);
-        activeTarget = location;
-    }
+    
+   
 }
