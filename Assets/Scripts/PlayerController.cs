@@ -330,7 +330,7 @@ public class PlayerController : MonoBehaviour
     {
         intensity = 2f;
 
-        
+        vignette.intensity.value = intensity;
 
         yield return intensity;
     }
@@ -346,8 +346,7 @@ public class PlayerController : MonoBehaviour
                 intensity = 0;
             }
 
-            //vignette.value.intensity = intensity;
-            
+            vignette.intensity.value = intensity;
             yield return new WaitForSeconds(0.1f);
         }
         
