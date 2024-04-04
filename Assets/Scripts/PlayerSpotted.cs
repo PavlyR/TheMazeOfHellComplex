@@ -12,14 +12,11 @@ public class PlayerSpotted : MonoBehaviour
     [SerializeField] ChromaticAberration ca;
     [SerializeField] public float intensity = 0f;
 
-    [SerializeField] public GameObject backgroundMusicObject;
     [SerializeField] public AudioSource backgroundMusic;
-    [SerializeField] public GameObject HeartBeatObject;
     [SerializeField] public AudioSource heartBeat;
 
     public float pitch = 1.0f;
     public float transition = 1.75f;
-    public float percentage = 0f;
 
     private void Start()
     {
@@ -29,18 +26,22 @@ public class PlayerSpotted : MonoBehaviour
         {
             ca = temporary;
         }
-        backgroundMusic = backgroundMusicObject.GetComponent<AudioSource>();
-        heartBeat = HeartBeatObject.GetComponent<AudioSource>();
+        backgroundMusic = GameObject.Find("BackgroundMusic").GetComponent<AudioSource>();
+        heartBeat = GameObject.Find("HeartBeat").GetComponent<AudioSource>();
     }
 
     public void Seen()
     {
         StartCoroutine(StartEffect());
+        makeBackGroundMusicGoFaster();
+        makeHeartBeatSoundGoFaster();
     }
 
     public void NotSeen()
     {
         StartCoroutine(StopEffect());
+        makeHeartBeatSoundStop();
+        makeBackgroundMusicNormal();
     }
 
     public void ResetEffect()
@@ -50,10 +51,7 @@ public class PlayerSpotted : MonoBehaviour
 
     private void Update()
     {
-        if (volume == null) //Check to see if the Volume is assigned in this scene and if not finds the scene's Volume settings
-        {
-            volume = GameObject.FindGameObjectWithTag("FX").GetComponent<Volume>();
-        }
+     
     }
     private IEnumerator StartEffect()
     {
@@ -91,4 +89,23 @@ public class PlayerSpotted : MonoBehaviour
         yield return intensity;
     }
 
+    private void makeHeartBeatSoundGoFaster()
+    {
+        heartBeat.Play();
+    }
+
+    private void makeHeartBeatSoundStop()
+    {
+        heartBeat.Pause();   
+    }
+
+    private void makeBackGroundMusicGoFaster()
+    {
+        backgroundMusic.pitch = Mathf.Lerp(pitch, pitch + 2.0f, 1.0f);
+    }
+
+    private void makeBackgroundMusicNormal()
+    {
+        backgroundMusic.pitch = 1.0f;
+    }
 }

@@ -4370,11 +4370,11 @@ PrefabInstance:
     - target: {fileID: 5575139454757029596, guid: d786fe88567bce94e8b8253b4c2b4c4b, type: 3}
       propertyPath: HeartBeatObject
       value: 
-      objectReference: {fileID: 328409653}
+      objectReference: {fileID: 0}
     - target: {fileID: 5575139454757029596, guid: d786fe88567bce94e8b8253b4c2b4c4b, type: 3}
       propertyPath: backgroundMusicObject
       value: 
-      objectReference: {fileID: 638613034}
+      objectReference: {fileID: 0}
     - target: {fileID: 6883448762971171425, guid: d786fe88567bce94e8b8253b4c2b4c4b, type: 3}
       propertyPath: m_Name
       value: Player
@@ -4473,15 +4473,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volume: {fileID: 0}
-  vignette: {fileID: 0}
+  ca: {fileID: 0}
   intensity: 0
-  backgroundMusicObject: {fileID: 0}
   backgroundMusic: {fileID: 0}
-  HeartBeatObject: {fileID: 0}
   heartBeat: {fileID: 0}
   pitch: 1
   transition: 1.75
-  percentage: 0
 --- !u!114 &2032187963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4896,6 +4893,10 @@ PrefabInstance:
     - target: {fileID: 2618413253333628414, guid: 3ece8b2ab11ee284482c056c0def6351, type: 3}
       propertyPath: m_Volume
       value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6790587208309097194, guid: 3ece8b2ab11ee284482c056c0def6351, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6790587208309097194, guid: 3ece8b2ab11ee284482c056c0def6351, type: 3}
       propertyPath: pauseMenu

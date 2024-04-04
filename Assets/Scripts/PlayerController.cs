@@ -133,13 +133,7 @@ public class PlayerController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        
-        if(volume == null) //Check to see if the Volume is assigned in this scene and if not finds the scene's Volume settings
-        {
-            volume = GameObject.FindGameObjectWithTag("FX").GetComponent<Volume>();
-        }
-        
+    {   
         // Grounded makes sure that the player is on the ground
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, Ground);
 
