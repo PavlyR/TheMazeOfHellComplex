@@ -79,6 +79,7 @@ public class Alan_Controller : MonoBehaviour
         else
         {
             aiActive = false;
+            //agent.updatePosition = false;
 
         }
       
@@ -88,11 +89,21 @@ public class Alan_Controller : MonoBehaviour
     
     private void EnemySpawn()
     {
+        print("spawn called");
+        agent.ResetPath();
         int tempPoint = Random.Range(0, spawnPoints.Length - 1); //Looks at the points that Alan has then selects one at random to spawn at.
         this.transform.position = spawnPoints[tempPoint].position;
+        print(this.transform.position);
         aiActive = true;
-    } 
-    
+        agro = false;
+        Physics.SyncTransforms();
+        agent.SetDestination(spawnPoints[tempPoint].position);
+        //agent.updatePosition = true;
+        print(this.transform.position);
+    }
+
+
+
 
     private void Patrol()
     {
