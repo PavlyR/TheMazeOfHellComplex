@@ -9,7 +9,7 @@ using UnityEngine.Rendering.Universal;
 public class PlayerSpotted : MonoBehaviour
 {
     [SerializeField] public Volume volume;
-    [SerializeField] Vignette vignette;
+    [SerializeField] ChromaticAberration ca;
     [SerializeField] public float intensity = 0f;
 
     [SerializeField] public GameObject backgroundMusicObject;
@@ -24,10 +24,10 @@ public class PlayerSpotted : MonoBehaviour
     private void Start()
     {
         volume = GameObject.Find("PlayerCamera").GetComponent<Volume>();
-        Vignette temporary;
-        if (volume.profile.TryGet<Vignette>(out temporary))
+        ChromaticAberration temporary;
+        if (volume.profile.TryGet<ChromaticAberration>(out temporary))
         {
-            vignette = temporary;
+            ca = temporary;
         }
         backgroundMusic = backgroundMusicObject.GetComponent<AudioSource>();
         heartBeat = HeartBeatObject.GetComponent<AudioSource>();
@@ -57,10 +57,9 @@ public class PlayerSpotted : MonoBehaviour
     }
     private IEnumerator StartEffect()
     {
-        intensity = 0.5f;
+        intensity = 10f;
 
-        vignette.color.value = Color.red;
-        vignette.intensity.value = intensity;
+        ca.intensity.value = intensity;
 
         yield return intensity;
     }
@@ -76,7 +75,7 @@ public class PlayerSpotted : MonoBehaviour
                 intensity = 0;
             }
 
-            vignette.intensity.value = intensity;
+            ca.intensity.value = intensity;
             yield return new WaitForSeconds(0.1f);
         }
 
@@ -87,7 +86,7 @@ public class PlayerSpotted : MonoBehaviour
     {
         intensity = 0f;
 
-        vignette.intensity.value = intensity;
+        ca.intensity.value = intensity;
 
         yield return intensity;
     }
