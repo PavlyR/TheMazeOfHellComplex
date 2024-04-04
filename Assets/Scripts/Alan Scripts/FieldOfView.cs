@@ -23,6 +23,7 @@ public class FieldOfView : MonoBehaviour
         playerRef = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(FOVRoutine());
         alanRef = GameObject.FindGameObjectWithTag("Alan");
+        print(playerRef);
 
     }
 
