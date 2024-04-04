@@ -5,7 +5,8 @@ using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class PlayerController : MonoBehaviour
 {
@@ -24,8 +25,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public float airMultiplier;            // This variable is to time the player while in the air after a jump
     [SerializeField] public float interactRange;
 
-    [SerializeField] public PostProcessVolume volume;
-    [SerializeField] public Vignette vignette;
+    [SerializeField] public Volume volume;
+    [SerializeField] Vignette vignette;
     [SerializeField] public float intensity = 0f;
 
     [SerializeField] public GameObject backgroundMusicObject;
@@ -117,8 +118,12 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();                         // Initializing the rigidbody component
         rb.freezeRotation = true;
-        volume = GameObject.Find("PostFX").GetComponent<PostProcessVolume>();
-        volume.profile.TryGetSettings<Vignette>(out vignette);
+        volume = GameObject.Find("PlayerCamera").GetComponentInChildren<Volume>();
+        Vignette temporary; 
+        if (volume.profile.TryGet<Vignette>(out temporary))
+        {
+            vignette = temporary;
+        }
         backgroundMusic = backgroundMusicObject.GetComponent<AudioSource>();
         heartBeat = HeartBeatObject.GetComponent<AudioSource>();
         GameManager.OnGameStateChanged += GameManagerOnOnGameStateChanged;
@@ -129,10 +134,12 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if(volume == null) //Check to see if the Volume is assigned in this scene and if not finds the scene's Volume settings
         {
-            volume = GameObject.FindGameObjectWithTag("FX").GetComponent<PostProcessVolume>();
+            volume = GameObject.FindGameObjectWithTag("FX").GetComponent<Volume>();
         }
+        
         // Grounded makes sure that the player is on the ground
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, Ground);
 
@@ -323,8 +330,7 @@ public class PlayerController : MonoBehaviour
     {
         intensity = 2f;
 
-        vignette.enabled.Override(true);
-        vignette.intensity.Override(intensity);
+        
 
         yield return intensity;
     }
@@ -340,10 +346,11 @@ public class PlayerController : MonoBehaviour
                 intensity = 0;
             }
 
-            vignette.intensity.Override(intensity);
+            //vignette.value.intensity = intensity;
+            
             yield return new WaitForSeconds(0.1f);
         }
-        vignette.enabled.Override(false);
+        
         yield break;
     }
 
