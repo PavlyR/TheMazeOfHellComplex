@@ -1324,7 +1324,7 @@ PrefabInstance:
       objectReference: {fileID: 713575389}
     - target: {fileID: 6204227711436260721, guid: f80fcb7f35f9f534cbb06bd42e47820a, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7914274068909074986, guid: f80fcb7f35f9f534cbb06bd42e47820a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3593,7 +3593,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 207746687320984220, guid: eca66e2d6c0baee498ac37f82e69394a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 207746687320984220, guid: eca66e2d6c0baee498ac37f82e69394a, type: 3}
       propertyPath: m_TagString
@@ -3641,7 +3641,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5340527133337641492, guid: eca66e2d6c0baee498ac37f82e69394a, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4436,6 +4436,14 @@ PrefabInstance:
       propertyPath: volume
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5575139454757029596, guid: d786fe88567bce94e8b8253b4c2b4c4b, type: 3}
+      propertyPath: HeartBeatObject
+      value: 
+      objectReference: {fileID: 328409653}
+    - target: {fileID: 5575139454757029596, guid: d786fe88567bce94e8b8253b4c2b4c4b, type: 3}
+      propertyPath: backgroundMusicObject
+      value: 
+      objectReference: {fileID: 638613034}
     - target: {fileID: 6883448762971171425, guid: d786fe88567bce94e8b8253b4c2b4c4b, type: 3}
       propertyPath: m_Name
       value: Player
@@ -4536,6 +4544,13 @@ MonoBehaviour:
   volume: {fileID: 0}
   vignette: {fileID: 0}
   intensity: 0
+  backgroundMusicObject: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  HeartBeatObject: {fileID: 0}
+  heartBeat: {fileID: 0}
+  pitch: 1
+  transition: 1.75
+  percentage: 0
 --- !u!114 &2032187963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4618,6 +4633,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1524788249128826584, guid: 1b0aa65995223cb41bec9a9771cc729c, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1659888204079905172, guid: 1b0aa65995223cb41bec9a9771cc729c, type: 3}
       propertyPath: uiTimer
       value: 
@@ -4943,6 +4962,10 @@ PrefabInstance:
       propertyPath: uiTimer
       value: 
       objectReference: {fileID: 2033816661}
+    - target: {fileID: 2618413253333628414, guid: 3ece8b2ab11ee284482c056c0def6351, type: 3}
+      propertyPath: m_Volume
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 6790587208309097194, guid: 3ece8b2ab11ee284482c056c0def6351, type: 3}
       propertyPath: pauseMenu
       value: 
