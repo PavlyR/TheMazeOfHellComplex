@@ -328,7 +328,7 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator StartEffect()
     {
-        intensity = 2f;
+        intensity = 0.8f;
 
         vignette.color.value = Color.black;
         vignette.intensity.value = intensity;
