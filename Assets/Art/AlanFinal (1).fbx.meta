@@ -33,11 +33,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Allan_walk:Armature|Allan_walk:ArmatureAction
-      takeName: Allan_walk:Armature|Allan_walk:ArmatureAction
+      name: Allan_walk:Armature|Allan_walk:Armature|Allan_walk:Armature|Allan_walk:ArmatureActi
+      takeName: Allan_walk:Armature|Allan_walk:Armature|Allan_walk:Armature|Allan_walk:ArmatureActi
       internalID: -9148209732016055610
       firstFrame: 0
-      lastFrame: 70
+      lastFrame: 69
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
