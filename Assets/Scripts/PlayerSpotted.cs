@@ -21,6 +21,13 @@ public class PlayerSpotted : MonoBehaviour
         StartCoroutine(StartEffect());
     }
 
+    private void Update()
+    {
+        if (volume == null) //Check to see if the Volume is assigned in this scene and if not finds the scene's Volume settings
+        {
+            volume = GameObject.FindGameObjectWithTag("FX").GetComponent<PostProcessVolume>();
+        }
+    }
     private IEnumerator StartEffect()
     {
         intensity = 0.5f;

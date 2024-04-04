@@ -9,6 +9,7 @@ TagManager:
   - Waypoint
   - ShadowZone
   - Spotted
+  - FX
   layers:
   - Default
   - TransparentFX

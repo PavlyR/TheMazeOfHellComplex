@@ -3837,6 +3837,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PostFX
       objectReference: {fileID: 0}
+    - target: {fileID: 207746687320984220, guid: eca66e2d6c0baee498ac37f82e69394a, type: 3}
+      propertyPath: m_TagString
+      value: FX
+      objectReference: {fileID: 0}
     - target: {fileID: 4687692428355383470, guid: eca66e2d6c0baee498ac37f82e69394a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
