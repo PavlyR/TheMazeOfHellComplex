@@ -240,7 +240,7 @@ GameObject:
   - component: {fileID: 110946445}
   m_Layer: 0
   m_Name: SE
-  m_TagString: Untagged
+  m_TagString: Waypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -640,6 +640,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 440822963}
+  - component: {fileID: 440822964}
   m_Layer: 0
   m_Name: Alan_Spawns
   m_TagString: Untagged
@@ -665,6 +666,18 @@ Transform:
   - {fileID: 1270549939}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &440822964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 440822962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bc2e7704339e6d4db7f80e61d5f460f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &472233667
 GameObject:
   m_ObjectHideFlags: 0
@@ -677,11 +690,11 @@ GameObject:
   - component: {fileID: 472233668}
   m_Layer: 0
   m_Name: Spawner
-  m_TagString: Untagged
+  m_TagString: Spawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &472233668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -696,9 +709,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allenPrefab: {fileID: 4426635147837734163, guid: facf626ad1d2c6441a1118538308cdc9, type: 3}
   spawnPoints:
-  - {fileID: 1737590306}
-  - {fileID: 110946445}
-  - {fileID: 1270549939}
+  - {fileID: 1737590305}
+  - {fileID: 110946444}
+  - {fileID: 1270549938}
 --- !u!4 &472233669
 Transform:
   m_ObjectHideFlags: 0
@@ -3216,7 +3229,7 @@ GameObject:
   - component: {fileID: 1270549939}
   m_Layer: 0
   m_Name: NE
-  m_TagString: Untagged
+  m_TagString: Waypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4206,7 +4219,7 @@ GameObject:
   - component: {fileID: 1737590306}
   m_Layer: 0
   m_Name: SW
-  m_TagString: Untagged
+  m_TagString: Waypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5066,7 +5079,6 @@ SceneRoots:
   - {fileID: 860070388}
   - {fileID: 857796673}
   - {fileID: 504979434}
-  - {fileID: 2867001188427090226}
   - {fileID: 82487185}
   - {fileID: 1807809272}
   - {fileID: 3689832909581978463}
@@ -5087,3 +5099,4 @@ SceneRoots:
   - {fileID: 1611357767}
   - {fileID: 472233669}
   - {fileID: 620151031}
+  - {fileID: 2867001188427090226}

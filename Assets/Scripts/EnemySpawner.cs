@@ -8,10 +8,22 @@ public class EnemySpawner : MonoBehaviour
     public GameObject allenPrefab;
     private GameObject allen;
     // Start is called before the first frame update
-    [SerializeField] private Transform[] spawnPoints;
+    [SerializeField] private GameObject[] spawnPoints;
+
+    private void Awake()
+    {
+        GameObject[] gameObjects;
+        gameObjects = GameObject.FindGameObjectsWithTag("Spawner");
+        if (gameObjects.Length > 1)
+        {
+            DestroyImmediate(this);
+
+        }
+    }
     void Start()
     {
         GameManager.OnGameStateChanged += GameManagerOnOnGameStateChanged;
+        DontDestroyOnLoad(this);
 
     }
 
@@ -38,20 +50,25 @@ public class EnemySpawner : MonoBehaviour
 
     private void Spawn()
     {
-        if (allen == null)
+        if (spawnPoints != null)
         {
-            print("Spawn is called");
-            int tempPoint = Random.Range(0, spawnPoints.Length - 1);
-            allen = Instantiate(allenPrefab, new Vector3(spawnPoints[tempPoint].transform.position.x, spawnPoints[tempPoint].transform.position.y, spawnPoints[tempPoint].transform.position.z), Quaternion.identity);
-            allen.name = "Allen";
-        }
 
-        GameObject[] gameObjects;
-        gameObjects = GameObject.FindGameObjectsWithTag("Alan");
-        if (gameObjects.Length > 1)
-        {
-            DestroyImmediate(gameObjects[1]);
 
+            if (allen == null)
+            {
+
+                int tempPoint = Random.Range(0, spawnPoints.Length - 1);
+                allen = Instantiate(allenPrefab, new Vector3(spawnPoints[tempPoint].transform.position.x, spawnPoints[tempPoint].transform.position.y, spawnPoints[tempPoint].transform.position.z), Quaternion.identity);
+                allen.name = "Allen";
+            }
+
+            GameObject[] gameObjects;
+            gameObjects = GameObject.FindGameObjectsWithTag("Alan");
+            if (gameObjects.Length > 1)
+            {
+                DestroyImmediate(gameObjects[1]);
+
+            }
         }
     }
 
