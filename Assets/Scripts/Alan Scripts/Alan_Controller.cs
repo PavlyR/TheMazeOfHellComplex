@@ -11,7 +11,7 @@ public class Alan_Controller : MonoBehaviour
     public bool agro;
     public float agroTimer;
     private float timeSinceSpotted = 0f;
-
+    
 
     public LayerMask ground;
     private Vector3 patrolTarget;
@@ -26,7 +26,7 @@ public class Alan_Controller : MonoBehaviour
     //[SerializeField] NavMeshData walkAble;
     //[SerializeField] private Transform[] spawnPoints;
 
-    public static GameObject alan;
+    
 
     /*[SerializeField] Waypoint hold over
     private Transform[] spawnPoints;
@@ -51,19 +51,7 @@ public class Alan_Controller : MonoBehaviour
     void Awake()
     {
         playerRef = GameObject.FindGameObjectWithTag("Player");
-        if(alan == null)
-        { 
-            alan = this.gameObject;
-            DontDestroyOnLoad(alan);
-          
-        }
-        else
-        {
-            GameObject[] gameObjects;
-            gameObjects = GameObject.FindGameObjectsWithTag("Alan");
-            DestroyImmediate(gameObjects[1]);
-        }
-        
+        agent = this.gameObject.GetComponent<NavMeshAgent>();
         
     }
 
@@ -75,6 +63,7 @@ public class Alan_Controller : MonoBehaviour
         {
             //EnemySpawn(); //This could be handled by the gamemanager in the future. When the gamemanager changes it would call Alan_Mov's Enemy Spawn void maybe instead but will work on that later
             aiActive = true;
+            
 
         }
         else
