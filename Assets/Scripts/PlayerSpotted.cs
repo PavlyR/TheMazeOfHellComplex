@@ -47,10 +47,6 @@ public class PlayerSpotted : MonoBehaviour
         StartCoroutine(NoEffect());
     }
 
-    private void Update()
-    {
-     
-    }
     private IEnumerator StartEffect()
     {
         intensity = 10f;
