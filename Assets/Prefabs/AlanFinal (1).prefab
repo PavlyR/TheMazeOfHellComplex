@@ -60,6 +60,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 5178f2ab6236de744a858a36e35ab4b1, type: 2}
+    - target: {fileID: 5866666021909216657, guid: 00bec23fb9c94504da92857fda392ef6, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 7a6e7af142407824ca538e37a654c243, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -107,10 +111,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   walkAble: {fileID: 0}
-  spawnPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!195 &6839370341259624238
 NavMeshAgent:
   m_ObjectHideFlags: 0

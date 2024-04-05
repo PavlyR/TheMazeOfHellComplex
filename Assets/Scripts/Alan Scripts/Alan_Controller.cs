@@ -23,8 +23,8 @@ public class Alan_Controller : MonoBehaviour
     private LineRenderer line;
     private bool aiActive = true;
     [SerializeField] LayerMask wall;
-    [SerializeField] NavMeshData walkAble;
-    [SerializeField] private Transform[] spawnPoints;
+    //[SerializeField] NavMeshData walkAble;
+    //[SerializeField] private Transform[] spawnPoints;
 
     public static GameObject alan;
 
@@ -50,6 +50,7 @@ public class Alan_Controller : MonoBehaviour
 
     void Awake()
     {
+        playerRef = GameObject.FindGameObjectWithTag("Player");
         if(alan == null)
         { 
             alan = this.gameObject;
@@ -72,8 +73,8 @@ public class Alan_Controller : MonoBehaviour
          
         if (state == GameState.GameStart)
         {
-            EnemySpawn(); //This could be handled by the gamemanager in the future. When the gamemanager changes it would call Alan_Mov's Enemy Spawn void maybe instead but will work on that later
-
+            //EnemySpawn(); //This could be handled by the gamemanager in the future. When the gamemanager changes it would call Alan_Mov's Enemy Spawn void maybe instead but will work on that later
+            aiActive = true;
 
         }
         else
@@ -87,6 +88,7 @@ public class Alan_Controller : MonoBehaviour
     
 
     
+    /*
     private void EnemySpawn()
     {
         print("spawn called");
@@ -101,7 +103,7 @@ public class Alan_Controller : MonoBehaviour
         //agent.updatePosition = true;
         print(this.transform.position);
     }
-
+    */
 
 
 
