@@ -198,13 +198,15 @@ public class Alan_Controller : MonoBehaviour
     private void DrawPath(NavMeshPath path)
     {
        
-        if (path.corners.Length < 2)
+        /*if (path.corners.Length < 2)
         { //if the path has 1 or no corners, there is no need
             return;
 
 
         }
        
+        */
+
         /*line.SetVertexCount(path.corners.Length); //set the array of positions to the amount of corners
         for (int i = 1; i < path.corners.Length; i++)
         {
@@ -212,6 +214,12 @@ public class Alan_Controller : MonoBehaviour
         }
         */
         RaycastHit hit;
+
+        if(path.corners.Length <= 1)
+        {
+            return;
+        }
+
         if (Physics.Linecast(path.corners[0], path.corners[1], out hit)) //Using the path we compare if there is an object in the way. 
         {
             float dist = Vector3.Distance(transform.position, hit.collider.gameObject.transform.position);
