@@ -13,7 +13,9 @@ public class PlayerSpotted : MonoBehaviour
 
     [SerializeField] public AudioSource backgroundMusic;
     [SerializeField] public AudioSource heartBeat;
+    [SerializeField] public AudioSource heart;
 
+    GameState act;
     public float pitch = 1.0f;
 
     private void Start()
@@ -26,6 +28,8 @@ public class PlayerSpotted : MonoBehaviour
         }
         backgroundMusic = GameObject.Find("BackgroundMusic").GetComponent<AudioSource>();
         heartBeat = GameObject.Find("HeartBeat").GetComponent<AudioSource>();
+        heart = GameObject.Find("Heart").GetComponent<AudioSource>();
+
     }
 
     public void Seen()
@@ -33,6 +37,7 @@ public class PlayerSpotted : MonoBehaviour
         StartCoroutine(StartEffect());
         makeBackGroundMusicGoFaster();
         makeHeartBeatSoundGoFaster();
+        heart.enabled = true;
     }
 
     public void NotSeen()
@@ -40,6 +45,25 @@ public class PlayerSpotted : MonoBehaviour
         StartCoroutine(StopEffect());
         makeHeartBeatSoundStop();
         makeBackgroundMusicNormal();
+        heart.enabled = false;
+    }
+     void Update()
+    {
+        if(act != GameState.GameStart)
+        {
+            heart.enabled = false;
+        }
+    }
+    private void GameManagerOnOnGameStateChanged(GameState state)
+    {
+        if (state == GameState.GameStart)
+        {
+            
+        }
+        else
+        {
+            heart.enabled = false;
+        }
     }
 
     public void ResetEffect()
@@ -85,12 +109,12 @@ public class PlayerSpotted : MonoBehaviour
 
     private void makeHeartBeatSoundGoFaster()
     {
-        heartBeat.Play();
+        //heartBeat.Play();
     }
 
     private void makeHeartBeatSoundStop()
     {
-        heartBeat.Pause();   
+        //heartBeat.Pause();   
     }
 
     private void makeBackGroundMusicGoFaster()

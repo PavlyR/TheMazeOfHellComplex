@@ -83,25 +83,27 @@ public class Door1 : MonoBehaviour, IInteractable //Sorry had to add the interac
     }
 
 
-    /* Legacy code from when colliders where used
+    // Legacy code from when colliders where used
     // This method checks if the player has entered the collider and checks if the player prefab has the player tag
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Alan"))
         {
-            enter = true;
+            if(open == false)
+            {
+                open = !open;
+                currentRotationAngle = pivotPoint.transform.localEulerAngles.y;
+                openTime = 0;
+            }
         }
     }
 
     // This method checks if the player has exited the collider
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
-        {
-            enter = false;
-        }
+       
     }
-    */
+    
     public void Interact(GameObject x)
     {
         //if (open == false) {
