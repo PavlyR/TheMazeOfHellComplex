@@ -9,6 +9,8 @@ public class EnemySpawner : MonoBehaviour
     private GameObject allen;
     // Start is called before the first frame update
     [SerializeField] private GameObject[] spawnPoints;
+    private AudioSource heart;
+    
 
     private void Awake()
     {
@@ -19,6 +21,8 @@ public class EnemySpawner : MonoBehaviour
             DestroyImmediate(this);
 
         }
+        heart = GameObject.Find("Heart").GetComponent<AudioSource>();
+
     }
     void Start()
     {
@@ -43,7 +47,16 @@ public class EnemySpawner : MonoBehaviour
             if (allen != null)
             {
                 DestroyObject(allen);
+                heart.enabled = false;
+            }
+        }
 
+        if (state == GameState.WinMenu)
+        {
+            if (allen != null)
+            {
+                DestroyObject(allen);
+                heart.enabled = false;
             }
         }
     }

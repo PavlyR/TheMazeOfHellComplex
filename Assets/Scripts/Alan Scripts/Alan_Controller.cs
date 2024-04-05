@@ -26,7 +26,10 @@ public class Alan_Controller : MonoBehaviour
     //[SerializeField] NavMeshData walkAble;
     //[SerializeField] private Transform[] spawnPoints;
 
-    
+    private AudioSource heart;
+
+
+
 
     /*[SerializeField] Waypoint hold over
     private Transform[] spawnPoints;
@@ -46,6 +49,7 @@ public class Alan_Controller : MonoBehaviour
         GameManager.OnGameStateChanged += GameManagerOnOnGameStateChanged;
 
         GetComponent<Collider>().isTrigger = true;
+        heart = GameObject.Find("Heart").GetComponent<AudioSource>();
     }
 
     void Awake()
@@ -123,13 +127,13 @@ public class Alan_Controller : MonoBehaviour
             {
                 targetSet = true;
             }
-            }
         }
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if (aiActive == true && agro == false) 
+        if (aiActive == true && agro == false)
         {
             Patrol();
             DrawPath(agent.path);
@@ -147,15 +151,13 @@ public class Alan_Controller : MonoBehaviour
                 targetSet = false;
 
             }
-            
-           
-        }
 
+
+        }
     
 
- 
-
-
+        
+            heart.enabled = agro;
     }
 
     private void OnTriggerEnter(Collider other)
